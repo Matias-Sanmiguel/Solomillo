@@ -2,6 +2,7 @@ package dev.solomillo.seed;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.solomillo.core.AppProperties;
 import dev.solomillo.domain.Equipo;
 import dev.solomillo.domain.Jugador;
 import dev.solomillo.domain.Partido;
@@ -9,6 +10,7 @@ import dev.solomillo.domain.Torneo;
 import dev.solomillo.repository.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@Order(1)
 public class DataLoader implements ApplicationRunner {
 
     private final TorneoRepository torneoRepo;
@@ -26,16 +29,18 @@ public class DataLoader implements ApplicationRunner {
     private final JugadorRepository jugadorRepo;
     private final PartidoRepository partidoRepo;
     private final ObjectMapper mapper;
+    private final AppProperties props;
 
     public DataLoader(TorneoRepository t, EquipoRepository e, JugadorRepository j,
-                      PartidoRepository p, ObjectMapper m) {
+                      PartidoRepository p, ObjectMapper m, AppProperties props) {
         this.torneoRepo = t; this.equipoRepo = e; this.jugadorRepo = j;
-        this.partidoRepo = p; this.mapper = m;
+        this.partidoRepo = p; this.mapper = m; this.props = props;
     }
 
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
+        if (props.apiFootballKey != null && !props.apiFootballKey.isBlank()) return;
         JsonNode root = mapper.readTree(new ClassPathResource("seed/mundial.json").getInputStream());
         JsonNode t = root.get("torneo");
         if (torneoRepo.findByNombreAndTemporada(t.get("nombre").asText(), t.get("temporada").asText()).isPresent()) return;
