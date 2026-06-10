@@ -147,11 +147,14 @@ export default function Home() {
   return (
     <main>
       <header className="head">
-        <div>
-          <h1>
-            Solomillo<span className="cursor">_</span>
-          </h1>
-          <p className="sub">Estadísticas deportivas en tiempo real · datos de API-Football</p>
+        <div className="brand">
+          <span className="ball" aria-hidden="true">
+            ⚽
+          </span>
+          <div>
+            <h1>Solomillo</h1>
+            <p className="sub">⚽ Mundial en vivo · estadísticas, posiciones y predicciones</p>
+          </div>
         </div>
         <div className="head-right">
           <button
@@ -189,7 +192,10 @@ export default function Home() {
 
       <div className="grid">
         <section className="card" aria-label="Tabla de posiciones">
-          <h2>Tabla de posiciones{torneoActual ? ` · ${torneoActual.temporada}` : ""}</h2>
+          <h2>
+            <span className="ico" aria-hidden="true">🏆</span>
+            Tabla de posiciones{torneoActual ? ` · ${torneoActual.temporada}` : ""}
+          </h2>
           <table>
             <thead>
               <tr>
@@ -227,7 +233,10 @@ export default function Home() {
         </section>
 
         <section className="card" aria-label="Feed en vivo">
-          <h2>Feed en vivo</h2>
+          <h2>
+            <span className="ico" aria-hidden="true">⚡</span>
+            Feed en vivo
+          </h2>
           <ul className="feed">
             {feed.map((f) => (
               <li key={f.id}>
@@ -240,7 +249,10 @@ export default function Home() {
         </section>
 
         <section className="card" aria-label="Fixture">
-          <h2>Fixture{torneoActual ? ` · ${torneoActual.temporada}` : ""}</h2>
+          <h2>
+            <span className="ico" aria-hidden="true">📅</span>
+            Fixture{torneoActual ? ` · ${torneoActual.temporada}` : ""}
+          </h2>
           <ul className="fixture">
             {partidosTorneo.slice(0, 20).map((p) => (
               <li key={p.id} className={p.id === proximoPartido?.id ? "proximo" : ""}>
@@ -260,7 +272,10 @@ export default function Home() {
         </section>
 
         <section className="card" aria-label="Equipos">
-          <h2>Equipos</h2>
+          <h2>
+            <span className="ico" aria-hidden="true">👕</span>
+            Equipos
+          </h2>
           <p className="hint">Tocá un equipo para ver su plantel.</p>
           <ul className="equipos">
             {equipos.map((e) => (
@@ -291,7 +306,10 @@ export default function Home() {
         </section>
 
         <section className="card" aria-label="Proyección ML">
-          <h2>Proyección ML{torneoActual ? ` · ${torneoActual.temporada}` : ""}</h2>
+          <h2>
+            <span className="ico" aria-hidden="true">📊</span>
+            Proyección ML{torneoActual ? ` · ${torneoActual.temporada}` : ""}
+          </h2>
           {proyeccion.length === 0 ? (
             <p className="vacio">Sin modelo activo todavía. Entrená el modelo de resultado.</p>
           ) : (
@@ -321,8 +339,11 @@ export default function Home() {
           )}
         </section>
 
-        <section className="card" aria-label="Predicción de resultado">
-          <h2>Predicción de resultado</h2>
+        <section className="card destacado" aria-label="Predicción de resultado">
+          <h2>
+            <span className="ico" aria-hidden="true">🔮</span>
+            Predicción del partido
+          </h2>
           {proximoPartido ? (
             <p className="hint">
               {nombre(proximoPartido.local_id)} vs {nombre(proximoPartido.visitante_id)} ·{" "}
@@ -332,12 +353,12 @@ export default function Home() {
             <p className="hint">Sin partidos para predecir.</p>
           )}
           <button className="accion" onClick={predecir}>
-            Predecir
+            ⚽ Predecir
           </button>
           {pred && (
             <div className="barras">
-              {pred.map(({ k, v }) => (
-                <div className="barra" key={k}>
+              {pred.map(({ k, v }, i) => (
+                <div className={`barra barra--${i % 3}`} key={k}>
                   <span className="etq">{k}</span>
                   <div
                     className="track"

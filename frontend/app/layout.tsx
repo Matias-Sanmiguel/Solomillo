@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Mono, JetBrains_Mono } from "next/font/google";
+import { Oswald, Inter } from "next/font/google";
 import "./globals.css";
 
-const spaceMono = Space_Mono({
+const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-jet",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -26,7 +26,7 @@ const temaScript = `(function(){try{var t=localStorage.getItem('tema');if(t!=='l
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${spaceMono.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${oswald.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: temaScript }} />
       </head>
