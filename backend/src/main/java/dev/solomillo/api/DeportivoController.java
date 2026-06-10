@@ -52,7 +52,9 @@ public class DeportivoController {
     public List<Map<String, Object>> equipos() {
         return equipoRepo.findAll().stream().map(e ->
                 Map.<String, Object>of("id", e.getId(), "nombre", e.getNombre(),
-                        "entrenador", e.getEntrenador() != null ? e.getEntrenador() : "")
+                        "entrenador", e.getEntrenador() != null ? e.getEntrenador() : "",
+                        "escudo", e.getEscudo() != null ? e.getEscudo() : "",
+                        "estadio", e.getEstadio() != null ? e.getEstadio() : "")
         ).toList();
     }
 
