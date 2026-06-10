@@ -133,19 +133,23 @@ export default function Home() {
     <main>
       <header className="head">
         <div>
-          <h1>Solomillo</h1>
+          <h1>
+            Solomillo<span className="cursor">_</span>
+          </h1>
           <p className="sub">Estadísticas deportivas en tiempo real · datos de API-Football</p>
         </div>
-        <span className={`estado ${conn}`}>
-          <i /> {conn === "online" ? "En vivo" : conn === "conectando" ? "Conectando" : "Reconectando"}
+        <span className={`estado ${conn}`} role="status" aria-live="polite">
+          <i aria-hidden="true" /> {conn === "online" ? "En vivo" : conn === "conectando" ? "Conectando" : "Reconectando"}
         </span>
       </header>
 
       {torneos.length > 0 && (
-        <div className="selector">
+        <div className="selector" role="tablist" aria-label="Torneos">
           {torneos.map((t) => (
             <button
               key={t.id}
+              role="tab"
+              aria-selected={t.id === torneoId}
               className={t.id === torneoId ? "activo" : ""}
               onClick={() => setTorneoId(t.id)}
             >
@@ -156,16 +160,16 @@ export default function Home() {
       )}
 
       <div className="grid">
-        <div className="card">
+        <section className="card" aria-label="Tabla de posiciones">
           <h2>Tabla de posiciones{torneoActual ? ` · ${torneoActual.temporada}` : ""}</h2>
           <table>
             <thead>
               <tr>
-                <th>Equipo</th>
-                <th>Pts</th>
-                <th>GF</th>
-                <th>GC</th>
-                <th>Dif</th>
+                <th scope="col">Equipo</th>
+                <th scope="col">Pts</th>
+                <th scope="col">GF</th>
+                <th scope="col">GC</th>
+                <th scope="col">Dif</th>
               </tr>
             </thead>
             <tbody>
@@ -185,14 +189,16 @@ export default function Home() {
               ))}
               {posiciones.length === 0 && (
                 <tr>
-                  <td colSpan={5}>Sin datos aún. Ingestá eventos.</td>
+                  <td colSpan={5} className="vacio">
+                    Sin datos aún. Ingestá eventos.
+                  </td>
                 </tr>
               )}
             </tbody>
           </table>
-        </div>
+        </section>
 
-        <div className="card">
+        <section className="card" aria-label="Feed en vivo">
           <h2>Feed en vivo</h2>
           <ul className="feed">
             {feed.map((f) => (
@@ -203,9 +209,9 @@ export default function Home() {
             ))}
             {feed.length === 0 && <li className="vacio">Esperando eventos…</li>}
           </ul>
-        </div>
+        </section>
 
-        <div className="card">
+        <section className="card" aria-label="Fixture">
           <h2>Fixture{torneoActual ? ` · ${torneoActual.temporada}` : ""}</h2>
           <ul className="fixture">
             {partidosTorneo.slice(0, 20).map((p) => (
@@ -223,28 +229,28 @@ export default function Home() {
             ))}
             {partidosTorneo.length === 0 && <li className="vacio">Sin partidos para este torneo.</li>}
           </ul>
-        </div>
+        </section>
 
-        <div className="card">
+        <section className="card" aria-label="Equipos">
           <h2>Equipos</h2>
           <p className="hint">Tocá un equipo para ver su plantel.</p>
-          <table>
-            <tbody>
-              {equipos.map((e) => (
-                <tr
-                  key={e.id}
-                  className={`clickable ${detalle?.equipo.id === e.id ? "abierto" : ""}`}
+          <ul className="equipos">
+            {equipos.map((e) => (
+              <li key={e.id}>
+                <button
+                  className={`equipo-btn ${detalle?.equipo.id === e.id ? "abierto" : ""}`}
+                  aria-expanded={detalle?.equipo.id === e.id}
                   onClick={() => abrirEquipo(e)}
                 >
-                  <td>
+                  <span className="eq-nombre">
                     {e.escudo && <img className="escudo" src={e.escudo} alt="" />}
                     {e.nombre}
-                  </td>
-                  <td className="meta">{e.entrenador || e.estadio}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </span>
+                  <span className="meta">{e.entrenador || e.estadio}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
           {detalle && (
             <div className="plantel">
               <h3>{detalle.equipo.nombre}</h3>
@@ -254,9 +260,9 @@ export default function Home() {
               ))}
             </div>
           )}
-        </div>
+        </section>
 
-        <div className="card">
+        <section className="card" aria-label="Proyección ML">
           <h2>Proyección ML{torneoActual ? ` · ${torneoActual.temporada}` : ""}</h2>
           {proyeccion.length === 0 ? (
             <p className="vacio">Sin modelo activo todavía. Entrená el modelo de resultado.</p>
@@ -264,10 +270,10 @@ export default function Home() {
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Equipo</th>
-                  <th>Pts</th>
-                  <th>xPts</th>
+                  <th scope="col">#</th>
+                  <th scope="col">Equipo</th>
+                  <th scope="col">Pts</th>
+                  <th scope="col">xPts</th>
                 </tr>
               </thead>
               <tbody>
@@ -285,9 +291,9 @@ export default function Home() {
               </tbody>
             </table>
           )}
-        </div>
+        </section>
 
-        <div className="card">
+        <section className="card" aria-label="Predicción de resultado">
           <h2>Predicción de resultado</h2>
           {proximoPartido ? (
             <p className="hint">
@@ -297,13 +303,22 @@ export default function Home() {
           ) : (
             <p className="hint">Sin partidos para predecir.</p>
           )}
-          <button onClick={predecir}>Predecir</button>
+          <button className="accion" onClick={predecir}>
+            Predecir
+          </button>
           {pred && (
             <div className="barras">
               {pred.map(({ k, v }) => (
                 <div className="barra" key={k}>
                   <span className="etq">{k}</span>
-                  <div className="track">
+                  <div
+                    className="track"
+                    role="progressbar"
+                    aria-label={k}
+                    aria-valuenow={Math.round(v * 100)}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                  >
                     <div className="fill" style={{ width: `${Math.round(v * 100)}%` }} />
                   </div>
                   <span className="pct">{(v * 100).toFixed(0)}%</span>
@@ -312,7 +327,7 @@ export default function Home() {
             </div>
           )}
           {predMsg && <p className="predmsg">{predMsg}</p>}
-        </div>
+        </section>
       </div>
     </main>
   );
@@ -331,8 +346,8 @@ function JugadorRow({ jugador }: { jugador: Jugador }) {
   };
   return (
     <div className="jugador">
-      <button className="jbtn" onClick={toggle}>
-        <span className="num">{jugador.numero}</span>
+      <button className="jbtn" aria-expanded={stats !== null} onClick={toggle}>
+        <span className="n">{jugador.numero}</span>
         {jugador.nombre}
         <span className="meta">{jugador.posicion}</span>
       </button>
