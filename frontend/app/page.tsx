@@ -30,6 +30,21 @@ export default function Home() {
   const [predMsg, setPredMsg] = useState<string>("");
   const [conn, setConn] = useState<Conn>("conectando");
   const [detalle, setDetalle] = useState<{ equipo: Equipo; jugadores: Jugador[] } | null>(null);
+  const [tema, setTema] = useState<"light" | "dark">("dark");
+
+  useEffect(() => {
+    const actual = document.documentElement.dataset.theme;
+    setTema(actual === "light" ? "light" : "dark");
+  }, []);
+
+  const toggleTema = () => {
+    const siguiente = tema === "dark" ? "light" : "dark";
+    setTema(siguiente);
+    document.documentElement.dataset.theme = siguiente;
+    try {
+      localStorage.setItem("tema", siguiente);
+    } catch {}
+  };
 
   const cargar = useCallback((tid: number | null) => {
     get<Equipo[]>("/equipos").then(setEquipos).catch(() => {});
@@ -138,9 +153,22 @@ export default function Home() {
           </h1>
           <p className="sub">Estadísticas deportivas en tiempo real · datos de API-Football</p>
         </div>
-        <span className={`estado ${conn}`} role="status" aria-live="polite">
-          <i aria-hidden="true" /> {conn === "online" ? "En vivo" : conn === "conectando" ? "Conectando" : "Reconectando"}
-        </span>
+        <div className="head-right">
+          <button
+            className="tema-btn"
+            onClick={toggleTema}
+            aria-pressed={tema === "dark"}
+            aria-label={`Cambiar a modo ${tema === "dark" ? "claro" : "oscuro"}`}
+          >
+            <span className="ico" aria-hidden="true">
+              {tema === "dark" ? "☀" : "☾"}
+            </span>
+            {tema === "dark" ? "Claro" : "Oscuro"}
+          </button>
+          <span className={`estado ${conn}`} role="status" aria-live="polite">
+            <i aria-hidden="true" /> {conn === "online" ? "En vivo" : conn === "conectando" ? "Conectando" : "Reconectando"}
+          </span>
+        </div>
       </header>
 
       {torneos.length > 0 && (

@@ -21,9 +21,15 @@ export const metadata: Metadata = {
   description: "Estadísticas deportivas en tiempo real",
 };
 
+// Aplica el tema antes del primer paint para evitar parpadeo (FOUC).
+const temaScript = `(function(){try{var t=localStorage.getItem('tema');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='dark';}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${spaceMono.variable} ${jetbrains.variable}`}>
+    <html lang="es" className={`${spaceMono.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: temaScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );
