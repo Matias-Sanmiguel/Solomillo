@@ -15,19 +15,76 @@ main {
   padding: 2rem 1.5rem;
 }
 
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
 h1 {
   margin: 0 0 0.25rem;
 }
 
 .sub {
   color: #8b949e;
-  margin-bottom: 2rem;
+  margin: 0;
+}
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #30363d;
+  white-space: nowrap;
+}
+
+.estado i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8b949e;
+}
+
+.estado.online i {
+  background: #3fb950;
+  box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.2);
+}
+
+.estado.online {
+  color: #3fb950;
+  border-color: #238636;
+}
+
+.estado.conectando i {
+  background: #d29922;
+}
+
+.estado.offline i {
+  background: #f85149;
+}
+
+.estado.offline {
+  color: #f85149;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .head {
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -43,6 +100,23 @@ h1 {
   color: #58a6ff;
 }
 
+.card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  color: #e6edf3;
+}
+
+.hint {
+  color: #8b949e;
+  font-size: 0.8rem;
+  margin: 0 0 0.75rem;
+}
+
+.vacio {
+  color: #8b949e;
+  font-style: italic;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -54,6 +128,31 @@ td {
   text-align: left;
   padding: 0.4rem 0.5rem;
   border-bottom: 1px solid #21262d;
+}
+
+td.pos {
+  color: #3fb950;
+}
+
+td.neg {
+  color: #f85149;
+}
+
+td.xpts {
+  color: #58a6ff;
+  font-variant-numeric: tabular-nums;
+}
+
+tr.clickable {
+  cursor: pointer;
+}
+
+tr.clickable:hover {
+  background: #1c2129;
+}
+
+tr.clickable.abierto {
+  background: #1f6feb22;
 }
 
 .feed {
@@ -76,6 +175,7 @@ td {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .selector button {
@@ -124,10 +224,20 @@ td .escudo:first-child,
   gap: 0.5rem;
 }
 
+.fixture li.proximo {
+  background: #1f6feb18;
+  border-left: 2px solid #1f6feb;
+  padding-left: 0.5rem;
+}
+
 .fixture .meta {
   color: #8b949e;
   font-size: 0.75rem;
   white-space: nowrap;
+}
+
+.meta {
+  color: #8b949e;
 }
 
 .tag {
@@ -138,4 +248,123 @@ td .escudo:first-child,
   font-size: 0.7rem;
   margin-right: 0.5rem;
   text-transform: uppercase;
+}
+
+.tag.alerta {
+  background: #bb8009;
+}
+
+.plantel {
+  margin-top: 0.5rem;
+  border-top: 1px solid #21262d;
+}
+
+.jugador {
+  border-bottom: 1px solid #21262d;
+}
+
+.jbtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: none;
+  color: #e6edf3;
+  padding: 0.45rem 0.25rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.jbtn:hover {
+  background: #1c2129;
+}
+
+.jbtn .num {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 22px;
+  color: #8b949e;
+  font-variant-numeric: tabular-nums;
+}
+
+.jbtn .meta {
+  margin-left: auto;
+  font-size: 0.75rem;
+}
+
+.jstats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0 0.25rem 0.6rem;
+}
+
+.chip {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #21262d;
+  border: 1px solid #30363d;
+}
+
+button {
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.card > button:hover {
+  background: #388bfd;
+}
+
+.barras {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.barra .etq {
+  width: 70px;
+  color: #8b949e;
+  text-transform: capitalize;
+}
+
+.barra .track {
+  flex: 1;
+  height: 10px;
+  background: #21262d;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra .fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1f6feb, #58a6ff);
+  transition: width 0.4s ease;
+}
+
+.barra .pct {
+  width: 40px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.predmsg {
+  margin-top: 1rem;
+  color: #8b949e;
+  font-size: 0.8rem;
 }
