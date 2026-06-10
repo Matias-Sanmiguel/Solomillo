@@ -1,0 +1,51 @@
+{
+  "torneo": {
+    "nombre": "Copa Mundial FIFA",
+    "categoria": "Selecciones",
+    "temporada": "2022",
+    "fechaInicio": "2022-11-20",
+    "fechaFin": "2022-12-18"
+  },
+  "equipos": [
+    {
+      "nombre": "Argentina",
+      "entrenador": "Lionel Scaloni",
+      "sede": "Argentina",
+      "jugadores": [
+        {"nombre": "Lionel Messi",      "posicion": "Delantero",     "numeroCamiseta": 10, "nacionalidad": "Argentina", "fechaNacimiento": "1987-06-24"},
+        {"nombre": "Emiliano Martinez", "posicion": "Arquero",       "numeroCamiseta": 23, "nacionalidad": "Argentina", "fechaNacimiento": "1992-09-02"},
+        {"nombre": "Julian Alvarez",    "posicion": "Delantero",     "numeroCamiseta": 9,  "nacionalidad": "Argentina", "fechaNacimiento": "2000-01-31"}
+      ]
+    },
+    {
+      "nombre": "Francia",
+      "entrenador": "Didier Deschamps",
+      "sede": "Francia",
+      "jugadores": [
+        {"nombre": "Kylian Mbappe",     "posicion": "Delantero",     "numeroCamiseta": 10, "nacionalidad": "Francia", "fechaNacimiento": "1998-12-20"},
+        {"nombre": "Antoine Griezmann", "posicion": "Mediocampista", "numeroCamiseta": 7,  "nacionalidad": "Francia", "fechaNacimiento": "1991-03-21"},
+        {"nombre": "Hugo Lloris",       "posicion": "Arquero",       "numeroCamiseta": 1,  "nacionalidad": "Francia", "fechaNacimiento": "1986-12-26"}
+      ]
+    },
+    {
+      "nombre": "Croacia",
+      "entrenador": "Zlatko Dalic",
+      "sede": "Croacia",
+      "jugadores": [
+        {"nombre": "Luka Modric",  "posicion": "Mediocampista", "numeroCamiseta": 10, "nacionalidad": "Croacia", "fechaNacimiento": "1985-09-09"}
+      ]
+    },
+    {
+      "nombre": "Marruecos",
+      "entrenador": "Walid Regragui",
+      "sede": "Marruecos",
+      "jugadores": [
+        {"nombre": "Achraf Hakimi", "posicion": "Defensor", "numeroCamiseta": 2, "nacionalidad": "Marruecos", "fechaNacimiento": "1998-11-04"}
+      ]
+    }
+  ],
+  "partidos": [
+    {"local": "Argentina", "visitante": "Francia",   "fechaHora": "2022-12-18T15:00:00", "estadio": "Lusail Stadium"},
+    {"local": "Croacia",   "visitante": "Marruecos", "fechaHora": "2022-12-17T15:00:00", "estadio": "Khalifa International Stadium"}
+  ]
+}
