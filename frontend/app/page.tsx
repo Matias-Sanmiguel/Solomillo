@@ -5,6 +5,7 @@ import Link from "next/link";
 import { API, WS, get, Equipo, Partido, Prediccion, fmtFecha } from "@/lib/api";
 import { Crest } from "./components/Crest";
 import { ProbBar, favorito } from "./components/ProbBar";
+import { SeguirEquipo } from "./components/SeguirEquipo";
 
 export default function Board() {
   const [equipos, setEquipos] = useState<Equipo[]>([]);
@@ -93,7 +94,7 @@ export default function Board() {
             <Link
               key={pred.partido_id}
               href={`/match/${pred.partido_id}`}
-              className="card transition hover:border-accent/60 hover:bg-panel2/60"
+              className="card flex flex-col transition hover:border-accent/60 hover:bg-panel2/60"
             >
               <div className="mb-3 flex items-center justify-between text-xs text-muted">
                 <span>{fmtFecha(p?.fecha_hora ?? null)}</span>
@@ -109,6 +110,11 @@ export default function Board() {
               </div>
 
               <ProbBar p={pred.probabilidades} />
+
+              <div className="mt-3 flex gap-2">
+                {local && <SeguirEquipo equipoId={local.id} />}
+                {visit && <SeguirEquipo equipoId={visit.id} />}
+              </div>
             </Link>
           );
         })}
