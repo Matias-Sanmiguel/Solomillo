@@ -2,7 +2,9 @@ package dev.solomillo.ml;
 
 import dev.solomillo.domain.Equipo;
 import dev.solomillo.domain.EstadoPartido;
+import dev.solomillo.domain.NivelTorneo;
 import dev.solomillo.domain.Partido;
+import dev.solomillo.domain.Torneo;
 import dev.solomillo.repository.EloHistorialRepository;
 import dev.solomillo.repository.EquipoRepository;
 import dev.solomillo.repository.PartidoRepository;
@@ -14,8 +16,8 @@ import java.time.LocalDateTime;
 @Service
 public class EloService {
 
-    private static final double K = 32.0;
-    private static final double HOME_ADV = 65.0;
+    // Ventaja de local de eloratings.net: +100 puntos a la diferencia de rating
+    private static final double HOME_ADV = 100.0;
     public static final double BASE = 1500.0;
 
     private final EquipoRepository equipoRepo;
@@ -32,8 +34,25 @@ public class EloService {
         return eq.getElo() != null ? eq.getElo() : BASE;
     }
 
-    private static double esperado(double propio, double rival, double ventaja) {
+    // Wₑ = 1 / (10^(−dr/400) + 1), con dr = (propio − rival) + ventaja de local
+    static double esperado(double propio, double rival, double ventaja) {
         return 1.0 / (1.0 + Math.pow(10, (rival - propio - ventaja) / 400.0));
+    }
+
+    /** Factor K base según la importancia del torneo (tabla de eloratings.net). */
+    static int pesoTorneo(Torneo torneo) {
+        NivelTorneo nivel = torneo != null && torneo.getNivel() != null
+                ? torneo.getNivel() : NivelTorneo.OTRO;
+        return nivel.k();
+    }
+
+    /** Ajuste de K por diferencia de goles (tabla de eloratings.net). */
+    static double multiplicadorGoles(int diferencia) {
+        int dif = Math.abs(diferencia);
+        if (dif <= 1) return 1.0;
+        if (dif == 2) return 1.5;
+        if (dif == 3) return 1.75;
+        return 1.75 + (dif - 3) / 8.0;
     }
 
     public void aplicarResultado(Partido p) {
@@ -45,11 +64,13 @@ public class EloService {
 
         double scoreLocal = p.getGolesLocal() > p.getGolesVisitante() ? 1.0
                 : p.getGolesLocal().equals(p.getGolesVisitante()) ? 0.5 : 0.0;
-        double margen = Math.max(1.0, Math.abs(p.getGolesLocal() - p.getGolesVisitante()));
-        double mult = Math.sqrt(margen);
 
-        double expLocal = esperado(eLocal, eVisit, HOME_ADV);
-        double delta = K * mult * (scoreLocal - expLocal);
+        double ventaja = p.isNeutral() ? 0.0 : HOME_ADV;
+        double k = pesoTorneo(p.getTorneo())
+                * multiplicadorGoles(p.getGolesLocal() - p.getGolesVisitante());
+
+        double expLocal = esperado(eLocal, eVisit, ventaja);
+        double delta = k * (scoreLocal - expLocal);
 
         local.setElo(eLocal + delta);
         visitante.setElo(eVisit - delta);
