@@ -27,15 +27,17 @@ public class DeportivoController {
     private final IngestRegistry registry;
     private final MotorProcesamiento motor;
     private final AuditService audit;
+    private final dev.solomillo.ml.ResultadoService resultados;
 
     public DeportivoController(TorneoRepository t, EquipoRepository e, JugadorRepository j,
                                 PartidoRepository p, PosicionRepository pos,
                                 EstadisticaJugadorRepository ej, EstadisticaEquipoRepository ee,
                                 AlertaRepository al, IngestRegistry reg,
-                                MotorProcesamiento motor, AuditService audit) {
+                                MotorProcesamiento motor, AuditService audit,
+                                dev.solomillo.ml.ResultadoService resultados) {
         this.torneoRepo = t; this.equipoRepo = e; this.jugadorRepo = j; this.partidoRepo = p;
         this.posicionRepo = pos; this.ejRepo = ej; this.eeRepo = ee; this.alertaRepo = al;
-        this.registry = reg; this.motor = motor; this.audit = audit;
+        this.registry = reg; this.motor = motor; this.audit = audit; this.resultados = resultados;
     }
 
     @GetMapping("/health")
@@ -68,13 +70,39 @@ public class DeportivoController {
 
     @GetMapping("/partidos")
     public List<Map<String, Object>> partidos() {
-        return partidoRepo.findAll().stream().map(p ->
-                Map.<String, Object>of("id", p.getId(), "torneo_id", p.getTorneo().getId(),
-                        "local_id", p.getEquipoLocal().getId(),
-                        "visitante_id", p.getEquipoVisitante().getId(),
-                        "fecha_hora", p.getFechaHora().toString(),
-                        "estadio", p.getEstadio() != null ? p.getEstadio() : "")
-        ).toList();
+        return partidoRepo.findAll().stream().map(p -> {
+            Map<String, Object> m = new java.util.LinkedHashMap<>();
+            m.put("id", p.getId());
+            m.put("torneo_id", p.getTorneo().getId());
+            m.put("local_id", p.getEquipoLocal().getId());
+            m.put("visitante_id", p.getEquipoVisitante().getId());
+            m.put("fecha_hora", p.getFechaHora() != null ? p.getFechaHora().toString() : null);
+            m.put("estadio", p.getEstadio() != null ? p.getEstadio() : "");
+            m.put("estado", p.getEstado() != null ? p.getEstado().name() : "PROGRAMADO");
+            m.put("goles_local", p.getGolesLocal());
+            m.put("goles_visitante", p.getGolesVisitante());
+            return m;
+        }).toList();
+    }
+
+    @PostMapping("/partidos/{id}/resultado")
+    @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAnyAuthority('admin_sistema','cientifico_datos')")
+    public Map<String, Object> registrarResultado(@PathVariable Long id,
+                                                   @RequestBody Map<String, Object> body,
+                                                   @AuthenticationPrincipal String email) {
+        try {
+            int gl = ((Number) body.get("goles_local")).intValue();
+            int gv = ((Number) body.get("goles_visitante")).intValue();
+            var p = resultados.registrar(id, gl, gv);
+            audit.registrar(email, "partido:resultado", "ok", id + " " + gl + "-" + gv);
+            return Map.of("id", p.getId(), "estado", p.getEstado().name(),
+                    "goles_local", gl, "goles_visitante", gv);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        } catch (NullPointerException | ClassCastException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "goles_local y goles_visitante requeridos");
+        }
     }
 
     @GetMapping("/torneos/{id}/posiciones")

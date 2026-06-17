@@ -1,15 +1,20 @@
 package dev.solomillo.seed;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.solomillo.core.AppProperties;
 import dev.solomillo.domain.Equipo;
+import dev.solomillo.domain.EstadoPartido;
 import dev.solomillo.domain.Jugador;
 import dev.solomillo.domain.Partido;
 import dev.solomillo.domain.Torneo;
 import dev.solomillo.ingest.ApiFootballClient;
+import dev.solomillo.ml.EloService;
 import dev.solomillo.repository.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +23,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Component
 @Order(2)
@@ -25,29 +31,46 @@ public class ApiFootballSeedService implements ApplicationRunner {
 
     private static final int WORLD_CUP_LEAGUE_ID = 1;
 
+    private static final Set<String> ESTADOS_FINAL = Set.of("FT", "AET", "PEN");
+
     private final AppProperties props;
     private final ApiFootballClient client;
+    private final ObjectMapper mapper;
     private final TorneoRepository torneoRepo;
     private final EquipoRepository equipoRepo;
     private final JugadorRepository jugadorRepo;
     private final PartidoRepository partidoRepo;
+    private final EloService eloService;
+    private Map<String, Integer> fifaPorNombre = Map.of();
 
-    public ApiFootballSeedService(AppProperties props, ApiFootballClient client,
+    public ApiFootballSeedService(AppProperties props, ApiFootballClient client, ObjectMapper mapper,
                                    TorneoRepository torneoRepo, EquipoRepository equipoRepo,
-                                   JugadorRepository jugadorRepo, PartidoRepository partidoRepo) {
+                                   JugadorRepository jugadorRepo, PartidoRepository partidoRepo,
+                                   EloService eloService) {
         this.props = props;
         this.client = client;
+        this.mapper = mapper;
         this.torneoRepo = torneoRepo;
         this.equipoRepo = equipoRepo;
         this.jugadorRepo = jugadorRepo;
         this.partidoRepo = partidoRepo;
+        this.eloService = eloService;
     }
 
     @Override
-    public void run(ApplicationArguments args) {
+    public void run(ApplicationArguments args) throws Exception {
         if (props.apiFootballKey == null || props.apiFootballKey.isBlank()) return;
+        fifaPorNombre = cargarFifa();
         seedMundial(2022, "2022-11-20", "2022-12-18");
         seedMundial(2026, "2026-06-11", "2026-07-19");
+        eloService.recalcularTodo();
+    }
+
+    private Map<String, Integer> cargarFifa() throws Exception {
+        JsonNode root = mapper.readTree(new ClassPathResource("seed/selecciones.json").getInputStream());
+        Map<String, Integer> m = new HashMap<>();
+        for (JsonNode n : root) m.put(n.get("nombre").asText(), n.get("puntosFifa").asInt());
+        return m;
     }
 
     @Transactional
@@ -83,6 +106,11 @@ public class ApiFootballSeedService implements ApplicationRunner {
             equipo.setEscudo((String) teamData.get("logo"));
             equipo.setSede((String) venueData.getOrDefault("city", ""));
             equipo.setEstadio((String) venueData.getOrDefault("name", ""));
+            Integer fifa = fifaPorNombre.get(nombre);
+            if (fifa != null) {
+                equipo.setPuntosFifa(fifa);
+                equipo.setElo((double) fifa);
+            }
             equipoRepo.save(equipo);
 
             byApiId.put(((Number) teamData.get("id")).intValue(), equipo);
@@ -113,6 +141,17 @@ public class ApiFootballSeedService implements ApplicationRunner {
 
             String dateStr = (String) fixtureData.get("date");
             if (dateStr != null) partido.setFechaHora(OffsetDateTime.parse(dateStr).toLocalDateTime());
+
+            Map<String, Object> status = (Map<String, Object>) fixtureData.getOrDefault("status", Map.of());
+            String corto = (String) status.getOrDefault("short", "");
+            Map<String, Object> goals = (Map<String, Object>) item.getOrDefault("goals", Map.of());
+            Object gl = goals.get("home");
+            Object gv = goals.get("away");
+            if (ESTADOS_FINAL.contains(corto) && gl != null && gv != null) {
+                partido.setGolesLocal(((Number) gl).intValue());
+                partido.setGolesVisitante(((Number) gv).intValue());
+                partido.setEstado(EstadoPartido.FINALIZADO);
+            }
 
             partidoRepo.save(partido);
         }

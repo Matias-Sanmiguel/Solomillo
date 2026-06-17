@@ -19,6 +19,8 @@ public class ModeloPredictivo {
     private String tipo;
     private String ruta;
     private double accuracy;
+    private double logLoss;
+    private double brier;
     private boolean activo;
     @CreationTimestamp
     private LocalDateTime creadoEn;

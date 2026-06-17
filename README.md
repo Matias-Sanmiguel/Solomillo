@@ -10,7 +10,7 @@ Plataforma de información y estadísticas deportivas en tiempo real. Centraliza
 | Persistencia | PostgreSQL 16 + Spring Data JPA | histórico + integridad referencial (RNF07) |
 | Tiempo real | Redis 7 (pub/sub) + Spring WebSocket | publicación < 500 ms (RNF02) |
 | ML | Weka 3.8 | modelos predictivos académicos (RF18-27) |
-| Frontend | Next.js (TypeScript) | dashboard web en vivo |
+| Frontend | Next.js + Tailwind + Recharts (TypeScript) | dashboard de predicciones |
 | Orquestación | Docker Compose | todo contenedorizado |
 
 ## Arranque
@@ -42,14 +42,33 @@ backend/src/main/java/dev/solomillo/
   distribution/  CanalDistribucion (Observer), Publisher,
                  RedisChannel                                    RF12, CU07
   alerts/        ReglaAlerta (Strategy), GeneradorAlertas        RF11, RF23
-  ml/            DatasetGenerator, MlTrainer, MlPredictor,
-                 MlAnalytics, ModeloPredictivo                   RF17-27, CU12
+  ml/            EloService, FeatureExtractor, MlTrainer,
+                 MlPredictor, MetricsService, ResultadoService,
+                 ModeloPredictivo, Prediccion, EloHistorial      RF17-27, CU12
   users/         Usuario, AuditLog, AuditService                RNF06, RNF08
-  repository/    12 JpaRepository interfaces
+  repository/    JpaRepository interfaces
   api/           AuthController, DeportivoController, MlController,
                  EventosWebSocketHandler, WebSocketConfig
-  seed/          DataLoader (Qatar 2022)
+  seed/          FifaEloSeedService (selecciones + histórico simulado),
+                 ApiFootballSeedService (datos reales si hay API key)
 ```
+
+### Modelo de predicción
+
+El modelo de resultados (`Logistic`, Weka) se entrena con partidos **finalizados**
+reales. Cada partido aporta un vector de features:
+
+- diferencia de **Elo** y de **puntos FIFA** entre local y visitante,
+- **forma** reciente (puntos y goles promedio de los últimos 5 partidos),
+- **head-to-head** histórico.
+
+El Elo se recalcula cronológicamente tras cada resultado (factor K, ventaja de
+local) y se versiona en `elo_historial`. Cada predicción se **persiste**
+(`predicciones`); al registrar el resultado real se rellena `resultado_real`,
+lo que habilita métricas de calidad: **accuracy, log-loss, Brier y calibración**.
+
+Sin `FOOTBALL_API_KEY`, el seed genera selecciones con puntos FIFA y un
+histórico simulado coherente con el Elo para poder entrenar y poblar el tablero.
 
 ### Patrones de diseño
 
@@ -68,8 +87,8 @@ Spring inyecta automáticamente todos los `FuenteAdapter` en el `IngestRegistry`
 - [x] 2 · Auth JWT + roles (RNF06) + audit log (RNF08)
 - [x] 3 · Tiempo real: Redis pub/sub → WebSocket
 - [x] 4 · Pipeline stats / rankings / alertas
-- [x] 5 · ML Weka (entrenamiento, versionado, predicción)
-- [x] 6 · Frontend Next.js (live scores, estadísticas, predicciones)
+- [x] 5 · ML Weka: features reales (Elo + FIFA + forma), predicciones persistidas, métricas (accuracy/log-loss/Brier/calibración)
+- [x] 6 · Frontend Next.js: tablero de predicciones, detalle por partido, ranking Elo, panel de modelos (Tailwind + Recharts)
 
 ## Endpoints
 
@@ -83,10 +102,12 @@ Spring inyecta automáticamente todos los `FuenteAdapter` en el `IngestRegistry`
 | GET | `/torneos/{id}/posiciones` | público |
 | GET | `/partidos/{id}/alertas` | público |
 | POST | `/ingest/{fuente}` | `admin_sistema` |
+| POST | `/partidos/{id}/resultado` | `admin_sistema` · `cientifico_datos` |
 | WS | `/ws/eventos` | público (eventos + alertas) |
 | POST | `/ml/modelos/entrenar` · `/ml/modelos/entrenar-rendimiento` | `admin_modelos_ia` · `cientifico_datos` |
-| GET | `/ml/modelos` `/ml/predicciones/{id}` `/ml/rendimiento/{id}` | público |
-| GET | `/ml/proyeccion/{torneoId}` `/ml/tendencias/{torneoId}` | público |
+| GET | `/ml/modelos` `/ml/modelos/{v}/metricas` `/ml/calibracion/{v}` | público |
+| GET | `/ml/predicciones` (tablero) `/ml/predicciones/{id}` `/ml/rendimiento/{id}` | público |
+| GET | `/ml/elo` `/ml/elo/{equipoId}/historial` | público |
 
 ## Equipo
 

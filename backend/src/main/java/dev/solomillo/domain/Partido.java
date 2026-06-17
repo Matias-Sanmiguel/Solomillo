@@ -28,4 +28,10 @@ public class Partido {
 
     private LocalDateTime fechaHora;
     private String estadio;
+
+    private Integer golesLocal;
+    private Integer golesVisitante;
+
+    @Enumerated(EnumType.STRING)
+    private EstadoPartido estado = EstadoPartido.PROGRAMADO;
 }

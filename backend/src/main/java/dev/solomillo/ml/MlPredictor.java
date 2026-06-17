@@ -1,19 +1,21 @@
 package dev.solomillo.ml;
 
+import dev.solomillo.domain.EstadoPartido;
 import dev.solomillo.domain.Partido;
+import dev.solomillo.repository.EstadisticaJugadorRepository;
 import dev.solomillo.repository.ModeloPredictivoRepository;
 import dev.solomillo.repository.PartidoRepository;
-import dev.solomillo.repository.PosicionRepository;
-import dev.solomillo.repository.EstadisticaJugadorRepository;
-import dev.solomillo.rankings.Posicion;
+import dev.solomillo.repository.PrediccionRepository;
 import org.springframework.stereotype.Service;
-import weka.classifiers.functions.Logistic;
+import org.springframework.transaction.annotation.Transactional;
 import weka.classifiers.functions.LinearRegression;
+import weka.classifiers.functions.Logistic;
 import weka.core.DenseInstance;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -23,38 +25,76 @@ public class MlPredictor {
 
     private final ModeloPredictivoRepository modeloRepo;
     private final PartidoRepository partidoRepo;
-    private final PosicionRepository posicionRepo;
+    private final PrediccionRepository prediccionRepo;
     private final EstadisticaJugadorRepository ejRepo;
 
     public MlPredictor(ModeloPredictivoRepository m, PartidoRepository p,
-                       PosicionRepository pos, EstadisticaJugadorRepository ej) {
-        this.modeloRepo = m; this.partidoRepo = p;
-        this.posicionRepo = pos; this.ejRepo = ej;
+                       PrediccionRepository pr, EstadisticaJugadorRepository ej) {
+        this.modeloRepo = m;
+        this.partidoRepo = p;
+        this.prediccionRepo = pr;
+        this.ejRepo = ej;
     }
 
+    @Transactional
     public Map<String, Object> predecirResultado(Long partidoId) throws Exception {
-        ModeloPredictivo modelo = modeloRepo.findByNombreAndActivoTrue("resultado_partido")
-                .orElseThrow(() -> new IllegalStateException("Sin modelo activo. Entrenar primero."));
-
         Partido partido = partidoRepo.findById(partidoId)
                 .orElseThrow(() -> new IllegalArgumentException("Partido inexistente"));
+        double[] probs = probabilidades(partido);
+        ModeloPredictivo modelo = modeloActivo();
+        persistir(partido, modelo.getVersion(), probs);
+        return salida(partido, modelo.getVersion(), probs);
+    }
 
-        Long torneoId = partido.getTorneo().getId();
-        double[] gfgc = posGoles(torneoId, partido.getEquipoLocal().getId());
-        double[] gfgcV = posGoles(torneoId, partido.getEquipoVisitante().getId());
+    /** Probabilidades sin persistir, para el board (varios partidos). */
+    @Transactional(readOnly = true)
+    public Map<String, Object> tablero(Long partidoId) throws Exception {
+        Partido partido = partidoRepo.findById(partidoId)
+                .orElseThrow(() -> new IllegalArgumentException("Partido inexistente"));
+        ModeloPredictivo modelo = modeloActivo();
+        double[] probs = probabilidades(partido, modelo);
+        return salida(partido, modelo.getVersion(), probs);
+    }
 
-        Instances header = DatasetGenerator.buildHeader();
-        var inst = new DenseInstance(1.0, new double[]{gfgc[0], gfgc[1], gfgcV[0], gfgcV[1], 0});
-        inst.setDataset(header);
+    private double[] probabilidades(Partido partido) throws Exception {
+        return probabilidades(partido, modeloActivo());
+    }
 
+    private double[] probabilidades(Partido partido, ModeloPredictivo modelo) throws Exception {
+        List<Partido> finalizados = partidoRepo.findByEstadoOrderByFechaHoraAsc(EstadoPartido.FINALIZADO);
+        Instances header = FeatureExtractor.buildHeader();
+        DenseInstance inst = FeatureExtractor.instancia(partido, finalizados, header);
         Logistic clf = (Logistic) SerializationHelper.read(modelo.getRuta());
-        double[] probs = clf.distributionForInstance(inst);
+        return clf.distributionForInstance(inst);
+    }
 
+    private ModeloPredictivo modeloActivo() {
+        return modeloRepo.findByNombreAndActivoTrue("resultado_partido")
+                .orElseThrow(() -> new IllegalStateException("Sin modelo activo. Entrenar primero."));
+    }
+
+    private void persistir(Partido partido, int version, double[] probs) {
+        var pred = new Prediccion();
+        pred.setPartido(partido);
+        pred.setModeloVersion(version);
+        pred.setProbLocal(probs[0]);
+        pred.setProbEmpate(probs.length > 1 ? probs[1] : 0);
+        pred.setProbVisitante(probs.length > 2 ? probs[2] : 0);
+        if (partido.getEstado() == EstadoPartido.FINALIZADO) {
+            pred.setResultadoReal((int) FeatureExtractor.etiqueta(partido));
+        }
+        prediccionRepo.save(pred);
+    }
+
+    private Map<String, Object> salida(Partido partido, int version, double[] probs) {
         Map<String, Double> probabilidades = new LinkedHashMap<>();
         for (int i = 0; i < probs.length && i < LABELS.length; i++) {
             probabilidades.put(LABELS[i], Math.round(probs[i] * 10000.0) / 10000.0);
         }
-        return Map.of("modelo_version", modelo.getVersion(), "probabilidades", probabilidades);
+        return Map.of(
+                "partido_id", partido.getId(),
+                "modelo_version", version,
+                "probabilidades", probabilidades);
     }
 
     public Map<String, Object> rendimientoJugador(Long jugadorId) throws Exception {
@@ -73,11 +113,5 @@ public class MlPredictor {
 
         return Map.of("modelo_version", modelo.getVersion(), "jugador_id", jugadorId,
                 "goles", goles, "rating_esperado", Math.round(rating * 100.0) / 100.0);
-    }
-
-    private double[] posGoles(Long torneoId, Long equipoId) {
-        return posicionRepo.findByTorneoIdAndEquipoId(torneoId, equipoId)
-                .map(p -> new double[]{p.getGolesFavor(), p.getGolesContra()})
-                .orElse(new double[]{0, 0});
     }
 }

@@ -59,11 +59,23 @@ class ApiIntegrationTest {
         given().header("Authorization", "Bearer " + tok).post("/ml/modelos/entrenar-rendimiento").then().statusCode(201);
 
         get("/ml/predicciones/1").then().statusCode(200).body("probabilidades", notNullValue());
+        get("/ml/predicciones").then().statusCode(200).body("size()", greaterThan(0));
         get("/ml/rendimiento/1").then().statusCode(200)
                 .body("rating_esperado", greaterThanOrEqualTo(1f))
                 .body("rating_esperado", lessThanOrEqualTo(10f));
-        get("/ml/proyeccion/1").then().statusCode(200).body("[0].posicion_proyectada", is(1));
-        get("/ml/tendencias/1").then().statusCode(200);
+        get("/ml/elo").then().statusCode(200).body("[0].elo", notNullValue());
+    }
+
+    @Test void registrarResultadoActualizaElo() {
+        String tok = dsToken();
+        var programados = get("/partidos").jsonPath()
+                .<Map<String, Object>>getList("findAll { it.estado == 'PROGRAMADO' }");
+        org.junit.jupiter.api.Assumptions.assumeTrue(!programados.isEmpty());
+        long id = ((Number) programados.get(0).get("id")).longValue();
+        given().contentType(ContentType.JSON).header("Authorization", "Bearer " + tok)
+                .body(Map.of("goles_local", 2, "goles_visitante", 1))
+                .post("/partidos/" + id + "/resultado")
+                .then().statusCode(200).body("estado", is("FINALIZADO"));
     }
 
     private String adminToken() {

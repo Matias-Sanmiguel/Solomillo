@@ -16,4 +16,7 @@ public class Equipo {
     private String entrenador;
     private String sede;
     private String estadio;
+
+    private Integer puntosFifa;
+    private Double elo = 1500.0;
 }
