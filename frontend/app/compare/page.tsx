@@ -95,8 +95,8 @@ export default function ComparePage() {
   const rows = buildRows(statsA, statsB);
   const nombreA = modo === "equipos" ? eqA?.nombre : jugA?.nombre;
   const nombreB = modo === "equipos" ? eqB?.nombre : jugB?.nombre;
-  const showResults =
-    (modo === "equipos" ? eqA && eqB : jugA && jugB) && rows.length > 0;
+  const ambosSeleccionados = modo === "equipos" ? !!(eqA && eqB) : !!(jugA && jugB);
+  const showResults = ambosSeleccionados && rows.length > 0;
 
   return (
     <div className="space-y-5">
@@ -186,12 +186,16 @@ export default function ComparePage() {
         </div>
       )}
 
-      {!showResults && !cargando && (
+      {!ambosSeleccionados && !cargando && (
         <p className="text-sm text-muted">
           {modo === "equipos"
             ? "Elegí dos equipos para comparar."
             : "Elegí el equipo de cada jugador y luego el jugador."}
         </p>
+      )}
+
+      {ambosSeleccionados && !cargando && rows.length === 0 && (
+        <p className="text-sm text-muted">Sin estadísticas disponibles para estos {modo}.</p>
       )}
 
       {cargando && <p className="text-sm text-muted">Cargando estadísticas…</p>}
