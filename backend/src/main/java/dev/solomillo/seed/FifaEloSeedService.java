@@ -143,11 +143,13 @@ public class FifaEloSeedService implements ApplicationRunner {
         for (JsonNode n : root) {
             String nombre = n.get("nombre").asText();
             int puntos = n.get("puntosFifa").asInt();
+            // Prior del rating: rating real de eloratings.net; fallback a puntos FIFA.
+            double eloInicial = n.hasNonNull("elo") ? n.get("elo").asDouble() : puntos;
             String escudo = "https://flagcdn.com/w160/" + n.get("codigo").asText() + ".png";
             Equipo e = equipoRepo.findByNombre(nombre).orElseGet(Equipo::new);
             e.setNombre(nombre);
             e.setPuntosFifa(puntos);
-            e.setElo((double) puntos);
+            e.setElo(eloInicial);
             e.setEscudo(escudo);
             if (e.getSede() == null) e.setSede("");
             equipoRepo.save(e);
