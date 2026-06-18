@@ -58,12 +58,16 @@ public class ApiFootballSeedService implements ApplicationRunner {
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         if (props.apiFootballKey == null || props.apiFootballKey.isBlank()) return;
-        fifaPorNombre = cargarFifa();
-        seedMundial(2022, "2022-11-20", "2022-12-18");
-        seedMundial(2026, "2026-06-11", "2026-07-19");
-        eloService.recalcularTodo();
+        try {
+            fifaPorNombre = cargarFifa();
+            seedMundial(2022, "2022-11-20", "2022-12-18");
+            seedMundial(2026, "2026-06-11", "2026-07-19");
+            eloService.recalcularTodo();
+        } catch (Exception e) {
+            System.err.println("[ApiFootballSeed] seed falló, continuando sin datos externos: " + e.getMessage());
+        }
     }
 
     private Map<String, Integer> cargarFifa() throws Exception {
