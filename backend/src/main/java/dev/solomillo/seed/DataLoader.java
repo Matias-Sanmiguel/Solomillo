@@ -55,22 +55,27 @@ public class DataLoader implements ApplicationRunner {
 
         Map<String, Equipo> equipos = new HashMap<>();
         for (JsonNode e : root.get("equipos")) {
-            Equipo equipo = new Equipo();
-            equipo.setNombre(e.get("nombre").asText());
+            String nombre = e.get("nombre").asText();
+            // Reutiliza la seleccion ya sembrada (FifaEloSeedService) en lugar de duplicarla.
+            Equipo equipo = equipoRepo.findByNombre(nombre).orElseGet(Equipo::new);
+            equipo.setNombre(nombre);
             equipo.setEntrenador(e.get("entrenador").asText());
             equipo.setSede(e.get("sede").asText());
             equipoRepo.save(equipo);
-            equipos.put(equipo.getNombre(), equipo);
+            equipos.put(nombre, equipo);
 
-            for (JsonNode j : e.get("jugadores")) {
-                Jugador jug = new Jugador();
-                jug.setEquipo(equipo);
-                jug.setNombre(j.get("nombre").asText());
-                jug.setPosicion(j.get("posicion").asText());
-                jug.setNumeroCamiseta(j.get("numeroCamiseta").asInt());
-                jug.setNacionalidad(j.get("nacionalidad").asText());
-                jug.setFechaNacimiento(LocalDate.parse(j.get("fechaNacimiento").asText()));
-                jugadorRepo.save(jug);
+            // Solo agrega jugadores si el equipo aun no tiene (evita duplicar planteles).
+            if (jugadorRepo.findByEquipoId(equipo.getId()).isEmpty()) {
+                for (JsonNode j : e.get("jugadores")) {
+                    Jugador jug = new Jugador();
+                    jug.setEquipo(equipo);
+                    jug.setNombre(j.get("nombre").asText());
+                    jug.setPosicion(j.get("posicion").asText());
+                    jug.setNumeroCamiseta(j.get("numeroCamiseta").asInt());
+                    jug.setNacionalidad(j.get("nacionalidad").asText());
+                    jug.setFechaNacimiento(LocalDate.parse(j.get("fechaNacimiento").asText()));
+                    jugadorRepo.save(jug);
+                }
             }
         }
 
