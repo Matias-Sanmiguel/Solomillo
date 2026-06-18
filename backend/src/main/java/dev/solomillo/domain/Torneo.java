@@ -18,4 +18,7 @@ public class Torneo {
     private String temporada;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
+
+    @Enumerated(EnumType.STRING)
+    private NivelTorneo nivel = NivelTorneo.OTRO;
 }

@@ -29,6 +29,9 @@ public class Partido {
     private LocalDateTime fechaHora;
     private String estadio;
 
+    // cancha neutral (típico de fase final de Mundial): suprime la ventaja de local en el Elo
+    private boolean neutral = false;
+
     private Integer golesLocal;
     private Integer golesVisitante;
 

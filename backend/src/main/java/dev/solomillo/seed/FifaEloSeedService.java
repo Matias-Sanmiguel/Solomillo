@@ -6,6 +6,7 @@ import dev.solomillo.core.AppProperties;
 import dev.solomillo.domain.Equipo;
 import dev.solomillo.domain.EstadoPartido;
 import dev.solomillo.domain.Jugador;
+import dev.solomillo.domain.NivelTorneo;
 import dev.solomillo.domain.Partido;
 import dev.solomillo.domain.Torneo;
 import dev.solomillo.ml.EloService;
@@ -35,9 +36,10 @@ import java.util.Random;
 @Order(1)
 public class FifaEloSeedService implements ApplicationRunner {
 
-    private static final String TORNEO = "Liga de Naciones (Simulado)";
+    private static final String TORNEO_ELIM = "Eliminatorias Mundial 2026 (Simulado)";
+    private static final String TORNEO_MUNDIAL = "Copa Mundial FIFA 2026";
     private static final String TEMPORADA = "2026";
-    private static final double HOME_ADV = 65.0;
+    private static final double HOME_ADV = 100.0;
     private static final long SEED = 7L;
 
     private final AppProperties props;
@@ -65,20 +67,32 @@ public class FifaEloSeedService implements ApplicationRunner {
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
         if (props.apiFootballKey != null && !props.apiFootballKey.isBlank()) return;
-        if (torneoRepo.findByNombreAndTemporada(TORNEO, TEMPORADA).isPresent()) return;
+        if (torneoRepo.findByNombreAndTemporada(TORNEO_MUNDIAL, TEMPORADA).isPresent()) return;
 
-        Torneo torneo = new Torneo();
-        torneo.setNombre(TORNEO);
-        torneo.setCategoria("Selecciones");
-        torneo.setTemporada(TEMPORADA);
-        torneo.setFechaInicio(LocalDate.parse("2025-09-01"));
-        torneo.setFechaFin(LocalDate.parse("2026-07-19"));
-        torneoRepo.save(torneo);
+        // Eliminatorias (K=40, con localía): aportan el histórico para el Elo y el ML.
+        Torneo eliminatorias = new Torneo();
+        eliminatorias.setNombre(TORNEO_ELIM);
+        eliminatorias.setCategoria("Selecciones");
+        eliminatorias.setTemporada(TEMPORADA);
+        eliminatorias.setNivel(NivelTorneo.CLASIFICATORIO);
+        eliminatorias.setFechaInicio(LocalDate.parse("2025-03-01"));
+        eliminatorias.setFechaFin(LocalDate.parse("2026-03-31"));
+        torneoRepo.save(eliminatorias);
+
+        // Mundial 2026 (K=60, cancha neutral): partidos próximos a pronosticar.
+        Torneo mundial = new Torneo();
+        mundial.setNombre(TORNEO_MUNDIAL);
+        mundial.setCategoria("Selecciones");
+        mundial.setTemporada(TEMPORADA);
+        mundial.setNivel(NivelTorneo.MUNDIAL);
+        mundial.setFechaInicio(LocalDate.parse("2026-06-11"));
+        mundial.setFechaFin(LocalDate.parse("2026-07-19"));
+        torneoRepo.save(mundial);
 
         List<Equipo> equipos = cargarEquipos();
         var rng = new Random(SEED);
 
-        // Historico: round-robin simple, fechas pasadas, resultado simulado por Elo.
+        // Histórico de eliminatorias: round-robin simple, fechas pasadas, resultado simulado por Elo.
         List<int[]> pares = new ArrayList<>();
         for (int i = 0; i < equipos.size(); i++)
             for (int j = i + 1; j < equipos.size(); j++) pares.add(new int[]{i, j});
@@ -89,11 +103,12 @@ public class FifaEloSeedService implements ApplicationRunner {
             Equipo local = rng.nextBoolean() ? equipos.get(par[0]) : equipos.get(par[1]);
             Equipo visit = local == equipos.get(par[0]) ? equipos.get(par[1]) : equipos.get(par[0]);
             Partido p = new Partido();
-            p.setTorneo(torneo);
+            p.setTorneo(eliminatorias);
             p.setEquipoLocal(local);
             p.setEquipoVisitante(visit);
             p.setFechaHora(fecha);
             p.setEstadio(local.getNombre());
+            p.setNeutral(false);
             int[] goles = simular(local, visit, rng);
             p.setGolesLocal(goles[0]);
             p.setGolesVisitante(goles[1]);
@@ -103,18 +118,19 @@ public class FifaEloSeedService implements ApplicationRunner {
             fecha = fecha.plusDays(1);
         }
 
-        // Proximos partidos para el tablero de predicciones.
+        // Próximos partidos del Mundial (cancha neutral) para el tablero y el prode.
         LocalDateTime futuro = LocalDateTime.now().plusDays(2);
         for (int k = 0; k < 16; k++) {
             int a = rng.nextInt(equipos.size());
             int b = rng.nextInt(equipos.size());
             if (a == b) { b = (b + 1) % equipos.size(); }
             Partido p = new Partido();
-            p.setTorneo(torneo);
+            p.setTorneo(mundial);
             p.setEquipoLocal(equipos.get(a));
             p.setEquipoVisitante(equipos.get(b));
             p.setFechaHora(futuro);
-            p.setEstadio(equipos.get(a).getNombre());
+            p.setEstadio("Sede Mundial 2026");
+            p.setNeutral(true);
             p.setEstado(EstadoPartido.PROGRAMADO);
             partidoRepo.save(p);
             futuro = futuro.plusDays(2);
