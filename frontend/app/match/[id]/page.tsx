@@ -14,6 +14,7 @@ import {
 import { Crest } from "../../components/Crest";
 import { ProbBar, favorito } from "../../components/ProbBar";
 import { EloTrend } from "../../components/EloTrend";
+import { PitchFormation } from "../../components/PitchFormation";
 
 export default function MatchPage({ params }: { params: { id: string } }) {
   const id = Number(params.id);
@@ -23,6 +24,8 @@ export default function MatchPage({ params }: { params: { id: string } }) {
   const [pred, setPred] = useState<Prediccion | null>(null);
   const [eloL, setEloL] = useState<EloPunto[]>([]);
   const [eloV, setEloV] = useState<EloPunto[]>([]);
+  const [plantelLocal, setPlantelLocal] = useState<{ id: number; nombre: string; posicion: string; numero: number }[]>([]);
+  const [plantelVisit, setPlantelVisit] = useState<{ id: number; nombre: string; posicion: string; numero: number }[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -41,6 +44,8 @@ export default function MatchPage({ params }: { params: { id: string } }) {
           setVisit(v);
           if (l) get<EloPunto[]>(`/ml/elo/${l.id}/historial`).then(setEloL).catch(() => {});
           if (v) get<EloPunto[]>(`/ml/elo/${v.id}/historial`).then(setEloV).catch(() => {});
+          if (l) get<{ id: number; nombre: string; posicion: string; numero: number }[]>(`/equipos/${l.id}/jugadores`).then(setPlantelLocal).catch(() => {});
+          if (v) get<{ id: number; nombre: string; posicion: string; numero: number }[]>(`/equipos/${v.id}/jugadores`).then(setPlantelVisit).catch(() => {});
         }
         const pr = await get<Prediccion>(`/ml/predicciones/${id}`).catch(() => null);
         if (pr) setPred(pr);
@@ -116,6 +121,16 @@ export default function MatchPage({ params }: { params: { id: string } }) {
             { nombre: local?.nombre ?? "Local", color: "#22d3ee", data: eloL },
             { nombre: visit?.nombre ?? "Visita", color: "#f472b6", data: eloV },
           ]}
+        />
+      </div>
+
+      <div className="card">
+        <h2 className="mb-3 text-sm font-semibold text-muted">Formación probable</h2>
+        <PitchFormation
+          local={plantelLocal}
+          visitante={plantelVisit}
+          nombreLocal={local?.nombre ?? `#${partido.local_id}`}
+          nombreVisitante={visit?.nombre ?? `#${partido.visitante_id}`}
         />
       </div>
     </div>

@@ -40,6 +40,7 @@ public class SecurityConfig {
                                 jakarta.servlet.DispatcherType.FORWARD).permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/demo/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/**").permitAll()
                         .requestMatchers("/ws/**").permitAll()
                         .requestMatchers("/health").permitAll()
