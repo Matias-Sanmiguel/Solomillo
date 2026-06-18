@@ -28,7 +28,7 @@ function normalize(rows: StatRow[]): { metrica: string; a: number; b: number }[]
 }
 
 export function StatsRadar({ rows, nombreA, nombreB }: Props) {
-  const data = normalize(rows.slice(0, 8));
+  const data = normalize(rows);
 
   if (data.length < 3) {
     return (

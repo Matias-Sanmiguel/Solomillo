@@ -82,17 +82,19 @@ public class DemoController {
 
     @PostMapping("/tarjeta/{partidoId}")
     public Map<String, Object> simularTarjeta(@PathVariable Long partidoId,
-                                               @RequestParam(defaultValue = "amarilla") String color) {
+                                               @RequestParam(defaultValue = "amarilla") String color,
+                                               @RequestParam(defaultValue = "local") String equipo) {
         var partido = partidoRepo.findById(partidoId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         if (partido.getEstado() != EstadoPartido.EN_VIVO)
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Partido no está EN_VIVO");
 
         int minuto = minutos.getOrDefault(partidoId, 45);
-        var evento = new EventoInterno("tarjeta", partidoId, minuto, null, Map.of("color", color));
+        var evento = new EventoInterno("tarjeta", partidoId, minuto, null,
+                Map.of("color", color, "equipo", equipo));
         motor.procesar(evento, "demo");
 
-        return Map.of("partido_id", partidoId, "tarjeta", color, "minuto", minuto);
+        return Map.of("partido_id", partidoId, "tarjeta", color, "equipo", equipo, "minuto", minuto);
     }
 
     @PostMapping("/finalizar/{partidoId}")

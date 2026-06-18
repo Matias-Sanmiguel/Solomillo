@@ -14,17 +14,60 @@ type StatRow = {
   b: number | null;
 };
 
+const STAT_ORDER = [
+  "partidos_jugados", "victorias", "empates", "derrotas",
+  "goles_a_favor", "goles_en_contra", "diferencia_gol", "puntos",
+  "promedio_gol", "tarjetas_amarillas", "tarjetas_rojas",
+];
+
 function buildRows(statsA: Stat[], statsB: Stat[]): StatRow[] {
-  const metricas = Array.from(
-    new Set([...statsA.map((s) => s.metrica), ...statsB.map((s) => s.metrica)])
-  ).sort();
   const mapA = new Map(statsA.map((s) => [s.metrica, s.valor]));
   const mapB = new Map(statsB.map((s) => [s.metrica, s.valor]));
-  return metricas.map((m) => ({
+  const allMetricas = Array.from(
+    new Set([...statsA.map((s) => s.metrica), ...statsB.map((s) => s.metrica)])
+  );
+  const ordered = [
+    ...STAT_ORDER.filter((m) => allMetricas.includes(m)),
+    ...allMetricas.filter((m) => !STAT_ORDER.includes(m)).sort(),
+  ];
+  return ordered.map((m) => ({
     metrica: m,
     a: mapA.get(m) ?? null,
     b: mapB.get(m) ?? null,
   }));
+}
+
+function buildRadarRows(statsA: Stat[], statsB: Stat[]): StatRow[] {
+  const get = (stats: Stat[], m: string) =>
+    stats.find((s) => s.metrica === m)?.valor ?? 0;
+
+  const gfA = get(statsA, "goles_a_favor");
+  const gfB = get(statsB, "goles_a_favor");
+  const gcA = get(statsA, "goles_en_contra");
+  const gcB = get(statsB, "goles_en_contra");
+  const pjA = get(statsA, "partidos_jugados") || 1;
+  const pjB = get(statsB, "partidos_jugados") || 1;
+  const ptsA = get(statsA, "puntos");
+  const ptsB = get(statsB, "puntos");
+  const vA = get(statsA, "victorias");
+  const vB = get(statsB, "victorias");
+  const amA = get(statsA, "tarjetas_amarillas");
+  const amB = get(statsB, "tarjetas_amarillas");
+  const rjA = get(statsA, "tarjetas_rojas");
+  const rjB = get(statsB, "tarjetas_rojas");
+
+  const maxGC = Math.max(gcA, gcB, 1);
+  const cardsA = amA + rjA * 3;
+  const cardsB = amB + rjB * 3;
+  const maxCards = Math.max(cardsA, cardsB, 1);
+
+  return [
+    { metrica: "Ataque", a: gfA, b: gfB },
+    { metrica: "Defensa", a: maxGC - gcA, b: maxGC - gcB },
+    { metrica: "Disciplina", a: maxCards - cardsA, b: maxCards - cardsB },
+    { metrica: "Rendimiento", a: (ptsA / pjA) * 10, b: (ptsB / pjB) * 10 },
+    { metrica: "Efectividad", a: (vA / pjA) * 100, b: (vB / pjB) * 100 },
+  ];
 }
 
 export default function ComparePage() {
@@ -93,6 +136,7 @@ export default function ComparePage() {
   }, [modo, eqA, eqB, jugA, jugB]);
 
   const rows = buildRows(statsA, statsB);
+  const radarRows = modo === "equipos" ? buildRadarRows(statsA, statsB) : rows;
   const nombreA = modo === "equipos" ? eqA?.nombre : jugA?.nombre;
   const nombreB = modo === "equipos" ? eqB?.nombre : jugB?.nombre;
   const ambosSeleccionados = modo === "equipos" ? !!(eqA && eqB) : !!(jugA && jugB);
@@ -202,10 +246,10 @@ export default function ComparePage() {
 
       {showResults && !cargando && (
         <div className="space-y-4">
-          {rows.length > 2 && (
+          {radarRows.length > 2 && (
             <div className="card">
               <h2 className="mb-3 text-sm font-semibold text-muted">Radar</h2>
-              <StatsRadar rows={rows} nombreA={nombreA!} nombreB={nombreB!} />
+              <StatsRadar rows={radarRows} nombreA={nombreA!} nombreB={nombreB!} />
             </div>
           )}
 
