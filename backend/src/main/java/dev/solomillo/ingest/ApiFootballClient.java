@@ -53,6 +53,18 @@ public class ApiFootballClient {
     }
 
     @SuppressWarnings("unchecked")
+    public List<Map<String, Object>> fixturesLive(int leagueId) {
+        Map<String, Object> body = fetch("/fixtures?live=all&league=" + leagueId);
+        return (List<Map<String, Object>>) body.getOrDefault("response", List.of());
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Map<String, Object>> fixturesByDate(String date, int leagueId, int season) {
+        Map<String, Object> body = fetch("/fixtures?date=" + date + "&league=" + leagueId + "&season=" + season);
+        return (List<Map<String, Object>>) body.getOrDefault("response", List.of());
+    }
+
+    @SuppressWarnings("unchecked")
     private Map<String, Object> fetch(String path) {
         return http.get()
                 .uri(path)
