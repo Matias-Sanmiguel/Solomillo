@@ -163,7 +163,7 @@ export default function ComparePage() {
       {modo === "equipos" ? (
         <div className="grid gap-4 sm:grid-cols-2">
           <CompareSelector
-            items={equipos}
+            items={equipos.filter((e) => e.id !== eqB?.id)}
             value={eqA}
             onChange={setEqA}
             label="Equipo A"
@@ -171,7 +171,7 @@ export default function ComparePage() {
             getLabel={(e) => e.nombre}
           />
           <CompareSelector
-            items={equipos}
+            items={equipos.filter((e) => e.id !== eqA?.id)}
             value={eqB}
             onChange={setEqB}
             label="Equipo B"
@@ -195,7 +195,7 @@ export default function ComparePage() {
             />
             {jugadoresA.length > 0 && (
               <CompareSelector
-                items={jugadoresA}
+                items={jugadoresA.filter((j) => j.id !== jugB?.id)}
                 value={jugA}
                 onChange={setJugA}
                 label="Jugador A"
@@ -218,7 +218,7 @@ export default function ComparePage() {
             />
             {jugadoresB.length > 0 && (
               <CompareSelector
-                items={jugadoresB}
+                items={jugadoresB.filter((j) => j.id !== jugA?.id)}
                 value={jugB}
                 onChange={setJugB}
                 label="Jugador B"
