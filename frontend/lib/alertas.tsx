@@ -71,7 +71,9 @@ export function AlertProvider({ children }: { children: React.ReactNode }) {
           if (!data.mensaje) return;
           const partido = partidoMapRef.current.get(data.partido_id);
           const involucrados: number[] = partido
-            ? [partido.local_id, partido.visitante_id]
+            ? [partido.local_id, partido.visitante_id].filter(
+                (x): x is number => x != null,
+              )
             : [];
           const current = seguidosRef.current;
           const mostrar =

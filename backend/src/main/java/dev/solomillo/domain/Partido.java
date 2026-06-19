@@ -29,6 +29,13 @@ public class Partido {
     private LocalDateTime fechaHora;
     private String estadio;
 
+    // Grupo del Mundial (A-L) para partidos de fase de grupos; null en eliminatorias.
+    private String grupo;
+
+    // Fase del torneo. Los partidos de llave aún sin definir tienen equipos null (TBD).
+    @Enumerated(EnumType.STRING)
+    private Ronda ronda = Ronda.GRUPOS;
+
     // cancha neutral (típico de fase final de Mundial): suprime la ventaja de local en el Elo
     private boolean neutral = false;
 

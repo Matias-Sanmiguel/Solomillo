@@ -51,7 +51,10 @@ public class ProdeController {
                 ? usuarioRepo.findByEmail(email).map(Usuario::getId).orElse(null)
                 : null;
 
-        return partidoRepo.findByEstadoOrderByFechaHoraAsc(EstadoPartido.PROGRAMADO).stream().map(p -> {
+        return partidoRepo.findByEstadoOrderByFechaHoraAsc(EstadoPartido.PROGRAMADO).stream()
+                // Excluye partidos de llave sin rival definido (TBD): no se pueden pronosticar.
+                .filter(p -> p.getEquipoLocal() != null && p.getEquipoVisitante() != null)
+                .map(p -> {
             Map<String, Object> m = new LinkedHashMap<>();
             m.put("partido_id", p.getId());
             m.put("torneo_id", p.getTorneo().getId());

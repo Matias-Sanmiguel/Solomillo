@@ -1,11 +1,4 @@
 {
-  "torneo": {
-    "nombre": "Copa Mundial FIFA",
-    "categoria": "Selecciones",
-    "temporada": "2022",
-    "fechaInicio": "2022-11-20",
-    "fechaFin": "2022-12-18"
-  },
   "equipos": [
     {
       "nombre": "Argentina",
@@ -43,9 +36,5 @@
         {"nombre": "Achraf Hakimi", "posicion": "Defensor", "numeroCamiseta": 2, "nacionalidad": "Marruecos", "fechaNacimiento": "1998-11-04"}
       ]
     }
-  ],
-  "partidos": [
-    {"local": "Argentina", "visitante": "Francia",   "fechaHora": "2022-12-18T15:00:00", "estadio": "Lusail Stadium"},
-    {"local": "Croacia",   "visitante": "Marruecos", "fechaHora": "2022-12-17T15:00:00", "estadio": "Khalifa International Stadium"}
   ]
 }

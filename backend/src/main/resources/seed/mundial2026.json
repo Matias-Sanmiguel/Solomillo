@@ -1,0 +1,138 @@
+{
+  "torneo": {
+    "nombre": "Copa Mundial FIFA 2026",
+    "categoria": "Selecciones",
+    "temporada": "2026",
+    "nivel": "MUNDIAL",
+    "fechaInicio": "2026-06-11",
+    "fechaFin": "2026-07-19"
+  },
+  "partidos": [
+    {"local": "México", "visitante": "Sudáfrica", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-11T18:00:00", "estadio": "Mexico City Stadium", "golesLocal": 2, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Corea del Sur", "visitante": "República Checa", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-11T21:00:00", "estadio": "Estadio Guadalajara", "golesLocal": 2, "golesVisitante": 1, "estado": "FINALIZADO"},
+
+    {"local": "Canadá", "visitante": "Bosnia y Herzegovina", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-12T18:00:00", "estadio": "Toronto Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Estados Unidos", "visitante": "Paraguay", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-12T21:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 4, "golesVisitante": 1, "estado": "FINALIZADO"},
+
+    {"local": "Catar", "visitante": "Suiza", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-13T13:00:00", "estadio": "San Francisco Bay Area Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Brasil", "visitante": "Marruecos", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-13T16:00:00", "estadio": "New York New Jersey Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Haití", "visitante": "Escocia", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-13T19:00:00", "estadio": "Boston Stadium", "golesLocal": 0, "golesVisitante": 1, "estado": "FINALIZADO"},
+
+    {"local": "Australia", "visitante": "Turquía", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-14T13:00:00", "estadio": "BC Place Vancouver", "golesLocal": 2, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Alemania", "visitante": "Curazao", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-14T15:00:00", "estadio": "Houston Stadium", "golesLocal": 7, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Países Bajos", "visitante": "Japón", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-14T17:00:00", "estadio": "Dallas Stadium", "golesLocal": 2, "golesVisitante": 2, "estado": "FINALIZADO"},
+    {"local": "Costa de Marfil", "visitante": "Ecuador", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-14T19:00:00", "estadio": "Philadelphia Stadium", "golesLocal": 1, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Suecia", "visitante": "Túnez", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-14T21:00:00", "estadio": "Estadio Monterrey", "golesLocal": 5, "golesVisitante": 1, "estado": "FINALIZADO"},
+
+    {"local": "España", "visitante": "Cabo Verde", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-15T13:00:00", "estadio": "Atlanta Stadium", "golesLocal": 0, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Bélgica", "visitante": "Egipto", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-15T16:00:00", "estadio": "Seattle Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Arabia Saudita", "visitante": "Uruguay", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-15T19:00:00", "estadio": "Miami Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Irán", "visitante": "Nueva Zelanda", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-15T22:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 2, "golesVisitante": 2, "estado": "FINALIZADO"},
+
+    {"local": "Francia", "visitante": "Senegal", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-16T16:00:00", "estadio": "New York New Jersey Stadium", "golesLocal": 3, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Irak", "visitante": "Noruega", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-16T19:00:00", "estadio": "Boston Stadium", "golesLocal": 1, "golesVisitante": 4, "estado": "FINALIZADO"},
+    {"local": "Argentina", "visitante": "Argelia", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-16T22:00:00", "estadio": "Kansas City Stadium", "golesLocal": 3, "golesVisitante": 0, "estado": "FINALIZADO"},
+
+    {"local": "Austria", "visitante": "Jordania", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-17T14:00:00", "estadio": "San Francisco Bay Area Stadium", "golesLocal": 3, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Portugal", "visitante": "RD Congo", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-17T16:00:00", "estadio": "Houston Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Inglaterra", "visitante": "Croacia", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-17T18:00:00", "estadio": "Dallas Stadium", "golesLocal": 4, "golesVisitante": 2, "estado": "FINALIZADO"},
+    {"local": "Ghana", "visitante": "Panamá", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-17T20:00:00", "estadio": "Toronto Stadium", "golesLocal": 1, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Uzbekistán", "visitante": "Colombia", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-17T22:00:00", "estadio": "Mexico City Stadium", "golesLocal": 1, "golesVisitante": 3, "estado": "FINALIZADO"},
+
+    {"local": "República Checa", "visitante": "Sudáfrica", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-18T13:00:00", "estadio": "Atlanta Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Suiza", "visitante": "Bosnia y Herzegovina", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-18T16:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 4, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Canadá", "visitante": "Catar", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-18T19:00:00", "estadio": "BC Place Vancouver", "golesLocal": 6, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "México", "visitante": "Corea del Sur", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-18T22:00:00", "estadio": "Estadio Guadalajara", "golesLocal": 0, "golesVisitante": 0, "estado": "EN_VIVO"},
+
+    {"local": "Estados Unidos", "visitante": "Australia", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-19T16:00:00", "estadio": "Seattle Stadium", "estado": "PROGRAMADO"},
+    {"local": "Escocia", "visitante": "Marruecos", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-19T19:00:00", "estadio": "Boston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Brasil", "visitante": "Haití", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-19T21:30:00", "estadio": "Philadelphia Stadium", "estado": "PROGRAMADO"},
+
+    {"local": "Turquía", "visitante": "Paraguay", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-20T00:00:00", "estadio": "San Francisco Bay Area Stadium", "estado": "PROGRAMADO"},
+    {"local": "Países Bajos", "visitante": "Suecia", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-20T14:00:00", "estadio": "Houston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Alemania", "visitante": "Costa de Marfil", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-20T17:00:00", "estadio": "Toronto Stadium", "estado": "PROGRAMADO"},
+    {"local": "Ecuador", "visitante": "Curazao", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-20T21:00:00", "estadio": "Kansas City Stadium", "estado": "PROGRAMADO"},
+
+    {"local": "Túnez", "visitante": "Japón", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-21T01:00:00", "estadio": "Estadio Monterrey", "estado": "PROGRAMADO"},
+    {"local": "España", "visitante": "Arabia Saudita", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-21T13:00:00", "estadio": "Atlanta Stadium", "estado": "PROGRAMADO"},
+    {"local": "Bélgica", "visitante": "Irán", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-21T16:00:00", "estadio": "Los Angeles Stadium", "estado": "PROGRAMADO"},
+    {"local": "Uruguay", "visitante": "Cabo Verde", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-21T19:00:00", "estadio": "Miami Stadium", "estado": "PROGRAMADO"},
+    {"local": "Nueva Zelanda", "visitante": "Egipto", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-21T22:00:00", "estadio": "BC Place Vancouver", "estado": "PROGRAMADO"},
+
+    {"local": "Argentina", "visitante": "Austria", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-22T14:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+    {"local": "Francia", "visitante": "Irak", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-22T18:00:00", "estadio": "Philadelphia Stadium", "estado": "PROGRAMADO"},
+    {"local": "Noruega", "visitante": "Senegal", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-22T21:00:00", "estadio": "New York New Jersey Stadium", "estado": "PROGRAMADO"},
+
+    {"local": "Jordania", "visitante": "Argelia", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-23T00:00:00", "estadio": "San Francisco Bay Area Stadium", "estado": "PROGRAMADO"},
+    {"local": "Portugal", "visitante": "Uzbekistán", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-23T14:00:00", "estadio": "Houston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Inglaterra", "visitante": "Ghana", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-23T17:00:00", "estadio": "Boston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Panamá", "visitante": "Croacia", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-23T20:00:00", "estadio": "Toronto Stadium", "estado": "PROGRAMADO"},
+    {"local": "Colombia", "visitante": "RD Congo", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-23T23:00:00", "estadio": "Estadio Guadalajara", "estado": "PROGRAMADO"},
+
+    {"local": "Bosnia y Herzegovina", "visitante": "Catar", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-24T16:00:00", "estadio": "Seattle Stadium", "estado": "PROGRAMADO"},
+    {"local": "Suiza", "visitante": "Canadá", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-24T16:00:00", "estadio": "BC Place Vancouver", "estado": "PROGRAMADO"},
+    {"local": "Escocia", "visitante": "Brasil", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-24T19:00:00", "estadio": "Miami Stadium", "estado": "PROGRAMADO"},
+    {"local": "Marruecos", "visitante": "Haití", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-24T19:00:00", "estadio": "Atlanta Stadium", "estado": "PROGRAMADO"},
+    {"local": "Sudáfrica", "visitante": "Corea del Sur", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-24T22:00:00", "estadio": "Estadio Monterrey", "estado": "PROGRAMADO"},
+    {"local": "República Checa", "visitante": "México", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-24T22:00:00", "estadio": "Mexico City Stadium", "estado": "PROGRAMADO"},
+
+    {"local": "Curazao", "visitante": "Costa de Marfil", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-25T17:00:00", "estadio": "Philadelphia Stadium", "estado": "PROGRAMADO"},
+    {"local": "Ecuador", "visitante": "Alemania", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-25T17:00:00", "estadio": "New York New Jersey Stadium", "estado": "PROGRAMADO"},
+    {"local": "Japón", "visitante": "Suecia", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-25T20:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+    {"local": "Túnez", "visitante": "Países Bajos", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-25T20:00:00", "estadio": "Kansas City Stadium", "estado": "PROGRAMADO"},
+    {"local": "Paraguay", "visitante": "Australia", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-25T23:00:00", "estadio": "San Francisco Bay Area Stadium", "estado": "PROGRAMADO"},
+    {"local": "Turquía", "visitante": "Estados Unidos", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-25T23:00:00", "estadio": "Los Angeles Stadium", "estado": "PROGRAMADO"},
+
+    {"local": "Senegal", "visitante": "Irak", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-26T16:00:00", "estadio": "Toronto Stadium", "estado": "PROGRAMADO"},
+    {"local": "Noruega", "visitante": "Francia", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-26T16:00:00", "estadio": "Boston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Cabo Verde", "visitante": "Arabia Saudita", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-26T21:00:00", "estadio": "Houston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Uruguay", "visitante": "España", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-26T21:00:00", "estadio": "Estadio Guadalajara", "estado": "PROGRAMADO"},
+
+    {"local": "Nueva Zelanda", "visitante": "Bélgica", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-27T00:00:00", "estadio": "BC Place Vancouver", "estado": "PROGRAMADO"},
+    {"local": "Egipto", "visitante": "Irán", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-27T00:00:00", "estadio": "Seattle Stadium", "estado": "PROGRAMADO"},
+    {"local": "Croacia", "visitante": "Ghana", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-27T18:00:00", "estadio": "Philadelphia Stadium", "estado": "PROGRAMADO"},
+    {"local": "Panamá", "visitante": "Inglaterra", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-27T18:00:00", "estadio": "New York New Jersey Stadium", "estado": "PROGRAMADO"},
+    {"local": "RD Congo", "visitante": "Uzbekistán", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-27T20:30:00", "estadio": "Atlanta Stadium", "estado": "PROGRAMADO"},
+    {"local": "Colombia", "visitante": "Portugal", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-27T20:30:00", "estadio": "Miami Stadium", "estado": "PROGRAMADO"},
+    {"local": "Argelia", "visitante": "Austria", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-27T23:00:00", "estadio": "Kansas City Stadium", "estado": "PROGRAMADO"},
+    {"local": "Jordania", "visitante": "Argentina", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-27T23:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-28T16:00:00", "estadio": "Los Angeles Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-29T14:00:00", "estadio": "Houston Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-29T17:30:00", "estadio": "Boston Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-29T22:00:00", "estadio": "Estadio Monterrey", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-30T14:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-30T18:00:00", "estadio": "New York New Jersey Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-06-30T22:00:00", "estadio": "Mexico City Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-01T13:00:00", "estadio": "Atlanta Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-01T17:00:00", "estadio": "Seattle Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-01T21:00:00", "estadio": "San Francisco Bay Area Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-02T16:00:00", "estadio": "Los Angeles Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-02T20:00:00", "estadio": "Toronto Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-03T00:00:00", "estadio": "BC Place Vancouver", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-03T15:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-03T19:00:00", "estadio": "Miami Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "DIECISEISAVOS", "fecha": "2026-07-03T22:30:00", "estadio": "Kansas City Stadium", "estado": "PROGRAMADO"},
+
+    {"ronda": "OCTAVOS", "fecha": "2026-07-04T14:00:00", "estadio": "Houston Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-04T18:00:00", "estadio": "Philadelphia Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-05T17:00:00", "estadio": "New York New Jersey Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-05T21:00:00", "estadio": "Mexico City Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-06T16:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-06T21:00:00", "estadio": "Seattle Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-07T13:00:00", "estadio": "Atlanta Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "OCTAVOS", "fecha": "2026-07-07T17:00:00", "estadio": "BC Place Vancouver", "estado": "PROGRAMADO"},
+
+    {"ronda": "CUARTOS", "fecha": "2026-07-09T17:00:00", "estadio": "Boston Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "CUARTOS", "fecha": "2026-07-10T16:00:00", "estadio": "Los Angeles Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "CUARTOS", "fecha": "2026-07-11T18:00:00", "estadio": "Miami Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "CUARTOS", "fecha": "2026-07-11T22:00:00", "estadio": "Kansas City Stadium", "estado": "PROGRAMADO"},
+
+    {"ronda": "SEMIFINAL", "fecha": "2026-07-14T16:00:00", "estadio": "Dallas Stadium", "estado": "PROGRAMADO"},
+    {"ronda": "SEMIFINAL", "fecha": "2026-07-15T16:00:00", "estadio": "Atlanta Stadium", "estado": "PROGRAMADO"},
+
+    {"ronda": "TERCER_PUESTO", "fecha": "2026-07-18T18:00:00", "estadio": "Miami Stadium", "estado": "PROGRAMADO"},
+
+    {"ronda": "FINAL", "fecha": "2026-07-19T16:00:00", "estadio": "New York New Jersey Stadium", "estado": "PROGRAMADO"}
+  ]
+}

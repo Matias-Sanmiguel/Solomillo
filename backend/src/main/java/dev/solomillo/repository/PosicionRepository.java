@@ -8,5 +8,6 @@ import java.util.Optional;
 public interface PosicionRepository extends JpaRepository<Posicion, Long> {
     Optional<Posicion> findByTorneoIdAndEquipoId(Long torneoId, Long equipoId);
     List<Posicion> findByTorneoIdOrderByPuntosDescGolesFavorDesc(Long torneoId);
+    List<Posicion> findByTorneoId(Long torneoId);
     List<Posicion> findByEquipoId(Long equipoId);
 }

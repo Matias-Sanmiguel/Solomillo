@@ -103,8 +103,8 @@ export default function Board() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {enVivo.map((p) => {
-              const local = eq.get(p.local_id);
-              const visit = eq.get(p.visitante_id);
+              const local = eq.get(p.local_id ?? -1);
+              const visit = eq.get(p.visitante_id ?? -1);
               const pred = preds.find((pr) => pr.partido_id === p.id);
               return (
                 <div
@@ -206,8 +206,8 @@ export default function Board() {
           )
           .map((pred) => {
             const p = partidoOf.get(pred.partido_id);
-            const local = p ? eq.get(p.local_id) : undefined;
-            const visit = p ? eq.get(p.visitante_id) : undefined;
+            const local = p ? eq.get(p.local_id ?? -1) : undefined;
+            const visit = p ? eq.get(p.visitante_id ?? -1) : undefined;
             const fav = favorito(pred.probabilidades);
             return (
               <Link

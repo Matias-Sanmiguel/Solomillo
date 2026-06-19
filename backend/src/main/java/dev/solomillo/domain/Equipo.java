@@ -17,6 +17,9 @@ public class Equipo {
     private String sede;
     private String estadio;
 
+    // Grupo del Mundial (A-L). Null para equipos sin grupo asignado.
+    private String grupo;
+
     private Integer puntosFifa;
     private Double elo = 1500.0;
 }
