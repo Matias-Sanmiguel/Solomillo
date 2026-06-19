@@ -106,7 +106,7 @@ Spring inyecta automáticamente todos los `FuenteAdapter` en el `IngestRegistry`
 | GET | `/health` `/torneos` `/equipos` `/partidos` | público |
 | GET | `/equipos/{id}/jugadores` `/equipos/{id}/estadisticas` | público |
 | GET | `/jugadores/{id}/estadisticas` | público |
-| GET | `/torneos/{id}/posiciones` | público |
+| GET | `/torneos/{id}/posiciones` `/torneos/{id}/goleadores` | público |
 | GET | `/partidos/{id}/alertas` | público |
 | POST | `/ingest/{fuente}` | `admin_sistema` |
 | POST | `/partidos/{id}/resultado` | `admin_sistema` · `cientifico_datos` |

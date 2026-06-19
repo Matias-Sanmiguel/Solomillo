@@ -41,7 +41,8 @@ import java.util.Random;
  * de partidos a partir del Elo (resultados coherentes para entrenar el modelo).
  */
 @Component
-@Order(1)
+@Order(2) // DataLoader (@Order 1) debe correr primero: crea los equipos del Mundial 2022 con su
+          // plantel real; este seed luego los reusa por nombre (findByNombre) y evita duplicados.
 public class FifaEloSeedService implements ApplicationRunner {
 
     private static final String TORNEO_ELIM = "Eliminatorias Mundial 2026 (Simulado)";
@@ -207,20 +208,54 @@ public class FifaEloSeedService implements ApplicationRunner {
             if (e.getSede() == null) e.setSede("");
             equipoRepo.save(e);
             equipos.add(e);
-
-            if (jugadorRepo.findByEquipoId(e.getId()).isEmpty()) {
-                String[] pos = {"Delantero", "Mediocampista", "Defensor"};
-                for (int k = 0; k < pos.length; k++) {
-                    Jugador j = new Jugador();
-                    j.setEquipo(e);
-                    j.setNombre(nombre + " " + pos[k]);
-                    j.setPosicion(pos[k]);
-                    j.setNumeroCamiseta(k + 9);
-                    jugadorRepo.save(j);
-                }
-            }
+            // No generamos jugadores genéricos: las selecciones que jugaron el Mundial ya traen su
+            // plantel real desde mundial.json (DataLoader). Las que solo están en el ranking FIFA y no
+            // disputaron el Mundial (p. ej. Colombia, Italia) quedan sin jugadores: siguen en el Elo/FIFA
+            // y en las eliminatorias simuladas, pero no aportan goleadores (atribuirGoles las saltea).
         }
         return equipos;
+    }
+
+    /** Reparte los goles simulados del partido entre los jugadores del equipo,
+     *  ponderando por posición, y los acumula en estadisticas_jugador (metrica "goles"). */
+    private void atribuirGoles(Equipo equipo, Long torneoId, int goles, Random rng) {
+        if (goles <= 0) return;
+        List<Jugador> plantel = jugadorRepo.findByEquipoId(equipo.getId());
+        if (plantel.isEmpty()) return;
+        for (int g = 0; g < goles; g++) {
+            Jugador autor = elegirGoleador(plantel, rng);
+            var stat = ejRepo.findByJugadorIdAndTorneoIdAndMetrica(autor.getId(), torneoId, "goles")
+                    .orElseGet(() -> {
+                        var s = new EstadisticaJugador();
+                        s.setJugadorId(autor.getId());
+                        s.setTorneoId(torneoId);
+                        s.setMetrica("goles");
+                        return s;
+                    });
+            stat.setValor(stat.getValor() + 1);
+            ejRepo.save(stat);
+        }
+    }
+
+    private Jugador elegirGoleador(List<Jugador> plantel, Random rng) {
+        double total = 0;
+        for (Jugador j : plantel) total += pesoPosicion(j.getPosicion());
+        double r = rng.nextDouble() * total;
+        for (Jugador j : plantel) {
+            r -= pesoPosicion(j.getPosicion());
+            if (r <= 0) return j;
+        }
+        return plantel.get(plantel.size() - 1);
+    }
+
+    private double pesoPosicion(String posicion) {
+        if (posicion == null) return 1.0;
+        return switch (posicion) {
+            case "Delantero" -> 6.0;
+            case "Mediocampista" -> 3.0;
+            case "Defensor" -> 1.0;
+            default -> 1.0;
+        };
     }
 
     private int[] simular(Equipo local, Equipo visit, Random rng) {

@@ -92,6 +92,22 @@ export type Calibracion = {
   bins: { confianza: number; precision: number; n: number }[];
 };
 
+export type Torneo = {
+  id: number;
+  nombre: string;
+  temporada: string;
+};
+
+export type Goleador = {
+  posicion: number;
+  jugador_id: number;
+  nombre: string;
+  equipo_id: number | null;
+  equipo: string;
+  escudo: string;
+  goles: number;
+};
+
 export type EloEquipo = {
   equipo_id: number;
   nombre: string;
