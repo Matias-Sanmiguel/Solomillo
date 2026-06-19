@@ -9,4 +9,5 @@ public interface EstadisticaJugadorRepository extends JpaRepository<EstadisticaJ
     Optional<EstadisticaJugador> findByJugadorIdAndTorneoIdAndMetrica(Long jugadorId, Long torneoId, String metrica);
     List<EstadisticaJugador> findByJugadorId(Long jugadorId);
     Optional<EstadisticaJugador> findByJugadorIdAndMetrica(Long jugadorId, String metrica);
+    List<EstadisticaJugador> findByMetricaAndTorneoIdOrderByValorDesc(String metrica, Long torneoId);
 }

@@ -114,6 +114,42 @@ public class DeportivoController {
         ).toList();
     }
 
+    @GetMapping("/torneos/{id}/goleadores")
+    public List<Map<String, Object>> goleadores(@PathVariable Long id) {
+        var stats = ejRepo.findByMetricaAndTorneoIdOrderByValorDesc("goles", id).stream()
+                .filter(s -> s.getValor() > 0)
+                .limit(20)
+                .toList();
+        var jugadores = jugadorRepo.findAllById(stats.stream().map(s -> s.getJugadorId()).toList()).stream()
+                .collect(java.util.stream.Collectors.toMap(dev.solomillo.domain.Jugador::getId, j -> j));
+        // Cargamos los equipos en batch por id: open-in-view está deshabilitado, así que no
+        // podemos recorrer la asociación LAZY jugador.getEquipo() fuera de la transacción.
+        var equipoIds = jugadores.values().stream()
+                .map(j -> j.getEquipo() != null ? j.getEquipo().getId() : null)
+                .filter(java.util.Objects::nonNull).distinct().toList();
+        var equipos = equipoRepo.findAllById(equipoIds).stream()
+                .collect(java.util.stream.Collectors.toMap(dev.solomillo.domain.Equipo::getId, e -> e));
+
+        var result = new java.util.ArrayList<Map<String, Object>>();
+        int pos = 1;
+        for (var s : stats) {
+            var jugador = jugadores.get(s.getJugadorId());
+            if (jugador == null) continue;
+            Long equipoId = jugador.getEquipo() != null ? jugador.getEquipo().getId() : null;
+            var equipo = equipoId != null ? equipos.get(equipoId) : null;
+            Map<String, Object> m = new java.util.LinkedHashMap<>();
+            m.put("posicion", pos++);
+            m.put("jugador_id", jugador.getId());
+            m.put("nombre", jugador.getNombre());
+            m.put("equipo_id", equipoId);
+            m.put("equipo", equipo != null ? equipo.getNombre() : "");
+            m.put("escudo", equipo != null && equipo.getEscudo() != null ? equipo.getEscudo() : "");
+            m.put("goles", (int) s.getValor());
+            result.add(m);
+        }
+        return result;
+    }
+
     @GetMapping("/jugadores/{id}/estadisticas")
     public List<Map<String, Object>> statsJugador(@PathVariable Long id) {
         return ejRepo.findByJugadorId(id).stream().map(s ->

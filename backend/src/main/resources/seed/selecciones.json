@@ -22,5 +22,15 @@
   { "nombre": "Polonia", "puntosFifa": 1548, "codigo": "pl" },
   { "nombre": "Corea del Sur", "puntosFifa": 1530, "codigo": "kr" },
   { "nombre": "Australia", "puntosFifa": 1488, "codigo": "au" },
-  { "nombre": "Ecuador", "puntosFifa": 1464, "codigo": "ec" }
+  { "nombre": "Ecuador", "puntosFifa": 1464, "codigo": "ec" },
+  { "nombre": "Gales", "puntosFifa": 1569, "codigo": "gb-wls" },
+  { "nombre": "Irán", "puntosFifa": 1564, "codigo": "ir" },
+  { "nombre": "Serbia", "puntosFifa": 1549, "codigo": "rs" },
+  { "nombre": "Túnez", "puntosFifa": 1507, "codigo": "tn" },
+  { "nombre": "Costa Rica", "puntosFifa": 1503, "codigo": "cr" },
+  { "nombre": "Canadá", "puntosFifa": 1475, "codigo": "ca" },
+  { "nombre": "Camerún", "puntosFifa": 1471, "codigo": "cm" },
+  { "nombre": "Catar", "puntosFifa": 1439, "codigo": "qa" },
+  { "nombre": "Arabia Saudita", "puntosFifa": 1437, "codigo": "sa" },
+  { "nombre": "Ghana", "puntosFifa": 1393, "codigo": "gh" }
 ]

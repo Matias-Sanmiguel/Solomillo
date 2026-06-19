@@ -28,7 +28,7 @@ public class MlAnalytics {
         ModeloPredictivo modelo = modeloRepo.findByNombreAndActivoTrue("resultado_partido")
                 .orElseThrow(() -> new IllegalStateException("Sin modelo activo."));
         Logistic clf = (Logistic) SerializationHelper.read(modelo.getRuta());
-        var header = DatasetGenerator.buildHeader();
+        var header = FeatureExtractor.buildHeader();
 
         List<Posicion> filas = posicionRepo.findByTorneoIdOrderByPuntosDescGolesFavorDesc(torneoId);
         double avgGf = filas.stream().mapToInt(Posicion::getGolesFavor).average().orElse(0);

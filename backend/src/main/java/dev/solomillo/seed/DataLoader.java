@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.solomillo.core.AppProperties;
 import dev.solomillo.domain.Equipo;
+import dev.solomillo.domain.EstadoPartido;
 import dev.solomillo.domain.Jugador;
 import dev.solomillo.domain.Partido;
 import dev.solomillo.domain.Torneo;
@@ -81,6 +82,13 @@ public class DataLoader implements ApplicationRunner {
             partido.setEquipoVisitante(equipos.get(p.get("visitante").asText()));
             partido.setFechaHora(LocalDateTime.parse(p.get("fechaHora").asText()));
             partido.setEstadio(p.get("estadio").asText());
+            // Resultado real (si viene en el JSON): marca el partido como jugado.
+            // En eliminatorias resueltas por penales, el marcador es el de tiempo regular + suplementario.
+            if (p.has("golesLocal") && p.has("golesVisitante")) {
+                partido.setGolesLocal(p.get("golesLocal").asInt());
+                partido.setGolesVisitante(p.get("golesVisitante").asInt());
+                partido.setEstado(EstadoPartido.FINALIZADO);
+            }
             partidoRepo.save(partido);
         }
     }
