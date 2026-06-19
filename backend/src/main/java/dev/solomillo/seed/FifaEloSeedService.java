@@ -225,14 +225,17 @@ public class FifaEloSeedService implements ApplicationRunner {
             procesar(new EventoInterno("gol", p.getId(), minuto, jv.get(g % jv.size()), Map.of()));
         }
 
-        // Algunas tarjetas amarillas para que el comparador tenga mas de una metrica.
+        // Algunas tarjetas (mayoría amarillas, alguna roja) para que el comparador
+        // tenga métricas de disciplina diferenciadas (amarillas vs rojas).
         for (int t = 0, n = rng.nextInt(4); t < n; t++) {
             boolean local = rng.nextBoolean();
             List<Long> js = local ? jl : jv;
             if (js.isEmpty()) continue;
             Long jug = js.get(rng.nextInt(js.size()));
+            // ~15% rojas: poco frecuentes pero suficientes para poblar la métrica.
+            String color = rng.nextDouble() < 0.15 ? "RED_CARD" : "YELLOW_CARD";
             procesar(new EventoInterno("tarjeta", p.getId(), 10 + rng.nextInt(80), jug,
-                    Map.of("eventType", "YELLOW_CARD")));
+                    Map.of("eventType", color)));
         }
 
         procesar(new EventoInterno("fin_partido", p.getId(), 90, null, Map.of()));

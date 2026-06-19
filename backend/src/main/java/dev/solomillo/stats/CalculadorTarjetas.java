@@ -42,10 +42,8 @@ public class CalculadorTarjetas implements CalculadorEstadistica {
         if (partido == null || jugador == null) return;
 
         Long torneoId = partido.getTorneo().getId();
-        // Métrica general "tarjetas" + métrica específica según el color, si la fuente lo informa.
-        incJugador(jugador.getId(), torneoId, "tarjetas", 1);
-        incEquipo(jugador.getEquipo().getId(), torneoId, "tarjetas", 1);
-
+        // Métrica específica según el color (amarilla/roja). Evitamos la métrica genérica
+        // "tarjetas" porque duplicaba a "tarjetas_amarillas" cuando la fuente solo informa amarillas.
         String especifica = metricaPorColor(e);
         if (especifica != null) {
             incJugador(jugador.getId(), torneoId, especifica, 1);

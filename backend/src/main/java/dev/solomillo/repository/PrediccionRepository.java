@@ -11,4 +11,5 @@ public interface PrediccionRepository extends JpaRepository<Prediccion, Long> {
     List<Prediccion> findByResultadoRealIsNotNull();
     Optional<Prediccion> findFirstByPartidoIdOrderByPredichoEnDesc(Long partidoId);
     List<Prediccion> findByPartidoIdAndResultadoRealIsNull(Long partidoId);
+    Optional<Prediccion> findByPartidoIdAndModeloVersion(Long partidoId, int modeloVersion);
 }

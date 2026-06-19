@@ -27,6 +27,61 @@ function buildRows(statsA: Stat[], statsB: Stat[]): StatRow[] {
   }));
 }
 
+// Etiqueta legible + orden "futbolero" para la tabla de equipos.
+const LABELS: Record<string, string> = {
+  partidos_jugados: "Partidos jugados",
+  victorias: "Victorias",
+  empates: "Empates",
+  derrotas: "Derrotas",
+  goles_favor: "Goles a favor",
+  goles_contra: "Goles en contra",
+  puntos: "Puntos",
+  tarjetas_amarillas: "Tarjetas amarillas",
+  tarjetas_rojas: "Tarjetas rojas",
+};
+const ORDEN_EQUIPO = Object.keys(LABELS);
+
+const val = (rows: StatRow[], metrica: string, lado: "a" | "b") =>
+  rows.find((r) => r.metrica === metrica)?.[lado] ?? null;
+
+/** Promedio de gol por partido, redondeado a 1 decimal (null si no hay partidos). */
+function promedio(gf: number | null, pj: number | null): number | null {
+  if (!pj) return null;
+  return Math.round(((gf ?? 0) / pj) * 10) / 10;
+}
+
+/**
+ * Filas para la tabla. Para equipos: métricas ordenadas con etiqueta en español + filas
+ * derivadas (diferencia de gol, promedio de gol). Para jugadores: las métricas crudas.
+ */
+function displayRows(rows: StatRow[], modo: "equipos" | "jugadores"): StatRow[] {
+  if (modo !== "equipos") {
+    return rows.map((r) => ({ ...r, metrica: r.metrica.replace(/_/g, " ") }));
+  }
+  const base = ORDEN_EQUIPO.filter((m) => rows.some((r) => r.metrica === m)).map(
+    (m) => ({ metrica: LABELS[m], a: val(rows, m, "a"), b: val(rows, m, "b") })
+  );
+
+  const derivadas: StatRow[] = [];
+  const gfA = val(rows, "goles_favor", "a");
+  const gfB = val(rows, "goles_favor", "b");
+  const gcA = val(rows, "goles_contra", "a");
+  const gcB = val(rows, "goles_contra", "b");
+  if (gfA !== null || gfB !== null) {
+    derivadas.push({
+      metrica: "Diferencia de gol",
+      a: gfA !== null || gcA !== null ? (gfA ?? 0) - (gcA ?? 0) : null,
+      b: gfB !== null || gcB !== null ? (gfB ?? 0) - (gcB ?? 0) : null,
+    });
+    derivadas.push({
+      metrica: "Promedio de gol",
+      a: promedio(gfA, val(rows, "partidos_jugados", "a")),
+      b: promedio(gfB, val(rows, "partidos_jugados", "b")),
+    });
+  }
+  return [...base, ...derivadas];
+}
+
 export default function ComparePage() {
   const [modo, setModo] = useState<"equipos" | "jugadores">("equipos");
   const [equipos, setEquipos] = useState<Equipo[]>([]);
@@ -93,6 +148,7 @@ export default function ComparePage() {
   }, [modo, eqA, eqB, jugA, jugB]);
 
   const rows = buildRows(statsA, statsB);
+  const filas = displayRows(rows, modo);
   const nombreA = modo === "equipos" ? eqA?.nombre : jugA?.nombre;
   const nombreB = modo === "equipos" ? eqB?.nombre : jugB?.nombre;
   const ambosSeleccionados = modo === "equipos" ? !!(eqA && eqB) : !!(jugA && jugB);
@@ -119,7 +175,7 @@ export default function ComparePage() {
       {modo === "equipos" ? (
         <div className="grid gap-4 sm:grid-cols-2">
           <CompareSelector
-            items={equipos}
+            items={equipos.filter((e) => e.id !== eqB?.id)}
             value={eqA}
             onChange={setEqA}
             label="Equipo A"
@@ -127,7 +183,7 @@ export default function ComparePage() {
             getLabel={(e) => e.nombre}
           />
           <CompareSelector
-            items={equipos}
+            items={equipos.filter((e) => e.id !== eqA?.id)}
             value={eqB}
             onChange={setEqB}
             label="Equipo B"
@@ -151,7 +207,7 @@ export default function ComparePage() {
             />
             {jugadoresA.length > 0 && (
               <CompareSelector
-                items={jugadoresA}
+                items={jugadoresA.filter((j) => j.id !== jugB?.id)}
                 value={jugA}
                 onChange={setJugA}
                 label="Jugador A"
@@ -174,7 +230,7 @@ export default function ComparePage() {
             />
             {jugadoresB.length > 0 && (
               <CompareSelector
-                items={jugadoresB}
+                items={jugadoresB.filter((j) => j.id !== jugA?.id)}
                 value={jugB}
                 onChange={setJugB}
                 label="Jugador B"
@@ -233,7 +289,7 @@ export default function ComparePage() {
             </div>
             <table className="w-full text-sm">
               <tbody>
-                {rows.map((row) => {
+                {filas.map((row) => {
                   const aNum = row.a ?? 0;
                   const bNum = row.b ?? 0;
                   return (
