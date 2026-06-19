@@ -25,6 +25,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import dev.solomillo.repository.EstadisticaJugadorRepository;
+import dev.solomillo.stats.EstadisticaJugador;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -66,7 +68,7 @@ public class FifaEloSeedService implements ApplicationRunner {
                               TorneoRepository torneoRepo, EquipoRepository equipoRepo,
                               JugadorRepository jugadorRepo, PartidoRepository partidoRepo,
                               EloService eloService, List<CalculadorEstadistica> calculadores,
-                              RankingsService rankings, EventoDeportivoRepository eventoRepo) {
+                              RankingsService rankings, EventoDeportivoRepository eventoRepo, EstadisticaJugadorRepository ejRepo) {
         this.props = props;
         this.mapper = mapper;
         this.torneoRepo = torneoRepo;
@@ -116,7 +118,7 @@ public class FifaEloSeedService implements ApplicationRunner {
         Collections.shuffle(pares, rng);
 
         // Cache de jugadores por equipo para atribuir goles/tarjetas al reproducir eventos.
-        Map<Long, List<Long>> jugadoresPorEquipo = new HashMap<>();
+        Map<Long, List<Jugador>> jugadoresPorEquipo = new HashMap<>();
 
         LocalDateTime fecha = LocalDateTime.now().minusDays(pares.size() + 20L);
         for (int[] par : pares) {
@@ -245,26 +247,28 @@ public class FifaEloSeedService implements ApplicationRunner {
     }
 
     /** Reproduce los goles (atribuidos a jugadores), unas tarjetas y el fin del partido. */
-    private void reproducirEventos(Partido p, Map<Long, List<Long>> cache, Random rng) {
-        List<Long> jl = cache.computeIfAbsent(p.getEquipoLocal().getId(), this::jugadoresDe);
-        List<Long> jv = cache.computeIfAbsent(p.getEquipoVisitante().getId(), this::jugadoresDe);
+    private void reproducirEventos(Partido p, Map<Long, List<Jugador>> cache, Random rng) {
+        List<Jugador> jl = cache.computeIfAbsent(p.getEquipoLocal().getId(), this::jugadoresDe);
+        List<Jugador> jv = cache.computeIfAbsent(p.getEquipoVisitante().getId(), this::jugadoresDe);
 
         int minuto = 0;
+        // El goleador se elige ponderando por posición (Delantero > Mediocampista > Defensor),
+        // no por orden de plantel: si no, el arquero (dorsal 1) lideraba la tabla de goleadores.
         for (int g = 0; g < p.getGolesLocal() && !jl.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            procesar(new EventoInterno("gol", p.getId(), minuto, jl.get(g % jl.size()), Map.of()));
+            procesar(new EventoInterno("gol", p.getId(), minuto, elegirGoleador(jl, rng).getId(), Map.of()));
         }
         for (int g = 0; g < p.getGolesVisitante() && !jv.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            procesar(new EventoInterno("gol", p.getId(), minuto, jv.get(g % jv.size()), Map.of()));
+            procesar(new EventoInterno("gol", p.getId(), minuto, elegirGoleador(jv, rng).getId(), Map.of()));
         }
 
         // Tarjetas: amarillas mayoritariamente, rojas esporádicas.
         for (int t = 0, n = rng.nextInt(5); t < n; t++) {
             boolean esLocal = rng.nextBoolean();
-            List<Long> js = esLocal ? jl : jv;
+            List<Jugador> js = esLocal ? jl : jv;
             if (js.isEmpty()) continue;
-            Long jug = js.get(rng.nextInt(js.size()));
+            Long jug = js.get(rng.nextInt(js.size())).getId();
             String tipo = rng.nextInt(10) < 2 ? "RED_CARD" : "YELLOW_CARD";
             procesar(new EventoInterno("tarjeta", p.getId(), 10 + rng.nextInt(80), jug,
                     Map.of("eventType", tipo)));
@@ -290,7 +294,7 @@ public class FifaEloSeedService implements ApplicationRunner {
         rankings.actualizar(e);
     }
 
-    private List<Long> jugadoresDe(Long equipoId) {
-        return jugadorRepo.findByEquipoId(equipoId).stream().map(j -> j.getId()).toList();
+    private List<Jugador> jugadoresDe(Long equipoId) {
+        return jugadorRepo.findByEquipoId(equipoId);
     }
 }
