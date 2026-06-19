@@ -9,11 +9,6 @@ import dev.solomillo.repository.JugadorRepository;
 import dev.solomillo.repository.PartidoRepository;
 import org.springframework.stereotype.Component;
 
-/**
- * Segunda estrategia de estadística (patrón Strategy): cuenta tarjetas por jugador y equipo.
- * Se suma al motor sin modificarlo — {@code MotorProcesamiento} inyecta todos los
- * {@link CalculadorEstadistica} y aplica los que correspondan a cada evento.
- */
 @Component
 public class CalculadorTarjetas implements CalculadorEstadistica {
 
@@ -32,33 +27,50 @@ public class CalculadorTarjetas implements CalculadorEstadistica {
 
     @Override
     public boolean aplica(EventoInterno e) {
-        return "tarjeta".equals(e.tipo()) && e.jugadorId() != null;
+        if (!"tarjeta".equals(e.tipo())) return false;
+        return e.jugadorId() != null
+                || (e.datos() != null && (e.datos().containsKey("color") || e.datos().containsKey("eventType")));
     }
 
     @Override
     public void actualizar(EventoInterno e) {
         Partido partido = partidoRepo.findById(e.partidoId()).orElse(null);
-        Jugador jugador = jugadorRepo.findById(e.jugadorId()).orElse(null);
-        if (partido == null || jugador == null) return;
+        if (partido == null) return;
 
         Long torneoId = partido.getTorneo().getId();
-        // Métrica específica según el color (amarilla/roja). Evitamos la métrica genérica
-        // "tarjetas" porque duplicaba a "tarjetas_amarillas" cuando la fuente solo informa amarillas.
-        String especifica = metricaPorColor(e);
-        if (especifica != null) {
-            incJugador(jugador.getId(), torneoId, especifica, 1);
-            incEquipo(jugador.getEquipo().getId(), torneoId, especifica, 1);
+        String especifica = metricaEspecifica(e);
+
+        if (e.jugadorId() != null) {
+            Jugador jugador = jugadorRepo.findById(e.jugadorId()).orElse(null);
+            if (jugador == null) return;
+            Long equipoId = jugador.getEquipo().getId();
+            incJugador(e.jugadorId(), torneoId, "tarjetas", 1);
+            incEquipo(equipoId, torneoId, "tarjetas", 1);
+            if (especifica != null) {
+                incJugador(e.jugadorId(), torneoId, especifica, 1);
+                incEquipo(equipoId, torneoId, especifica, 1);
+            }
+        } else if (e.datos() != null && e.datos().containsKey("equipo")) {
+            String equipoStr = (String) e.datos().get("equipo");
+            Long equipoId = "visitante".equals(equipoStr)
+                    ? partido.getEquipoVisitante().getId()
+                    : partido.getEquipoLocal().getId();
+            String metrica = especifica != null ? especifica : "tarjetas_amarillas";
+            incEquipo(equipoId, torneoId, metrica, 1);
         }
     }
 
-    private String metricaPorColor(EventoInterno e) {
-        Object tipoExterno = e.datos() == null ? null : e.datos().get("eventType");
-        if (tipoExterno == null) return null;
-        return switch (tipoExterno.toString()) {
+    private String metricaEspecifica(EventoInterno e) {
+        if (e.datos() == null) return null;
+        Object color = e.datos().get("color");
+        if (color != null) return "roja".equals(color) ? "tarjetas_rojas" : "tarjetas_amarillas";
+        Object tipo = e.datos().get("eventType");
+        if (tipo != null) return switch (tipo.toString()) {
             case "YELLOW_CARD" -> "tarjetas_amarillas";
             case "RED_CARD" -> "tarjetas_rojas";
             default -> null;
         };
+        return null;
     }
 
     private void incJugador(Long jId, Long tId, String metrica, double delta) {

@@ -56,7 +56,6 @@ public class FifaEloSeedService implements ApplicationRunner {
     private final JugadorRepository jugadorRepo;
     private final PartidoRepository partidoRepo;
     private final EloService eloService;
-    // Reutilizamos las MISMAS reglas del flujo en vivo (sin Publisher/alertas) para no divergir.
     private final List<CalculadorEstadistica> calculadores;
     private final RankingsService rankings;
     private final EventoDeportivoRepository eventoRepo;
@@ -133,7 +132,6 @@ public class FifaEloSeedService implements ApplicationRunner {
             p.setEstado(EstadoPartido.FINALIZADO);
             partidoRepo.save(p);
             eloService.aplicarResultado(p);
-            // Reproduce los eventos del partido por el flujo real -> estadisticas y posiciones.
             reproducirEventos(p, jugadoresPorEquipo, rng);
             fecha = fecha.plusDays(1);
         }
@@ -163,7 +161,6 @@ public class FifaEloSeedService implements ApplicationRunner {
         for (JsonNode n : root) {
             String nombre = n.get("nombre").asText();
             int puntos = n.get("puntosFifa").asInt();
-            // Prior del rating: rating real de eloratings.net; fallback a puntos FIFA.
             double eloInicial = n.hasNonNull("elo") ? n.get("elo").asDouble() : puntos;
             String escudo = "https://flagcdn.com/w160/" + n.get("codigo").asText() + ".png";
             Equipo e = equipoRepo.findByNombre(nombre).orElseGet(Equipo::new);
@@ -225,25 +222,23 @@ public class FifaEloSeedService implements ApplicationRunner {
             procesar(new EventoInterno("gol", p.getId(), minuto, jv.get(g % jv.size()), Map.of()));
         }
 
-        // Algunas tarjetas (mayoría amarillas, alguna roja) para que el comparador
-        // tenga métricas de disciplina diferenciadas (amarillas vs rojas).
-        for (int t = 0, n = rng.nextInt(4); t < n; t++) {
-            boolean local = rng.nextBoolean();
-            List<Long> js = local ? jl : jv;
+        // Tarjetas: amarillas mayoritariamente, rojas esporádicas.
+        for (int t = 0, n = rng.nextInt(5); t < n; t++) {
+            boolean esLocal = rng.nextBoolean();
+            List<Long> js = esLocal ? jl : jv;
             if (js.isEmpty()) continue;
             Long jug = js.get(rng.nextInt(js.size()));
-            // ~15% rojas: poco frecuentes pero suficientes para poblar la métrica.
-            String color = rng.nextDouble() < 0.15 ? "RED_CARD" : "YELLOW_CARD";
+            String tipo = rng.nextInt(10) < 2 ? "RED_CARD" : "YELLOW_CARD";
             procesar(new EventoInterno("tarjeta", p.getId(), 10 + rng.nextInt(80), jug,
-                    Map.of("eventType", color)));
+                    Map.of("eventType", tipo)));
         }
 
         procesar(new EventoInterno("fin_partido", p.getId(), 90, null, Map.of()));
     }
 
     /**
-     * Mismo pipeline que {@code MotorProcesamiento.procesar} pero sin Publisher ni alertas:
-     * persiste el evento y aplica los calculadores de estadistica y el ranking reales.
+     * Mismo pipeline que MotorProcesamiento.procesar pero sin Publisher ni alertas:
+     * persiste el evento y aplica los calculadores de estadística y el ranking reales.
      */
     private void procesar(EventoInterno e) {
         var ed = new EventoDeportivo();
