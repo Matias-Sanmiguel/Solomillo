@@ -9,6 +9,7 @@ export default function EloPage() {
   const [ranking, setRanking] = useState<EloEquipo[]>([]);
   const [sel, setSel] = useState<EloEquipo | null>(null);
   const [hist, setHist] = useState<EloPunto[]>([]);
+  const [orden, setOrden] = useState<"elo" | "fifa">("elo");
 
   useEffect(() => {
     get<EloEquipo[]>("/ml/elo")
@@ -21,8 +22,18 @@ export default function EloPage() {
 
   const elegir = (e: EloEquipo) => {
     setSel(e);
-    get<EloPunto[]>(`/ml/elo/${e.equipo_id}/historial`).then(setHist).catch(() => setHist([]));
+    get<EloPunto[]>(`/ml/elo/${e.equipo_id}/historial`)
+      .then(setHist)
+      .catch(() => setHist([]));
   };
+
+  const rankingOrdenado = [...ranking].sort((a, b) => {
+    if (orden === "fifa") {
+      return (b.puntos_fifa ?? 0) - (a.puntos_fifa ?? 0);
+    }
+
+    return b.elo - a.elo;
+  });
 
   return (
     <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr]">
@@ -33,12 +44,23 @@ export default function EloPage() {
             <tr>
               <th className="py-2">#</th>
               <th>Selección</th>
-              <th className="text-right">Elo</th>
-              <th className="text-right">FIFA</th>
+              <th
+                className="text-right cursor-pointer"
+                onClick={() => setOrden("elo")}
+              >
+                Elo {orden === "elo" ? "▼" : ""}
+              </th>
+
+              <th
+                className="text-right cursor-pointer"
+                onClick={() => setOrden("fifa")}
+              >
+                FIFA {orden === "fifa" ? "▼" : ""}
+              </th>
             </tr>
           </thead>
           <tbody>
-            {ranking.map((e, i) => (
+            {rankingOrdenado.map((e, i) => (
               <tr
                 key={e.equipo_id}
                 onClick={() => elegir(e)}
@@ -53,8 +75,12 @@ export default function EloPage() {
                     <span className="font-medium">{e.nombre}</span>
                   </span>
                 </td>
-                <td className="text-right font-semibold tabular-nums">{Math.round(e.elo)}</td>
-                <td className="text-right text-muted tabular-nums">{e.puntos_fifa || "—"}</td>
+                <td className="text-right font-semibold tabular-nums">
+                  {Math.round(e.elo)}
+                </td>
+                <td className="text-right text-muted tabular-nums">
+                  {e.puntos_fifa || "—"}
+                </td>
               </tr>
             ))}
             {ranking.length === 0 && (
@@ -69,10 +95,17 @@ export default function EloPage() {
       </div>
 
       <div className="card">
-        <h2 className="mb-1 text-lg font-semibold">{sel ? sel.nombre : "Evolución"}</h2>
-        <p className="mb-3 text-xs text-muted">Elo tras cada partido finalizado.</p>
+        <h2 className="mb-1 text-lg font-semibold">
+          {sel ? sel.nombre : "Evolución"}
+        </h2>
+        <p className="mb-3 text-xs text-muted">
+          Elo tras cada partido finalizado.
+        </p>
         {sel ? (
-          <EloTrend series={[{ nombre: sel.nombre, color: "#38bdf8", data: hist }]} height={300} />
+          <EloTrend
+            series={[{ nombre: sel.nombre, color: "#38bdf8", data: hist }]}
+            height={300}
+          />
         ) : (
           <p className="text-sm text-muted">Elegí una selección.</p>
         )}

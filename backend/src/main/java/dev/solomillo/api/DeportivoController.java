@@ -2,6 +2,7 @@ package dev.solomillo.api;
 
 import dev.solomillo.events.MotorProcesamiento;
 import dev.solomillo.ingest.IngestRegistry;
+import dev.solomillo.rankings.Posicion;
 import dev.solomillo.repository.*;
 import dev.solomillo.users.AuditService;
 import org.springframework.http.HttpStatus;
@@ -159,9 +160,39 @@ public class DeportivoController {
 
     @GetMapping("/equipos/{id}/estadisticas")
     public List<Map<String, Object>> statsEquipo(@PathVariable Long id) {
-        return eeRepo.findByEquipoId(id).stream().map(s ->
-                Map.<String, Object>of("metrica", s.getMetrica(), "valor", s.getValor(), "torneo_id", s.getTorneoId())
-        ).toList();
+        List<Posicion> posiciones = posicionRepo.findByEquipoId(id);
+        int pj = 0, v = 0, e = 0, d = 0, gf = 0, gc = 0, pts = 0;
+        for (Posicion p : posiciones) {
+            v += p.getGanados(); e += p.getEmpatados(); d += p.getPerdidos();
+            gf += p.getGolesFavor(); gc += p.getGolesContra(); pts += p.getPuntos();
+        }
+        pj = v + e + d;
+
+        java.util.Map<String, Double> tarjMap = new java.util.HashMap<>();
+        for (var s : eeRepo.findByEquipoId(id)) {
+            if (s.getMetrica().equals("tarjetas_amarillas") || s.getMetrica().equals("tarjetas_rojas")) {
+                tarjMap.merge(s.getMetrica(), s.getValor(), Double::sum);
+            }
+        }
+
+        List<Map<String, Object>> result = new java.util.ArrayList<>();
+        long torneoId = posiciones.isEmpty() ? 0 : posiciones.get(0).getTorneoId();
+        result.add(stat("partidos_jugados", pj, torneoId));
+        result.add(stat("victorias", v, torneoId));
+        result.add(stat("empates", e, torneoId));
+        result.add(stat("derrotas", d, torneoId));
+        result.add(stat("goles_a_favor", gf, torneoId));
+        result.add(stat("goles_en_contra", gc, torneoId));
+        result.add(stat("diferencia_gol", gf - gc, torneoId));
+        result.add(stat("puntos", pts, torneoId));
+        result.add(stat("promedio_gol", pj > 0 ? Math.round((double) gf / pj * 100.0) / 100.0 : 0.0, torneoId));
+        result.add(stat("tarjetas_amarillas", tarjMap.getOrDefault("tarjetas_amarillas", 0.0), torneoId));
+        result.add(stat("tarjetas_rojas", tarjMap.getOrDefault("tarjetas_rojas", 0.0), torneoId));
+        return result;
+    }
+
+    private Map<String, Object> stat(String metrica, Number valor, long torneoId) {
+        return Map.of("metrica", metrica, "valor", valor, "torneo_id", torneoId);
     }
 
     @GetMapping("/partidos/{id}/alertas")

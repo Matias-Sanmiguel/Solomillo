@@ -2,18 +2,24 @@ package dev.solomillo.ml;
 
 import dev.solomillo.domain.Partido;
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
-
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "predicciones")
+@Table(
+    name = "predicciones",
+    uniqueConstraints = @UniqueConstraint(
+        columnNames = { "partido_id", "modelo_version" }
+    )
+)
 public class Prediccion {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

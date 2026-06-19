@@ -9,13 +9,16 @@ import dev.solomillo.domain.Jugador;
 import dev.solomillo.domain.NivelTorneo;
 import dev.solomillo.domain.Partido;
 import dev.solomillo.domain.Torneo;
+import dev.solomillo.events.EventoDeportivo;
+import dev.solomillo.events.EventoInterno;
 import dev.solomillo.ml.EloService;
+import dev.solomillo.rankings.RankingsService;
 import dev.solomillo.repository.EquipoRepository;
-import dev.solomillo.repository.EstadisticaJugadorRepository;
+import dev.solomillo.repository.EventoDeportivoRepository;
 import dev.solomillo.repository.JugadorRepository;
 import dev.solomillo.repository.PartidoRepository;
 import dev.solomillo.repository.TorneoRepository;
-import dev.solomillo.stats.EstadisticaJugador;
+import dev.solomillo.stats.CalculadorEstadistica;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -27,7 +30,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -53,11 +58,15 @@ public class FifaEloSeedService implements ApplicationRunner {
     private final PartidoRepository partidoRepo;
     private final EstadisticaJugadorRepository ejRepo;
     private final EloService eloService;
+    private final List<CalculadorEstadistica> calculadores;
+    private final RankingsService rankings;
+    private final EventoDeportivoRepository eventoRepo;
 
     public FifaEloSeedService(AppProperties props, ObjectMapper mapper,
                               TorneoRepository torneoRepo, EquipoRepository equipoRepo,
                               JugadorRepository jugadorRepo, PartidoRepository partidoRepo,
-                              EstadisticaJugadorRepository ejRepo, EloService eloService) {
+                              EloService eloService, List<CalculadorEstadistica> calculadores,
+                              RankingsService rankings, EventoDeportivoRepository eventoRepo) {
         this.props = props;
         this.mapper = mapper;
         this.torneoRepo = torneoRepo;
@@ -66,6 +75,9 @@ public class FifaEloSeedService implements ApplicationRunner {
         this.partidoRepo = partidoRepo;
         this.ejRepo = ejRepo;
         this.eloService = eloService;
+        this.calculadores = calculadores;
+        this.rankings = rankings;
+        this.eventoRepo = eventoRepo;
     }
 
     @Override
@@ -103,6 +115,9 @@ public class FifaEloSeedService implements ApplicationRunner {
             for (int j = i + 1; j < equipos.size(); j++) pares.add(new int[]{i, j});
         Collections.shuffle(pares, rng);
 
+        // Cache de jugadores por equipo para atribuir goles/tarjetas al reproducir eventos.
+        Map<Long, List<Long>> jugadoresPorEquipo = new HashMap<>();
+
         LocalDateTime fecha = LocalDateTime.now().minusDays(pares.size() + 20L);
         for (int[] par : pares) {
             Equipo local = rng.nextBoolean() ? equipos.get(par[0]) : equipos.get(par[1]);
@@ -120,8 +135,7 @@ public class FifaEloSeedService implements ApplicationRunner {
             p.setEstado(EstadoPartido.FINALIZADO);
             partidoRepo.save(p);
             eloService.aplicarResultado(p);
-            atribuirGoles(local, eliminatorias.getId(), goles[0], rng);
-            atribuirGoles(visit, eliminatorias.getId(), goles[1], rng);
+            reproducirEventos(p, jugadoresPorEquipo, rng);
             fecha = fecha.plusDays(1);
         }
 
@@ -150,11 +164,12 @@ public class FifaEloSeedService implements ApplicationRunner {
         for (JsonNode n : root) {
             String nombre = n.get("nombre").asText();
             int puntos = n.get("puntosFifa").asInt();
+            double eloInicial = n.hasNonNull("elo") ? n.get("elo").asDouble() : puntos;
             String escudo = "https://flagcdn.com/w160/" + n.get("codigo").asText() + ".png";
             Equipo e = equipoRepo.findByNombre(nombre).orElseGet(Equipo::new);
             e.setNombre(nombre);
             e.setPuntosFifa(puntos);
-            e.setElo((double) puntos);
+            e.setElo(eloInicial);
             e.setEscudo(escudo);
             if (e.getSede() == null) e.setSede("");
             equipoRepo.save(e);
@@ -227,5 +242,55 @@ public class FifaEloSeedService implements ApplicationRunner {
             p *= rng.nextDouble();
         } while (p > l);
         return Math.min(k - 1, 7);
+    }
+
+    /** Reproduce los goles (atribuidos a jugadores), unas tarjetas y el fin del partido. */
+    private void reproducirEventos(Partido p, Map<Long, List<Long>> cache, Random rng) {
+        List<Long> jl = cache.computeIfAbsent(p.getEquipoLocal().getId(), this::jugadoresDe);
+        List<Long> jv = cache.computeIfAbsent(p.getEquipoVisitante().getId(), this::jugadoresDe);
+
+        int minuto = 0;
+        for (int g = 0; g < p.getGolesLocal() && !jl.isEmpty(); g++) {
+            minuto = Math.min(90, minuto + 7);
+            procesar(new EventoInterno("gol", p.getId(), minuto, jl.get(g % jl.size()), Map.of()));
+        }
+        for (int g = 0; g < p.getGolesVisitante() && !jv.isEmpty(); g++) {
+            minuto = Math.min(90, minuto + 7);
+            procesar(new EventoInterno("gol", p.getId(), minuto, jv.get(g % jv.size()), Map.of()));
+        }
+
+        // Tarjetas: amarillas mayoritariamente, rojas esporádicas.
+        for (int t = 0, n = rng.nextInt(5); t < n; t++) {
+            boolean esLocal = rng.nextBoolean();
+            List<Long> js = esLocal ? jl : jv;
+            if (js.isEmpty()) continue;
+            Long jug = js.get(rng.nextInt(js.size()));
+            String tipo = rng.nextInt(10) < 2 ? "RED_CARD" : "YELLOW_CARD";
+            procesar(new EventoInterno("tarjeta", p.getId(), 10 + rng.nextInt(80), jug,
+                    Map.of("eventType", tipo)));
+        }
+
+        procesar(new EventoInterno("fin_partido", p.getId(), 90, null, Map.of()));
+    }
+
+    /**
+     * Mismo pipeline que MotorProcesamiento.procesar pero sin Publisher ni alertas:
+     * persiste el evento y aplica los calculadores de estadística y el ranking reales.
+     */
+    private void procesar(EventoInterno e) {
+        var ed = new EventoDeportivo();
+        ed.setPartidoId(e.partidoId());
+        ed.setJugadorId(e.jugadorId());
+        ed.setTipo(e.tipo());
+        ed.setMinuto(e.minuto());
+        ed.setFuente("seed");
+        eventoRepo.save(ed);
+
+        calculadores.stream().filter(c -> c.aplica(e)).forEach(c -> c.actualizar(e));
+        rankings.actualizar(e);
+    }
+
+    private List<Long> jugadoresDe(Long equipoId) {
+        return jugadorRepo.findByEquipoId(equipoId).stream().map(j -> j.getId()).toList();
     }
 }

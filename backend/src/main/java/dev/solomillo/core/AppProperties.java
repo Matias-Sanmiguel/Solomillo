@@ -9,4 +9,5 @@ public class AppProperties {
     @Value("${app.jwt.expiration-ms}") public long jwtExpirationMs;
     @Value("${app.models-dir}") public String modelsDir;
     @Value("${app.api-football.key:}") public String apiFootballKey;
+    @Value("${app.football-data.key:}") public String footballDataKey;
 }
