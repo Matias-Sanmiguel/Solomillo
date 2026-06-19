@@ -8,6 +8,7 @@ import dev.solomillo.domain.EstadoPartido;
 import dev.solomillo.domain.Jugador;
 import dev.solomillo.domain.NivelTorneo;
 import dev.solomillo.domain.Partido;
+import dev.solomillo.domain.Ronda;
 import dev.solomillo.domain.Torneo;
 import dev.solomillo.events.EventoDeportivo;
 import dev.solomillo.events.EventoInterno;
@@ -49,6 +50,8 @@ public class FifaEloSeedService implements ApplicationRunner {
     private static final String TEMPORADA = "2026";
     private static final double HOME_ADV = 100.0;
     private static final long SEED = 7L;
+    // Tope de cruces simulados de eliminatorias (historial para Elo/ML sin explotar con 48 selecciones).
+    private static final int MAX_ELIMINATORIAS = 240;
 
     private final AppProperties props;
     private final ObjectMapper mapper;
@@ -56,28 +59,29 @@ public class FifaEloSeedService implements ApplicationRunner {
     private final EquipoRepository equipoRepo;
     private final JugadorRepository jugadorRepo;
     private final PartidoRepository partidoRepo;
-    private final EstadisticaJugadorRepository ejRepo;
     private final EloService eloService;
     private final List<CalculadorEstadistica> calculadores;
     private final RankingsService rankings;
     private final EventoDeportivoRepository eventoRepo;
+    private final dev.solomillo.repository.EstadisticaJugadorRepository ejRepo;
 
     public FifaEloSeedService(AppProperties props, ObjectMapper mapper,
                               TorneoRepository torneoRepo, EquipoRepository equipoRepo,
                               JugadorRepository jugadorRepo, PartidoRepository partidoRepo,
                               EloService eloService, List<CalculadorEstadistica> calculadores,
-                              RankingsService rankings, EventoDeportivoRepository eventoRepo) {
+                              RankingsService rankings, EventoDeportivoRepository eventoRepo,
+                              dev.solomillo.repository.EstadisticaJugadorRepository ejRepo) {
         this.props = props;
         this.mapper = mapper;
         this.torneoRepo = torneoRepo;
         this.equipoRepo = equipoRepo;
         this.jugadorRepo = jugadorRepo;
         this.partidoRepo = partidoRepo;
-        this.ejRepo = ejRepo;
         this.eloService = eloService;
         this.calculadores = calculadores;
         this.rankings = rankings;
         this.eventoRepo = eventoRepo;
+        this.ejRepo = ejRepo;
     }
 
     @Override
@@ -109,11 +113,13 @@ public class FifaEloSeedService implements ApplicationRunner {
         List<Equipo> equipos = cargarEquipos();
         var rng = new Random(SEED);
 
-        // Histórico de eliminatorias: round-robin simple, fechas pasadas, resultado simulado por Elo.
+        // Histórico de eliminatorias: muestra de cruces (no round-robin completo, que con 48
+        // selecciones serían >1100 partidos), fechas pasadas, resultado simulado por Elo.
         List<int[]> pares = new ArrayList<>();
         for (int i = 0; i < equipos.size(); i++)
             for (int j = i + 1; j < equipos.size(); j++) pares.add(new int[]{i, j});
         Collections.shuffle(pares, rng);
+        if (pares.size() > MAX_ELIMINATORIAS) pares = pares.subList(0, MAX_ELIMINATORIAS);
 
         // Cache de jugadores por equipo para atribuir goles/tarjetas al reproducir eventos.
         Map<Long, List<Long>> jugadoresPorEquipo = new HashMap<>();
@@ -139,22 +145,49 @@ public class FifaEloSeedService implements ApplicationRunner {
             fecha = fecha.plusDays(1);
         }
 
-        // Próximos partidos del Mundial (cancha neutral) para el tablero y el prode.
-        LocalDateTime futuro = LocalDateTime.now().plusDays(2);
-        for (int k = 0; k < 16; k++) {
-            int a = rng.nextInt(equipos.size());
-            int b = rng.nextInt(equipos.size());
-            if (a == b) { b = (b + 1) % equipos.size(); }
+        // Fixture REAL del Mundial 2026 (grupos con resultados ya jugados + programados + llave).
+        cargarFixtureMundial(mundial, equipos, jugadoresPorEquipo, rng);
+    }
+
+    /**
+     * Carga el calendario real del Mundial 2026 desde {@code mundial2026.json}. Los partidos
+     * FINALIZADOS (y el EN_VIVO con marcador) reproducen sus eventos por el flujo real para
+     * poblar estadísticas y posiciones; los de llave aún sin rival van con equipos null (TBD).
+     */
+    private void cargarFixtureMundial(Torneo mundial, List<Equipo> equipos,
+                                      Map<Long, List<Long>> cache, Random rng) throws Exception {
+        Map<String, Equipo> porNombre = new HashMap<>();
+        for (Equipo e : equipos) porNombre.put(e.getNombre(), e);
+
+        JsonNode root = mapper.readTree(new ClassPathResource("seed/mundial2026.json").getInputStream());
+        for (JsonNode n : root.get("partidos")) {
             Partido p = new Partido();
             p.setTorneo(mundial);
-            p.setEquipoLocal(equipos.get(a));
-            p.setEquipoVisitante(equipos.get(b));
-            p.setFechaHora(futuro);
-            p.setEstadio("Sede Mundial 2026");
+            if (n.hasNonNull("local")) p.setEquipoLocal(porNombre.get(n.get("local").asText()));
+            if (n.hasNonNull("visitante")) p.setEquipoVisitante(porNombre.get(n.get("visitante").asText()));
+            if (n.hasNonNull("grupo")) p.setGrupo(n.get("grupo").asText());
+            p.setRonda(Ronda.valueOf(n.get("ronda").asText()));
+            p.setFechaHora(LocalDateTime.parse(n.get("fecha").asText()));
+            p.setEstadio(n.get("estadio").asText());
             p.setNeutral(true);
-            p.setEstado(EstadoPartido.PROGRAMADO);
+
+            String estado = n.get("estado").asText();
+            boolean tieneMarcador = n.has("golesLocal") && n.has("golesVisitante");
+            if (tieneMarcador) {
+                p.setGolesLocal(n.get("golesLocal").asInt());
+                p.setGolesVisitante(n.get("golesVisitante").asInt());
+            }
+            p.setEstado(EstadoPartido.valueOf(estado));
             partidoRepo.save(p);
-            futuro = futuro.plusDays(2);
+
+            // ELO solo para partidos cerrados; estadísticas/posiciones también para el EN_VIVO
+            // (el marcador actual ya cuenta en la tabla, como en las capturas).
+            if ("FINALIZADO".equals(estado)) {
+                eloService.aplicarResultado(p);
+                reproducirEventos(p, cache, rng);
+            } else if ("EN_VIVO".equals(estado) && tieneMarcador) {
+                reproducirEventos(p, cache, rng);
+            }
         }
     }
 
@@ -171,6 +204,7 @@ public class FifaEloSeedService implements ApplicationRunner {
             e.setPuntosFifa(puntos);
             e.setElo(eloInicial);
             e.setEscudo(escudo);
+            if (n.hasNonNull("grupo")) e.setGrupo(n.get("grupo").asText());
             if (e.getSede() == null) e.setSede("");
             equipoRepo.save(e);
             equipos.add(e);
@@ -249,14 +283,19 @@ public class FifaEloSeedService implements ApplicationRunner {
         List<Long> jl = cache.computeIfAbsent(p.getEquipoLocal().getId(), this::jugadoresDe);
         List<Long> jv = cache.computeIfAbsent(p.getEquipoVisitante().getId(), this::jugadoresDe);
 
+        Long torneoId = p.getTorneo().getId();
         int minuto = 0;
         for (int g = 0; g < p.getGolesLocal() && !jl.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            procesar(new EventoInterno("gol", p.getId(), minuto, jl.get(g % jl.size()), Map.of()));
+            Long scorer = jl.get(g % jl.size());
+            procesar(new EventoInterno("gol", p.getId(), minuto, scorer, Map.of()));
+            asistencia(jl, scorer, torneoId, rng);
         }
         for (int g = 0; g < p.getGolesVisitante() && !jv.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            procesar(new EventoInterno("gol", p.getId(), minuto, jv.get(g % jv.size()), Map.of()));
+            Long scorer = jv.get(g % jv.size());
+            procesar(new EventoInterno("gol", p.getId(), minuto, scorer, Map.of()));
+            asistencia(jv, scorer, torneoId, rng);
         }
 
         // Tarjetas: amarillas mayoritariamente, rojas esporádicas.
@@ -271,6 +310,22 @@ public class FifaEloSeedService implements ApplicationRunner {
         }
 
         procesar(new EventoInterno("fin_partido", p.getId(), 90, null, Map.of()));
+    }
+
+    /** ~65% de los goles tienen asistencia, acreditada a un compañero distinto al goleador. */
+    private void asistencia(List<Long> equipo, Long goleador, Long torneoId, Random rng) {
+        if (equipo.size() < 2 || rng.nextDouble() >= 0.65) return;
+        Long asistente;
+        do { asistente = equipo.get(rng.nextInt(equipo.size())); } while (asistente.equals(goleador));
+        final Long jId = asistente;
+        var stat = ejRepo.findByJugadorIdAndTorneoIdAndMetrica(jId, torneoId, "asistencias")
+                .orElseGet(() -> {
+                    var s = new dev.solomillo.stats.EstadisticaJugador();
+                    s.setJugadorId(jId); s.setTorneoId(torneoId); s.setMetrica("asistencias");
+                    return s;
+                });
+        stat.setValor(stat.getValor() + 1);
+        ejRepo.save(stat);
     }
 
     /**

@@ -191,6 +191,8 @@ public class MlController {
         );
         List<Map<String, Object>> out = new ArrayList<>();
         for (Partido p : proximos) {
+            // Sin rival definido (llave TBD) no hay nada que predecir.
+            if (p.getEquipoLocal() == null || p.getEquipoVisitante() == null) continue;
             try {
                 out.add(predictor.tablero(p.getId()));
             } catch (IllegalStateException e) {

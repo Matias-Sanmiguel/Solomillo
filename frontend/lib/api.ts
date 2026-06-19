@@ -50,10 +50,12 @@ export type Equipo = {
 export type Partido = {
   id: number;
   torneo_id: number;
-  local_id: number;
-  visitante_id: number;
+  local_id: number | null;
+  visitante_id: number | null;
   fecha_hora: string | null;
   estadio: string;
+  grupo?: string | null;
+  ronda?: string | null;
   estado: "PROGRAMADO" | "EN_VIVO" | "FINALIZADO";
   goles_local: number | null;
   goles_visitante: number | null;
