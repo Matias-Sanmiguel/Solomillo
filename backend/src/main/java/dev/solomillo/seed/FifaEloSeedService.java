@@ -72,8 +72,6 @@ public class FifaEloSeedService implements ApplicationRunner {
                               JugadorRepository jugadorRepo, PartidoRepository partidoRepo,
                               EloService eloService, List<CalculadorEstadistica> calculadores,
                               RankingsService rankings, EventoDeportivoRepository eventoRepo, EstadisticaJugadorRepository ejRepo) {
-                              RankingsService rankings, EventoDeportivoRepository eventoRepo,
-                              dev.solomillo.repository.EstadisticaJugadorRepository ejRepo) {
         this.props = props;
         this.mapper = mapper;
         this.torneoRepo = torneoRepo;
@@ -158,7 +156,7 @@ public class FifaEloSeedService implements ApplicationRunner {
      * poblar estadísticas y posiciones; los de llave aún sin rival van con equipos null (TBD).
      */
     private void cargarFixtureMundial(Torneo mundial, List<Equipo> equipos,
-                                      Map<Long, List<Long>> cache, Random rng) throws Exception {
+                                      Map<Long, List<Jugador>> cache, Random rng) throws Exception {
         Map<String, Equipo> porNombre = new HashMap<>();
         for (Equipo e : equipos) porNombre.put(e.getNombre(), e);
 
