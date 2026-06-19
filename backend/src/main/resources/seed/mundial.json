@@ -12,9 +12,188 @@
       "entrenador": "Lionel Scaloni",
       "sede": "Argentina",
       "jugadores": [
-        {"nombre": "Lionel Messi",      "posicion": "Delantero",     "numeroCamiseta": 10, "nacionalidad": "Argentina", "fechaNacimiento": "1987-06-24"},
-        {"nombre": "Emiliano Martinez", "posicion": "Arquero",       "numeroCamiseta": 23, "nacionalidad": "Argentina", "fechaNacimiento": "1992-09-02"},
-        {"nombre": "Julian Alvarez",    "posicion": "Delantero",     "numeroCamiseta": 9,  "nacionalidad": "Argentina", "fechaNacimiento": "2000-01-31"}
+        {
+          "nombre": "Franco Armani",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1986-10-16"
+        },
+        {
+          "nombre": "Juan Foyth",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1998-01-12"
+        },
+        {
+          "nombre": "Nicolás Tagliafico",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1992-08-31"
+        },
+        {
+          "nombre": "Gonzalo Montiel",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1997-01-01"
+        },
+        {
+          "nombre": "Leandro Paredes",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1994-06-29"
+        },
+        {
+          "nombre": "Germán Pezzella",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1991-06-27"
+        },
+        {
+          "nombre": "Rodrigo De Paul",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1994-05-24"
+        },
+        {
+          "nombre": "Marcos Acuña",
+          "posicion": "Defensor",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1991-10-28"
+        },
+        {
+          "nombre": "Julián Álvarez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "2000-01-31"
+        },
+        {
+          "nombre": "Lionel Messi",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1887-06-24"
+        },
+        {
+          "nombre": "Ángel Di María",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1988-02-14"
+        },
+        {
+          "nombre": "Gerónimo Rulli",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1992-05-20"
+        },
+        {
+          "nombre": "Cristian Romero",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1998-04-27"
+        },
+        {
+          "nombre": "Exequiel Palacios",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1998-10-05"
+        },
+        {
+          "nombre": "Ángel Correa",
+          "posicion": "Delantero",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1995-03-09"
+        },
+        {
+          "nombre": "Thiago Almada",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "2001-04-26"
+        },
+        {
+          "nombre": "Alejandro Gómez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1988-02-15"
+        },
+        {
+          "nombre": "Guido Rodríguez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1994-04-12"
+        },
+        {
+          "nombre": "Nicolás Otamendi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1988-02-12"
+        },
+        {
+          "nombre": "Alexis Mac Allister",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1998-12-24"
+        },
+        {
+          "nombre": "Paulo Dybala",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1993-11-15"
+        },
+        {
+          "nombre": "Lautaro Martínez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1997-08-22"
+        },
+        {
+          "nombre": "Emiliano Martínez",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1992-09-02"
+        },
+        {
+          "nombre": "Enzo Fernández",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "2001-01-17"
+        },
+        {
+          "nombre": "Lisandro Martínez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1998-01-18"
+        },
+        {
+          "nombre": "Nahuel Molina",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Argentina",
+          "fechaNacimiento": "1998-04-06"
+        }
       ]
     },
     {
@@ -22,9 +201,188 @@
       "entrenador": "Didier Deschamps",
       "sede": "Francia",
       "jugadores": [
-        {"nombre": "Kylian Mbappe",     "posicion": "Delantero",     "numeroCamiseta": 10, "nacionalidad": "Francia", "fechaNacimiento": "1998-12-20"},
-        {"nombre": "Antoine Griezmann", "posicion": "Mediocampista", "numeroCamiseta": 7,  "nacionalidad": "Francia", "fechaNacimiento": "1991-03-21"},
-        {"nombre": "Hugo Lloris",       "posicion": "Arquero",       "numeroCamiseta": 1,  "nacionalidad": "Francia", "fechaNacimiento": "1986-12-26"}
+        {
+          "nombre": "Hugo Lloris",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1986-12-26"
+        },
+        {
+          "nombre": "Benjamin Pavard",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1996-03-28"
+        },
+        {
+          "nombre": "Axel Disasi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1998-03-11"
+        },
+        {
+          "nombre": "Raphaël Varane",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1993-04-25"
+        },
+        {
+          "nombre": "Jules Koundé",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1998-11-12"
+        },
+        {
+          "nombre": "Matteo Guendouzi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1999-04-14"
+        },
+        {
+          "nombre": "Antoine Griezmann",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1991-03-21"
+        },
+        {
+          "nombre": "Aurélien Tchouaméni",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "2000-01-27"
+        },
+        {
+          "nombre": "Olivier Giroud",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1986-09-30"
+        },
+        {
+          "nombre": "Kylian Mbappé",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1998-12-20"
+        },
+        {
+          "nombre": "Ousmane Dembélé",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1997-05-15"
+        },
+        {
+          "nombre": "Randal Kolo Muani",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1998-12-05"
+        },
+        {
+          "nombre": "Youssouf Fofana",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1999-01-10"
+        },
+        {
+          "nombre": "Adrien Rabiot",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1995-04-03"
+        },
+        {
+          "nombre": "Jordan Veretout",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1993-03-01"
+        },
+        {
+          "nombre": "Steve Mandanda",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1985-03-28"
+        },
+        {
+          "nombre": "William Saliba",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "2001-03-24"
+        },
+        {
+          "nombre": "Dayot Upamecano",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1998-10-27"
+        },
+        {
+          "nombre": "Karim Benzema",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1987-12-19"
+        },
+        {
+          "nombre": "Kingsley Coman",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1996-06-13"
+        },
+        {
+          "nombre": "Lucas Hernandez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1996-02-14"
+        },
+        {
+          "nombre": "Théo Hernandez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1997-10-06"
+        },
+        {
+          "nombre": "Alphonse Areola",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1993-02-27"
+        },
+        {
+          "nombre": "Ibrahima Konaté",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1999-05-25"
+        },
+        {
+          "nombre": "Eduardo Camavinga",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "2002-11-10"
+        },
+        {
+          "nombre": "Marcus Thuram",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Francia",
+          "fechaNacimiento": "1997-08-06"
+        }
       ]
     },
     {
@@ -32,7 +390,188 @@
       "entrenador": "Zlatko Dalic",
       "sede": "Croacia",
       "jugadores": [
-        {"nombre": "Luka Modric",  "posicion": "Mediocampista", "numeroCamiseta": 10, "nacionalidad": "Croacia", "fechaNacimiento": "1985-09-09"}
+        {
+          "nombre": "Dominik Livaković",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1995-01-09"
+        },
+        {
+          "nombre": "Josip Stanišić",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "2000-04-02"
+        },
+        {
+          "nombre": "Borna Barišić",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1992-11-10"
+        },
+        {
+          "nombre": "Ivan Perišić",
+          "posicion": "Delantero",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1989-02-02"
+        },
+        {
+          "nombre": "Martin Erlić",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1998-01-24"
+        },
+        {
+          "nombre": "Dejan Lovren",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1989-07-05"
+        },
+        {
+          "nombre": "Lovro Majer",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1998-01-17"
+        },
+        {
+          "nombre": "Mateo Kovačić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1994-05-06"
+        },
+        {
+          "nombre": "Andrej Kramarić",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1991-06-19"
+        },
+        {
+          "nombre": "Luka Modrić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1985-09-09"
+        },
+        {
+          "nombre": "Marcelo Brozović",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1992-11-16"
+        },
+        {
+          "nombre": "Ivo Grbić",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1996-01-18"
+        },
+        {
+          "nombre": "Nikola Vlašić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1997-10-04"
+        },
+        {
+          "nombre": "Marko Livaja",
+          "posicion": "Delantero",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1993-08-26"
+        },
+        {
+          "nombre": "Mario Pašalić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1995-02-09"
+        },
+        {
+          "nombre": "Bruno Petković",
+          "posicion": "Delantero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1994-09-16"
+        },
+        {
+          "nombre": "Ante Budimir",
+          "posicion": "Delantero",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1991-07-22"
+        },
+        {
+          "nombre": "Mislav Oršić",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1992-12-29"
+        },
+        {
+          "nombre": "Borna Sosa",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1998-01-21"
+        },
+        {
+          "nombre": "Joško Gvardiol",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "2002-01-23"
+        },
+        {
+          "nombre": "Domagoj Vida",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1989-04-29"
+        },
+        {
+          "nombre": "Josip Juranović",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1995-08-16"
+        },
+        {
+          "nombre": "Ivica Ivušić",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1995-02-01"
+        },
+        {
+          "nombre": "Josip Šutalo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "2000-02-28"
+        },
+        {
+          "nombre": "Luka Sučić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "2002-09-08"
+        },
+        {
+          "nombre": "Kristijan Jakić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Croacia",
+          "fechaNacimiento": "1997-05-14"
+        }
       ]
     },
     {
@@ -40,12 +579,5552 @@
       "entrenador": "Walid Regragui",
       "sede": "Marruecos",
       "jugadores": [
-        {"nombre": "Achraf Hakimi", "posicion": "Defensor", "numeroCamiseta": 2, "nacionalidad": "Marruecos", "fechaNacimiento": "1998-11-04"}
+        {
+          "nombre": "Yassine Bounou",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1991-04-05"
+        },
+        {
+          "nombre": "Achraf Hakimi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1998-11-04"
+        },
+        {
+          "nombre": "Noussair Mazraoui",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1997-11-14"
+        },
+        {
+          "nombre": "Sofyan Amrabat",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1996-08-21"
+        },
+        {
+          "nombre": "Nayef Aguerd",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1996-03-30"
+        },
+        {
+          "nombre": "Romain Saïss",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1990-03-26"
+        },
+        {
+          "nombre": "Hakim Ziyech",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1993-03-19"
+        },
+        {
+          "nombre": "Azzedine Ounahi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "2000-04-19"
+        },
+        {
+          "nombre": "Abderrazak Hamdallah",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1990-12-17"
+        },
+        {
+          "nombre": "Anass Zaroury",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "2000-11-07"
+        },
+        {
+          "nombre": "Abdelhamid Sabiri",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1996-11-28"
+        },
+        {
+          "nombre": "Munir Mohamedi",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1989-05-10"
+        },
+        {
+          "nombre": "Ilias Chair",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1997-10-30"
+        },
+        {
+          "nombre": "Zakaria Aboukhlal",
+          "posicion": "Delantero",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "2000-02-18"
+        },
+        {
+          "nombre": "Selim Amallah",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1996-11-15"
+        },
+        {
+          "nombre": "Abde Ezzalzouli",
+          "posicion": "Delantero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "2001-12-17"
+        },
+        {
+          "nombre": "Sofiane Boufal",
+          "posicion": "Delantero",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1993-09-17"
+        },
+        {
+          "nombre": "Jawad El Yamiq",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1992-02-29"
+        },
+        {
+          "nombre": "Youssef En-Nesyri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1997-06-01"
+        },
+        {
+          "nombre": "Achraf Dari",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1999-05-06"
+        },
+        {
+          "nombre": "Walid Cheddira",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1998-01-22"
+        },
+        {
+          "nombre": "Ahmed Reda Tagnaouti",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1996-04-05"
+        },
+        {
+          "nombre": "Bilal El Khannouss",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "2004-05-10"
+        },
+        {
+          "nombre": "Badr Benoun",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1993-09-30"
+        },
+        {
+          "nombre": "Yahia Attiyat Allah",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1995-03-02"
+        },
+        {
+          "nombre": "Yahya Jabrane",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Marruecos",
+          "fechaNacimiento": "1991-06-18"
+        }
+      ]
+    },
+    {
+      "nombre": "Brasil",
+      "entrenador": "Tite",
+      "sede": "Brasil",
+      "jugadores": [
+        {
+          "nombre": "Alisson Becker",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1992-10-02"
+        },
+        {
+          "nombre": "Danilo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1991-07-15"
+        },
+        {
+          "nombre": "Thiago Silva",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1984-09-22"
+        },
+        {
+          "nombre": "Marquinhos",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1994-05-14"
+        },
+        {
+          "nombre": "Casemiro",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1992-02-23"
+        },
+        {
+          "nombre": "Alex Sandro",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1991-01-26"
+        },
+        {
+          "nombre": "Lucas Paquetá",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1997-08-27"
+        },
+        {
+          "nombre": "Fred",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1993-03-05"
+        },
+        {
+          "nombre": "Richarlison",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1997-05-10"
+        },
+        {
+          "nombre": "Neymar Jr",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1992-02-05"
+        },
+        {
+          "nombre": "Raphinha",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1996-12-14"
+        },
+        {
+          "nombre": "Weverton",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1987-12-13"
+        },
+        {
+          "nombre": "Dani Alves",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1983-05-06"
+        },
+        {
+          "nombre": "Éder Militão",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1998-01-18"
+        },
+        {
+          "nombre": "Fabinho",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1993-10-23"
+        },
+        {
+          "nombre": "Alex Telles",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1992-12-15"
+        },
+        {
+          "nombre": "Bruno Guimarães",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1997-11-16"
+        },
+        {
+          "nombre": "Antony",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "2000-02-24"
+        },
+        {
+          "nombre": "Gabriel Jesus",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1997-04-03"
+        },
+        {
+          "nombre": "Vinícius Júnior",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "2000-07-12"
+        },
+        {
+          "nombre": "Rodrygo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "2001-01-09"
+        },
+        {
+          "nombre": "Éverton Ribeiro",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1989-04-10"
+        },
+        {
+          "nombre": "Ederson",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1993-08-17"
+        },
+        {
+          "nombre": "Bremer",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1997-03-18"
+        },
+        {
+          "nombre": "Pedro",
+          "posicion": "Delantero",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "1997-06-20"
+        },
+        {
+          "nombre": "Gabriel Martinelli",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Brasil",
+          "fechaNacimiento": "2001-06-18"
+        }
+      ]
+    },
+    {
+      "nombre": "Qatar",
+      "entrenador": "Félix Sanchez Bas",
+      "sede": "Qatar",
+      "jugadores": [
+        {
+          "nombre": "Saad Al-Sheeb",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-02-19"
+        },
+        {
+          "nombre": "Ró-Ró",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-08-06"
+        },
+        {
+          "nombre": "Abdelkarim Hassan",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1993-08-28"
+        },
+        {
+          "nombre": "Mohammed Waad",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1999-09-18"
+        },
+        {
+          "nombre": "Tarek Salman",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1997-12-05"
+        },
+        {
+          "nombre": "Abdulaziz Hatem",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-10-28"
+        },
+        {
+          "nombre": "Ahmed Alaaeldin",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1993-01-31"
+        },
+        {
+          "nombre": "Ali Assadalla",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1993-01-19"
+        },
+        {
+          "nombre": "Mohammed Muntari",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1993-12-20"
+        },
+        {
+          "nombre": "Hassan Al-Haydos",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-12-11"
+        },
+        {
+          "nombre": "Akram Afif",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1996-11-18"
+        },
+        {
+          "nombre": "Karim Boudiaf",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-09-16"
+        },
+        {
+          "nombre": "Musab Kheder",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1993-09-26"
+        },
+        {
+          "nombre": "Homam Ahmed",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1999-08-25"
+        },
+        {
+          "nombre": "Bassam Al-Rawi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1997-12-16"
+        },
+        {
+          "nombre": "Boualem Khoukhi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-09-07"
+        },
+        {
+          "nombre": "Ismaeel Mohammad",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1990-04-05"
+        },
+        {
+          "nombre": "Khalid Muneer",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1998-02-24"
+        },
+        {
+          "nombre": "Almoez Ali",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1996-08-19"
+        },
+        {
+          "nombre": "Salem Al-Hajri",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1996-04-10"
+        },
+        {
+          "nombre": "Youcef Hassan",
+          "posicion": "Arquero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1996-05-24"
+        },
+        {
+          "nombre": "Meshaal Barsham",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1998-02-14"
+        },
+        {
+          "nombre": "Assim Madibo",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "1996-10-22"
+        },
+        {
+          "nombre": "Naif Al-Hadhrami",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "2001-07-18"
+        },
+        {
+          "nombre": "Jassem Gaber",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "2002-02-20"
+        },
+        {
+          "nombre": "Mostafa Meshaal",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Qatar",
+          "fechaNacimiento": "2001-03-28"
+        }
+      ]
+    },
+    {
+      "nombre": "Ecuador",
+      "entrenador": "Gustavo Alfaro",
+      "sede": "Ecuador",
+      "jugadores": [
+        {
+          "nombre": "Hernán Galíndez",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1987-03-30"
+        },
+        {
+          "nombre": "Félix Torres",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1997-01-11"
+        },
+        {
+          "nombre": "Piero Hincapié",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2002-01-09"
+        },
+        {
+          "nombre": "Robert Arboleda",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1991-10-22"
+        },
+        {
+          "nombre": "José Cifuentes",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1999-03-12"
+        },
+        {
+          "nombre": "William Pacho",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2001-10-16"
+        },
+        {
+          "nombre": "Pervis Estupiñán",
+          "posicion": "Defensor",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1998-01-21"
+        },
+        {
+          "nombre": "Carlos Gruezo",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1995-04-19"
+        },
+        {
+          "nombre": "Eduar Preciado",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1997-06-18"
+        },
+        {
+          "nombre": "Romario Ibarra",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1994-09-24"
+        },
+        {
+          "nombre": "Michael Estrada",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1996-04-07"
+        },
+        {
+          "nombre": "Moisés Ramírez",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2000-09-09"
+        },
+        {
+          "nombre": "Enner Valencia",
+          "posicion": "Delantero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1989-11-04"
+        },
+        {
+          "nombre": "Xavier Arreaga",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1994-09-28"
+        },
+        {
+          "nombre": "Ángel Mena",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1988-01-21"
+        },
+        {
+          "nombre": "Jeremy Sarmiento",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2002-06-16"
+        },
+        {
+          "nombre": "Angelo Preciado",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1998-02-18"
+        },
+        {
+          "nombre": "Diego Palacios",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1999-07-12"
+        },
+        {
+          "nombre": "Gonzalo Plata",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2000-11-01"
+        },
+        {
+          "nombre": "Jhegson Méndez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1997-04-26"
+        },
+        {
+          "nombre": "Alan Franco",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1998-08-21"
+        },
+        {
+          "nombre": "Alexander Domínguez",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1987-06-05"
+        },
+        {
+          "nombre": "Moisés Caicedo",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2001-11-02"
+        },
+        {
+          "nombre": "Djorkaeff Reasco",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "1999-01-18"
+        },
+        {
+          "nombre": "Jackson Porozo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2000-08-04"
+        },
+        {
+          "nombre": "Kevin Rodríguez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Ecuador",
+          "fechaNacimiento": "2000-03-04"
+        }
+      ]
+    },
+    {
+      "nombre": "Senegal",
+      "entrenador": "Aliou Cissé",
+      "sede": "Senegal",
+      "jugadores": [
+        {
+          "nombre": "Seny Dieng",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1994-11-23"
+        },
+        {
+          "nombre": "Formose Mendy",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "2001-01-02"
+        },
+        {
+          "nombre": "Kalidou Koulibaly",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1991-06-20"
+        },
+        {
+          "nombre": "Abdou Diallo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1996-05-04"
+        },
+        {
+          "nombre": "Idrissa Gueye",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1989-09-26"
+        },
+        {
+          "nombre": "Nampalys Mendy",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1992-06-23"
+        },
+        {
+          "nombre": "Youssouf Sabaly",
+          "posicion": "Defensor",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1993-03-05"
+        },
+        {
+          "nombre": "Cheikhou Kouyaté",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1989-12-21"
+        },
+        {
+          "nombre": "Iliman Ndiaye",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "2000-03-06"
+        },
+        {
+          "nombre": "Moussa N'Diaye",
+          "posicion": "Defensor",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "2002-06-18"
+        },
+        {
+          "nombre": "Formose Mendy",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1997-12-11"
+        },
+        {
+          "nombre": "Fodé Ballo-Touré",
+          "posicion": "Defensor",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1997-01-03"
+        },
+        {
+          "nombre": "Iliman Ndiaye",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1999-01-05"
+        },
+        {
+          "nombre": "Ismaïla Sarr",
+          "posicion": "Delantero",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1998-02-25"
+        },
+        {
+          "nombre": "Krépin Diatta",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1999-02-25"
+        },
+        {
+          "nombre": "Édouard Mendy",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1992-03-01"
+        },
+        {
+          "nombre": "Pape Matar Sarr",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "2002-09-14"
+        },
+        {
+          "nombre": "Ismaïla Sarr",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1993-02-28"
+        },
+        {
+          "nombre": "Famara Diédhiou",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1992-12-15"
+        },
+        {
+          "nombre": "Bamba Dieng",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "2000-03-23"
+        },
+        {
+          "nombre": "Youssouf Sabaly",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1994-10-22"
+        },
+        {
+          "nombre": "Fodé Ballo-Touré",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1996-06-20"
+        },
+        {
+          "nombre": "Alfred Gomis",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1993-09-05"
+        },
+        {
+          "nombre": "Moustapha Name",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1995-05-05"
+        },
+        {
+          "nombre": "Mamadou Loum",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1996-12-30"
+        },
+        {
+          "nombre": "Pape Gueye",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Senegal",
+          "fechaNacimiento": "1999-01-24"
+        }
+      ]
+    },
+    {
+      "nombre": "Países Bajos",
+      "entrenador": "Louis Van Gaal",
+      "sede": "Paises Bajos",
+      "jugadores": [
+        {
+          "nombre": "Remko Pasveer",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1983-11-08"
+        },
+        {
+          "nombre": "Jurriën Timber",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "2001-06-17"
+        },
+        {
+          "nombre": "Matthijs de Ligt",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1999-08-12"
+        },
+        {
+          "nombre": "Virgil van Dijk",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1991-07-08"
+        },
+        {
+          "nombre": "Nathan Aké",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1995-02-18"
+        },
+        {
+          "nombre": "Stefan de Vrij",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1992-02-05"
+        },
+        {
+          "nombre": "Steven Bergwijn",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1997-10-08"
+        },
+        {
+          "nombre": "Cody Gakpo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1999-05-07"
+        },
+        {
+          "nombre": "Luuk de Jong",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1990-08-27"
+        },
+        {
+          "nombre": "Memphis Depay",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1994-02-13"
+        },
+        {
+          "nombre": "Steven Berghuis",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1991-12-19"
+        },
+        {
+          "nombre": "Noa Lang",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1999-06-17"
+        },
+        {
+          "nombre": "Justin Bijlow",
+          "posicion": "Arquero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1998-01-22"
+        },
+        {
+          "nombre": "Davy Klaassen",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1993-02-21"
+        },
+        {
+          "nombre": "Marten de Roon",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1991-03-29"
+        },
+        {
+          "nombre": "Tyrell Malacia",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1999-08-17"
+        },
+        {
+          "nombre": "Daley Blind",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1990-03-09"
+        },
+        {
+          "nombre": "Vincent Janssen",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1994-06-15"
+        },
+        {
+          "nombre": "Wout Weghorst",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1992-08-07"
+        },
+        {
+          "nombre": "Teun Koopmeiners",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1998-02-28"
+        },
+        {
+          "nombre": "Frenkie de Jong",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1997-05-12"
+        },
+        {
+          "nombre": "Denzel Dumfries",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1996-04-18"
+        },
+        {
+          "nombre": "Andries Noppert",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "1994-04-07"
+        },
+        {
+          "nombre": "Kenneth Taylor",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "2002-05-16"
+        },
+        {
+          "nombre": "Xavi Simons",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "2003-04-21"
+        },
+        {
+          "nombre": "Jeremie Frimpong",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Países Bajos",
+          "fechaNacimiento": "2000-12-10"
+        }
+      ]
+    },
+    {
+      "nombre": "Inglaterra",
+      "entrenador": "Gareth Southgate",
+      "sede": "Inglaterra",
+      "jugadores": [
+        {
+          "nombre": "Jordan Pickford",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1994-03-07"
+        },
+        {
+          "nombre": "Kyle Walker",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1990-05-28"
+        },
+        {
+          "nombre": "Luke Shaw",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1995-07-12"
+        },
+        {
+          "nombre": "Declan Rice",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1999-01-14"
+        },
+        {
+          "nombre": "John Stones",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1994-05-28"
+        },
+        {
+          "nombre": "Harry Maguire",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1993-03-05"
+        },
+        {
+          "nombre": "Jack Grealish",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1995-09-10"
+        },
+        {
+          "nombre": "Jordan Henderson",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1990-06-17"
+        },
+        {
+          "nombre": "Harry Kane",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1993-07-28"
+        },
+        {
+          "nombre": "Raheem Sterling",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1994-12-08"
+        },
+        {
+          "nombre": "Marcus Rashford",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1997-10-31"
+        },
+        {
+          "nombre": "Kieran Trippier",
+          "posicion": "Defensor",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1990-09-19"
+        },
+        {
+          "nombre": "Nick Pope",
+          "posicion": "Arquero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1992-04-19"
+        },
+        {
+          "nombre": "Kalvin Phillips",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1995-12-02"
+        },
+        {
+          "nombre": "Eric Dier",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1994-01-15"
+        },
+        {
+          "nombre": "Conor Coady",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1993-02-25"
+        },
+        {
+          "nombre": "Bukayo Saka",
+          "posicion": "Delantero",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "2001-09-05"
+        },
+        {
+          "nombre": "Trent Alexander-Arnold",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1998-10-07"
+        },
+        {
+          "nombre": "Mason Mount",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1999-01-10"
+        },
+        {
+          "nombre": "Phil Foden",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "2000-05-28"
+        },
+        {
+          "nombre": "Ben White",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1997-10-08"
+        },
+        {
+          "nombre": "Jude Bellingham",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "2003-06-29"
+        },
+        {
+          "nombre": "Aaron Ramsdale",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1998-05-14"
+        },
+        {
+          "nombre": "Callum Wilson",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1992-02-27"
+        },
+        {
+          "nombre": "James Maddison",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "1996-11-23"
+        },
+        {
+          "nombre": "Conor Gallagher",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Inglaterra",
+          "fechaNacimiento": "2000-02-06"
+        }
+      ]
+    },
+    {
+      "nombre": "Irán",
+      "entrenador": "Carlos Queiroz",
+      "sede": "Iran",
+      "jugadores": [
+        {
+          "nombre": "Alireza Beiranvand",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1992-09-21"
+        },
+        {
+          "nombre": "Sadegh Moharrami",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1996-03-01"
+        },
+        {
+          "nombre": "Ehsan Hajsafi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1990-02-25"
+        },
+        {
+          "nombre": "Shojae Khalilzadeh",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1989-05-14"
+        },
+        {
+          "nombre": "Milad Mohammadi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1993-09-29"
+        },
+        {
+          "nombre": "Saeid Ezatolahi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1996-10-01"
+        },
+        {
+          "nombre": "Alireza Jahanbakhsh",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1993-08-11"
+        },
+        {
+          "nombre": "Morteza Pouraliganji",
+          "posicion": "Defensor",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1992-04-19"
+        },
+        {
+          "nombre": "Mehdi Taremi",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1992-07-18"
+        },
+        {
+          "nombre": "Karim Ansarifard",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1990-04-03"
+        },
+        {
+          "nombre": "Vahid Amiri",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1988-04-02"
+        },
+        {
+          "nombre": "Payam Niazmand",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1995-04-06"
+        },
+        {
+          "nombre": "Hossein Kanaanizadegan",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1994-03-23"
+        },
+        {
+          "nombre": "Saman Ghoddos",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1993-09-06"
+        },
+        {
+          "nombre": "Rouzbeh Cheshmi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1993-07-24"
+        },
+        {
+          "nombre": "Mehdi Torabi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1994-09-10"
+        },
+        {
+          "nombre": "Ali Gholizadeh",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1996-03-10"
+        },
+        {
+          "nombre": "Ali Karimi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1994-02-11"
+        },
+        {
+          "nombre": "Majid Hosseini",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1996-06-20"
+        },
+        {
+          "nombre": "Sardar Azmoun",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1995-01-01"
+        },
+        {
+          "nombre": "Ahmad Nourollahi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1993-02-01"
+        },
+        {
+          "nombre": "Amir Abedzadeh",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1993-04-26"
+        },
+        {
+          "nombre": "Ramin Rezaeian",
+          "posicion": "Defensor",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1990-03-21"
+        },
+        {
+          "nombre": "Hossein Hosseini",
+          "posicion": "Arquero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1992-06-30"
+        },
+        {
+          "nombre": "Abolfazl Jalali",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Irán",
+          "fechaNacimiento": "1998-06-26"
+        }
+      ]
+    },
+    {
+      "nombre": "Estados Unidos",
+      "entrenador": "Gregg Berhalter",
+      "sede": "Estados Unidos",
+      "jugadores": [
+        {
+          "nombre": "Matt Turner",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1994-06-24"
+        },
+        {
+          "nombre": "Sergiño Dest",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2000-11-03"
+        },
+        {
+          "nombre": "Walker Zimmerman",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1993-05-19"
+        },
+        {
+          "nombre": "Tyler Adams",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1999-02-14"
+        },
+        {
+          "nombre": "Antonee Robinson",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1997-08-08"
+        },
+        {
+          "nombre": "Yunus Musah",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2002-11-29"
+        },
+        {
+          "nombre": "Giovanni Reyna",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2002-11-13"
+        },
+        {
+          "nombre": "Weston McKennie",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1998-08-28"
+        },
+        {
+          "nombre": "Jesús Ferreira",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2000-12-24"
+        },
+        {
+          "nombre": "Christian Pulisic",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1998-09-18"
+        },
+        {
+          "nombre": "Brenden Aaronson",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2000-10-22"
+        },
+        {
+          "nombre": "Ethan Horvath",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1995-06-09"
+        },
+        {
+          "nombre": "Tim Ream",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1987-10-05"
+        },
+        {
+          "nombre": "Luca de la Torre",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1998-05-23"
+        },
+        {
+          "nombre": "Aaron Long",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1992-10-12"
+        },
+        {
+          "nombre": "Jordan Morris",
+          "posicion": "Delantero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1994-10-26"
+        },
+        {
+          "nombre": "Cristian Roldan",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1995-06-03"
+        },
+        {
+          "nombre": "Shaq Moore",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1996-11-02"
+        },
+        {
+          "nombre": "Haji Wright",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1998-03-27"
+        },
+        {
+          "nombre": "Cameron Carter-Vickers",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1997-12-31"
+        },
+        {
+          "nombre": "Timothy Weah",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2000-02-22"
+        },
+        {
+          "nombre": "DeAndre Yedlin",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1993-07-09"
+        },
+        {
+          "nombre": "Sean Johnson",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "1989-05-31"
+        },
+        {
+          "nombre": "Josh Sargent",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2000-02-20"
+        },
+        {
+          "nombre": "Sean Zawadzki",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2000-04-02"
+        },
+        {
+          "nombre": "Joe Scally",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Estados Unidos",
+          "fechaNacimiento": "2002-12-31"
+        }
+      ]
+    },
+    {
+      "nombre": "Gales",
+      "entrenador": "Rob Page",
+      "sede": "Gales",
+      "jugadores": [
+        {
+          "nombre": "Wayne Hennessey",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1987-01-24"
+        },
+        {
+          "nombre": "Chris Gunter",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1989-07-21"
+        },
+        {
+          "nombre": "Neco Williams",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "2001-04-13"
+        },
+        {
+          "nombre": "Ben Davies",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1993-04-24"
+        },
+        {
+          "nombre": "Chris Mepham",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1997-11-05"
+        },
+        {
+          "nombre": "Joe Rodon",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1997-10-22"
+        },
+        {
+          "nombre": "Joe Allen",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1990-03-14"
+        },
+        {
+          "nombre": "Harry Wilson",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1997-03-22"
+        },
+        {
+          "nombre": "Brennan Johnson",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "2001-05-23"
+        },
+        {
+          "nombre": "Aaron Ramsey",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1990-12-26"
+        },
+        {
+          "nombre": "Gareth Bale",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1989-07-16"
+        },
+        {
+          "nombre": "Danny Ward",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1993-06-22"
+        },
+        {
+          "nombre": "Kieffer Moore",
+          "posicion": "Delantero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1992-08-08"
+        },
+        {
+          "nombre": "Connor Roberts",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1995-09-23"
+        },
+        {
+          "nombre": "Ethan Ampadu",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "2000-09-14"
+        },
+        {
+          "nombre": "Joe Morrell",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1997-01-03"
+        },
+        {
+          "nombre": "Tom Lockyer",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1994-12-03"
+        },
+        {
+          "nombre": "Jonny Williams",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1993-10-09"
+        },
+        {
+          "nombre": "Mark Harris",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1998-12-29"
+        },
+        {
+          "nombre": "Daniel James",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1997-11-10"
+        },
+        {
+          "nombre": "Adam Davies",
+          "posicion": "Arquero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1992-07-17"
+        },
+        {
+          "nombre": "Sorba Thomas",
+          "posicion": "Delantero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1999-01-25"
+        },
+        {
+          "nombre": "Dylan Levitt",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "2000-11-17"
+        },
+        {
+          "nombre": "Ben Cabango",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "2000-05-30"
+        },
+        {
+          "nombre": "Rubin Colwill",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "2002-04-27"
+        },
+        {
+          "nombre": "Matthew Smith",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Gales",
+          "fechaNacimiento": "1999-11-22"
+        }
+      ]
+    },
+    {
+      "nombre": "Arabia Saudita",
+      "entrenador": "Hervé Renard",
+      "sede": "Arabia Saudita",
+      "jugadores": [
+        {
+          "nombre": "Mohammed Al-Yami",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1997-08-14"
+        },
+        {
+          "nombre": "Sultan Al-Ghannam",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1994-05-06"
+        },
+        {
+          "nombre": "Abdullah Madu",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1993-07-15"
+        },
+        {
+          "nombre": "Abdulelah Al-Amri",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1997-01-15"
+        },
+        {
+          "nombre": "Ali Al-Bulaihi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1989-11-21"
+        },
+        {
+          "nombre": "Mohammed Al-Breik",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1992-09-15"
+        },
+        {
+          "nombre": "Salman Al-Faraj",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1989-08-01"
+        },
+        {
+          "nombre": "Abdulellah Al-Malki",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1994-10-11"
+        },
+        {
+          "nombre": "Firas Al-Buraikan",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "2000-05-14"
+        },
+        {
+          "nombre": "Salem Al-Dawsari",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1991-08-19"
+        },
+        {
+          "nombre": "Saleh Al-Shehri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1993-11-01"
+        },
+        {
+          "nombre": "Saud Abdulhamid",
+          "posicion": "Defensor",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1999-07-18"
+        },
+        {
+          "nombre": "Yasser Al-Shahrani",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1992-05-25"
+        },
+        {
+          "nombre": "Abdullah Otayf",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1992-08-03"
+        },
+        {
+          "nombre": "Ali Al-Hassan",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1997-03-04"
+        },
+        {
+          "nombre": "Sami Al-Najei",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1997-02-07"
+        },
+        {
+          "nombre": "Hassan Al-Tambakti",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1999-02-09"
+        },
+        {
+          "nombre": "Nawaf Al-Abed",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1990-01-14"
+        },
+        {
+          "nombre": "Hattan Bahebri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1992-07-16"
+        },
+        {
+          "nombre": "Abdulrahman Al-Obood",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1995-06-01"
+        },
+        {
+          "nombre": "Mohammed Al-Owais",
+          "posicion": "Arquero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1991-10-10"
+        },
+        {
+          "nombre": "Nawaf Al-Aqidi",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "2000-05-10"
+        },
+        {
+          "nombre": "Mohamed Kanno",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1994-09-22"
+        },
+        {
+          "nombre": "Nasser Al-Dawsari",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1998-12-19"
+        },
+        {
+          "nombre": "Haitham Asiri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "2001-03-25"
+        },
+        {
+          "nombre": "Riyadh Sharahili",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Arabia Saudita",
+          "fechaNacimiento": "1993-04-28"
+        }
+      ]
+    },
+    {
+      "nombre": "México",
+      "entrenador": "Gerardo Martino",
+      "sede": "México",
+      "jugadores": [
+        {
+          "nombre": "Alfredo Talavera",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1982-09-18"
+        },
+        {
+          "nombre": "Néstor Araujo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1991-08-29"
+        },
+        {
+          "nombre": "César Montes",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1997-02-24"
+        },
+        {
+          "nombre": "Edson Álvarez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 4,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1997-10-24"
+        },
+        {
+          "nombre": "Johan Vásquez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1998-10-22"
+        },
+        {
+          "nombre": "Gerardo Arteaga",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1998-09-07"
+        },
+        {
+          "nombre": "Luis Romo",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1995-06-05"
+        },
+        {
+          "nombre": "Carlos Rodríguez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1997-01-03"
+        },
+        {
+          "nombre": "Raúl Jiménez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1991-05-05"
+        },
+        {
+          "nombre": "Alexis Vega",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1997-11-25"
+        },
+        {
+          "nombre": "Rogelio Funes Mori",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1991-03-05"
+        },
+        {
+          "nombre": "Rodolfo Cota",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1987-07-03"
+        },
+        {
+          "nombre": "Guillermo Ochoa",
+          "posicion": "Arquero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1985-07-13"
+        },
+        {
+          "nombre": "Érick Gutiérrez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1995-06-15"
+        },
+        {
+          "nombre": "Héctor Moreno",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1988-01-17"
+        },
+        {
+          "nombre": "Héctor Herrera",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1990-04-19"
+        },
+        {
+          "nombre": "Orbelín Pineda",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1996-03-24"
+        },
+        {
+          "nombre": "Andrés Guardado",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1986-09-28"
+        },
+        {
+          "nombre": "Jorge Sánchez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1997-12-10"
+        },
+        {
+          "nombre": "Henry Martín",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1992-11-18"
+        },
+        {
+          "nombre": "Uriel Antuna",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1997-08-21"
+        },
+        {
+          "nombre": "Hirving Lozano",
+          "posicion": "Delantero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1995-07-30"
+        },
+        {
+          "nombre": "Jesús Gallardo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 23,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1994-08-15"
+        },
+        {
+          "nombre": "Luis Chávez",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1996-01-15"
+        },
+        {
+          "nombre": "Roberto Alvarado",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1998-09-07"
+        },
+        {
+          "nombre": "Kevin Álvarez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "México",
+          "fechaNacimiento": "1999-01-15"
+        }
+      ]
+    },
+    {
+      "nombre": "Polonia",
+      "entrenador": "Czesław Michniewicz",
+      "sede": "Polonia",
+      "jugadores": [
+        {
+          "nombre": "Wojciech Szczęsny",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1990-04-18"
+        },
+        {
+          "nombre": "Matty Cash",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1997-08-07"
+        },
+        {
+          "nombre": "Artur Jędrzejczyk",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1987-11-04"
+        },
+        {
+          "nombre": "Mateusz Wieteska",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1997-02-11"
+        },
+        {
+          "nombre": "Jan Bednarek",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1996-04-12"
+        },
+        {
+          "nombre": "Krystian Bielik",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1998-01-04"
+        },
+        {
+          "nombre": "Arkadiusz Milik",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1994-02-28"
+        },
+        {
+          "nombre": "Damian Szymański",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1995-06-16"
+        },
+        {
+          "nombre": "Robert Lewandowski",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1988-08-21"
+        },
+        {
+          "nombre": "Grzegorz Krychowiak",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1990-01-29"
+        },
+        {
+          "nombre": "Kamil Grosicki",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1988-06-08"
+        },
+        {
+          "nombre": "Łukasz Skorupski",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1991-05-05"
+        },
+        {
+          "nombre": "Jakub Kamiński",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "2002-06-05"
+        },
+        {
+          "nombre": "Jakub Kiwior",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "2000-02-15"
+        },
+        {
+          "nombre": "Kamil Glik",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1988-02-03"
+        },
+        {
+          "nombre": "Karol Świderski",
+          "posicion": "Delantero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1997-01-23"
+        },
+        {
+          "nombre": "Paweł Wszołek",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1992-04-30"
+        },
+        {
+          "nombre": "Bereszyński Bartosz",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1992-07-12"
+        },
+        {
+          "nombre": "Sebastian Szymański",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1999-05-10"
+        },
+        {
+          "nombre": "Piotr Zieliński",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1994-05-20"
+        },
+        {
+          "nombre": "Nicola Zalewski",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "2002-01-23"
+        },
+        {
+          "nombre": "Kamil Grabara",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1999-01-08"
+        },
+        {
+          "nombre": "Krzysztof Piątek",
+          "posicion": "Delantero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1995-07-01"
+        },
+        {
+          "nombre": "Przemysław Frankowski",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1995-04-12"
+        },
+        {
+          "nombre": "Robert Gumny",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "1998-06-04"
+        },
+        {
+          "nombre": "Michał Skóraś",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Polonia",
+          "fechaNacimiento": "2000-02-15"
+        }
+      ]
+    },
+    {
+      "nombre": "Dinamarca",
+      "entrenador": "Kasper Hjulmand",
+      "sede": "Dinamarca",
+      "jugadores": [
+        {
+          "nombre": "Kasper Schmeichel",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1986-11-05"
+        },
+        {
+          "nombre": "Joachim Andersen",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1996-05-31"
+        },
+        {
+          "nombre": "Victor Nelsson",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1998-10-14"
+        },
+        {
+          "nombre": "Simon Kjær",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1989-03-26"
+        },
+        {
+          "nombre": "Joakim Mæhle",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1997-05-20"
+        },
+        {
+          "nombre": "Andreas Christensen",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1996-04-10"
+        },
+        {
+          "nombre": "Mathias Jensen",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1996-01-01"
+        },
+        {
+          "nombre": "Thomas Delaney",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1991-09-03"
+        },
+        {
+          "nombre": "Martin Braithwaite",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1991-06-05"
+        },
+        {
+          "nombre": "Christian Eriksen",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1992-02-14"
+        },
+        {
+          "nombre": "Andreas Skov Olsen",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1999-12-29"
+        },
+        {
+          "nombre": "Kasper Dolberg",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1997-10-06"
+        },
+        {
+          "nombre": "Rasmus Kristensen",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1997-07-11"
+        },
+        {
+          "nombre": "Mikkel Damsgaard",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "2000-07-03"
+        },
+        {
+          "nombre": "Christian Nørgaard",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1994-03-10"
+        },
+        {
+          "nombre": "Oliver Christensen",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1999-03-22"
+        },
+        {
+          "nombre": "Jens Stryger Larsen",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1991-02-21"
+        },
+        {
+          "nombre": "Daniel Wass",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1989-05-31"
+        },
+        {
+          "nombre": "Jonas Wind",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1999-02-07"
+        },
+        {
+          "nombre": "Yussuf Poulsen",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1994-06-15"
+        },
+        {
+          "nombre": "Andreas Cornelius",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1993-03-16"
+        },
+        {
+          "nombre": "Frederik Rønnow",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1992-08-04"
+        },
+        {
+          "nombre": "Pierre-Emile Højbjerg",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1995-08-05"
+        },
+        {
+          "nombre": "Robert Skov",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1996-05-20"
+        },
+        {
+          "nombre": "Jesper Lindstrøm",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "2000-02-29"
+        },
+        {
+          "nombre": "Alexander Bah",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Dinamarca",
+          "fechaNacimiento": "1997-12-09"
+        }
+      ]
+    },
+    {
+      "nombre": "Túnez",
+      "entrenador": "Jalel Kadri",
+      "sede": "Tunez",
+      "jugadores": [
+        {
+          "nombre": "Aymen Mathlouthi",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1984-09-14"
+        },
+        {
+          "nombre": "Bilel Ifa",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1990-03-09"
+        },
+        {
+          "nombre": "Montassar Talbi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1998-05-14"
+        },
+        {
+          "nombre": "Yassine Meriah",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1993-07-02"
+        },
+        {
+          "nombre": "Nader Ghandri",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1995-02-18"
+        },
+        {
+          "nombre": "Dylan Bronn",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1995-06-19"
+        },
+        {
+          "nombre": "Youssef Msakni",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1990-10-28"
+        },
+        {
+          "nombre": "Hannibal Mejbri",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "2003-01-21"
+        },
+        {
+          "nombre": "Issam Jebali",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1991-12-25"
+        },
+        {
+          "nombre": "Wahbi Khazri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1991-02-08"
+        },
+        {
+          "nombre": "Taha Yassine Khenissi",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1992-01-06"
+        },
+        {
+          "nombre": "Ali Maâloul",
+          "posicion": "Defensor",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1990-01-01"
+        },
+        {
+          "nombre": "Ferjani Sassi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1992-03-18"
+        },
+        {
+          "nombre": "Aïssa Laïdouni",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1996-12-13"
+        },
+        {
+          "nombre": "Ben Romdhane",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1999-09-06"
+        },
+        {
+          "nombre": "Aymen Dahmen",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1997-01-28"
+        },
+        {
+          "nombre": "Ellyes Skhiri",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1995-05-10"
+        },
+        {
+          "nombre": "Ghailene Chaalali",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1994-02-28"
+        },
+        {
+          "nombre": "Seifeddine Jaziri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1993-02-12"
+        },
+        {
+          "nombre": "Mohamed Dräger",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1996-06-25"
+        },
+        {
+          "nombre": "Wajdi Kechrida",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1995-11-05"
+        },
+        {
+          "nombre": "Bechir Ben Saïd",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1992-11-29"
+        },
+        {
+          "nombre": "Naïm Sliti",
+          "posicion": "Delantero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1992-07-27"
+        },
+        {
+          "nombre": "Ali Abdi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1993-12-20"
+        },
+        {
+          "nombre": "Anis Slimane",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "2001-03-16"
+        },
+        {
+          "nombre": "Mouez Hassen",
+          "posicion": "Arquero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Túnez",
+          "fechaNacimiento": "1995-03-05"
+        }
+      ]
+    },
+    {
+      "nombre": "Australia",
+      "entrenador": "Graham Arnold",
+      "sede": "Australia",
+      "jugadores": [
+        {
+          "nombre": "Mathew Ryan",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1992-04-08"
+        },
+        {
+          "nombre": "Miloš Degenek",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1994-04-28"
+        },
+        {
+          "nombre": "Nathaniel Atkinson",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1999-06-13"
+        },
+        {
+          "nombre": "Kye Rowles",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1998-06-24"
+        },
+        {
+          "nombre": "Fran Karačić",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1996-05-12"
+        },
+        {
+          "nombre": "Marco Tilio",
+          "posicion": "Delantero",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "2001-08-23"
+        },
+        {
+          "nombre": "Mathew Leckie",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1991-02-04"
+        },
+        {
+          "nombre": "Bailey Wright",
+          "posicion": "Defensor",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1992-07-28"
+        },
+        {
+          "nombre": "Jamie Maclaren",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1993-07-29"
+        },
+        {
+          "nombre": "Ajdin Hrustić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1996-07-05"
+        },
+        {
+          "nombre": "Awer Mabil",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1995-09-15"
+        },
+        {
+          "nombre": "Andrew Redmayne",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1989-01-13"
+        },
+        {
+          "nombre": "Aaron Mooy",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1990-09-15"
+        },
+        {
+          "nombre": "Riley McGree",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1998-11-02"
+        },
+        {
+          "nombre": "Mitchell Duke",
+          "posicion": "Delantero",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1991-01-18"
+        },
+        {
+          "nombre": "Aziz Behich",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1990-12-16"
+        },
+        {
+          "nombre": "Cameron Devlin",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1998-06-07"
+        },
+        {
+          "nombre": "Danny Vukovic",
+          "posicion": "Arquero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1985-03-27"
+        },
+        {
+          "nombre": "Harry Souttar",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1998-10-22"
+        },
+        {
+          "nombre": "Thomas Deng",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1997-03-20"
+        },
+        {
+          "nombre": "Garang Kuol",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "2004-09-15"
+        },
+        {
+          "nombre": "Jackson Irvine",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1993-03-07"
+        },
+        {
+          "nombre": "Craig Goodwin",
+          "posicion": "Delantero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1991-12-16"
+        },
+        {
+          "nombre": "Joel King",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "2000-10-30"
+        },
+        {
+          "nombre": "Thomas hissa",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "2000-02-08"
+        },
+        {
+          "nombre": "Keanu Baccus",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Australia",
+          "fechaNacimiento": "1998-06-07"
+        }
+      ]
+    },
+    {
+      "nombre": "España",
+      "entrenador": "Luis Enrique",
+      "sede": "España",
+      "jugadores": [
+        {
+          "nombre": "Robert Sánchez",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1997-11-18"
+        },
+        {
+          "nombre": "César Azpilicueta",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1989-08-28"
+        },
+        {
+          "nombre": "Eric García",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2001-01-09"
+        },
+        {
+          "nombre": "Pau Torres",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1997-01-16"
+        },
+        {
+          "nombre": "Sergio Busquets",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1988-07-16"
+        },
+        {
+          "nombre": "Marcos Llorente",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1995-01-30"
+        },
+        {
+          "nombre": "Álvaro Morata",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1992-10-23"
+        },
+        {
+          "nombre": "Koke",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1992-01-08"
+        },
+        {
+          "nombre": "Gavi",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 9,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2004-08-05"
+        },
+        {
+          "nombre": "Marco Asensio",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1996-01-21"
+        },
+        {
+          "nombre": "Ferran Torres",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2000-02-29"
+        },
+        {
+          "nombre": "Nico Williams",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2002-07-12"
+        },
+        {
+          "nombre": "David Raya",
+          "posicion": "Arquero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1995-09-15"
+        },
+        {
+          "nombre": "Alejandro Balde",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2003-10-18"
+        },
+        {
+          "nombre": "Hugo Guillamón",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2000-01-31"
+        },
+        {
+          "nombre": "Rodri Hernández",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1996-06-22"
+        },
+        {
+          "nombre": "Yeremy Pino",
+          "posicion": "Delantero",
+          "numeroCamiseta": 17,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2002-10-20"
+        },
+        {
+          "nombre": "Jordi Alba",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1989-03-21"
+        },
+        {
+          "nombre": "Carlos Soler",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 19,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1997-01-02"
+        },
+        {
+          "nombre": "Dani Olmo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1998-05-07"
+        },
+        {
+          "nombre": "Dani Carvajal",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1992-01-11"
+        },
+        {
+          "nombre": "Pablo Sarabia",
+          "posicion": "Delantero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1992-05-11"
+        },
+        {
+          "nombre": "Unai Simón",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1997-06-11"
+        },
+        {
+          "nombre": "Aymeric Laporte",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1994-05-27"
+        },
+        {
+          "nombre": "Ansu Fati",
+          "posicion": "Delantero",
+          "numeroCamiseta": 25,
+          "nacionalidad": "España",
+          "fechaNacimiento": "2002-10-31"
+        },
+        {
+          "nombre": "José Luis Gayà",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "España",
+          "fechaNacimiento": "1995-05-25"
+        }
+      ]
+    },
+    {
+      "nombre": "Alemania",
+      "entrenador": "Hansi Flick",
+      "sede": "Alemania",
+      "jugadores": [
+        {
+          "nombre": "Manuel Neuer",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1986-03-27"
+        },
+        {
+          "nombre": "Antonio Rüdiger",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1993-03-03"
+        },
+        {
+          "nombre": "David Raum",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1998-04-22"
+        },
+        {
+          "nombre": "Matthias Ginter",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1994-01-19"
+        },
+        {
+          "nombre": "Thilo Kehrer",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1996-09-21"
+        },
+        {
+          "nombre": "Joshua Kimmich",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1995-02-08"
+        },
+        {
+          "nombre": "Kai Havertz",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1999-06-11"
+        },
+        {
+          "nombre": "Leon Goretzka",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1995-02-06"
+        },
+        {
+          "nombre": "Niclas Füllkrug",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1993-02-09"
+        },
+        {
+          "nombre": "Serge Gnabry",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1995-07-14"
+        },
+        {
+          "nombre": "Mario Götze",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1992-06-03"
+        },
+        {
+          "nombre": "Kevin Trapp",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1990-07-08"
+        },
+        {
+          "nombre": "Thomas Müller",
+          "posicion": "Delantero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1989-09-13"
+        },
+        {
+          "nombre": "Jamal Musiala",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "2003-02-26"
+        },
+        {
+          "nombre": "Niklas Süle",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1995-09-03"
+        },
+        {
+          "nombre": "Lukas Klostermann",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1996-06-03"
+        },
+        {
+          "nombre": "Julian Brandt",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1996-05-02"
+        },
+        {
+          "nombre": "Jonas Hofmann",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1992-07-14"
+        },
+        {
+          "nombre": "Leroy Sané",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1996-01-11"
+        },
+        {
+          "nombre": "Christian Günter",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1993-02-28"
+        },
+        {
+          "nombre": "Ilkay Gündogan",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1990-10-24"
+        },
+        {
+          "nombre": "Marc-André ter Stegen",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1992-04-30"
+        },
+        {
+          "nombre": "Nico Schlotterbeck",
+          "posicion": "Defensor",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "1999-12-01"
+        },
+        {
+          "nombre": "Karim Adeyemi",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "2002-01-18"
+        },
+        {
+          "nombre": "Armel Bella-Kotchap",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "2001-12-11"
+        },
+        {
+          "nombre": "Youssoufa Moukoko",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Alemania",
+          "fechaNacimiento": "2004-11-20"
+        }
+      ]
+    },
+    {
+      "nombre": "Japón",
+      "entrenador": "Hajime Moriyasu",
+      "sede": "Japón",
+      "jugadores": [
+        {
+          "nombre": "Eiji Kawashima",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1983-03-20"
+        },
+        {
+          "nombre": "Miki Yamane",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1993-12-22"
+        },
+        {
+          "nombre": "Shogo Taniguchi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1991-07-15"
+        },
+        {
+          "nombre": "Ko Itakura",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1997-01-27"
+        },
+        {
+          "nombre": "Yuto Nagatomo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1986-09-12"
+        },
+        {
+          "nombre": "Wataru Endo",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1993-02-09"
+        },
+        {
+          "nombre": "Gaku Shibasaki",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1992-05-28"
+        },
+        {
+          "nombre": "Ritsu Doan",
+          "posicion": "Delantero",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1998-06-16"
+        },
+        {
+          "nombre": "Kaoru Mitoma",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1997-05-20"
+        },
+        {
+          "nombre": "Takumi Minamino",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1995-01-16"
+        },
+        {
+          "nombre": "Takefusa Kubo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "2001-06-04"
+        },
+        {
+          "nombre": "Shuichi Gonda",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1989-03-03"
+        },
+        {
+          "nombre": "Hidemasa Morita",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1995-05-10"
+        },
+        {
+          "nombre": "Junya Ito",
+          "posicion": "Delantero",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1993-03-09"
+        },
+        {
+          "nombre": "Daichi Kamada",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1996-08-05"
+        },
+        {
+          "nombre": "Takehiro Tomiyasu",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1998-11-05"
+        },
+        {
+          "nombre": "Ao Tanaka",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1998-09-10"
+        },
+        {
+          "nombre": "Takuma Asano",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1994-11-10"
+        },
+        {
+          "nombre": "Hiroki Sakai",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1990-04-12"
+        },
+        {
+          "nombre": "Shuto Machino",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1999-09-30"
+        },
+        {
+          "nombre": "Ayase Ueda",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1998-08-28"
+        },
+        {
+          "nombre": "Maya Yoshida",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1988-08-24"
+        },
+        {
+          "nombre": "Daniel Schmidt",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1992-02-03"
+        },
+        {
+          "nombre": "Yuki Soma",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1997-02-25"
+        },
+        {
+          "nombre": "Daizen Maeda",
+          "posicion": "Delantero",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1997-10-20"
+        },
+        {
+          "nombre": "Hiroki Ito",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Japón",
+          "fechaNacimiento": "1999-05-12"
+        }
+      ]
+    },
+    {
+      "nombre": "Costa Rica",
+      "entrenador": "Luis Fernando Suárez",
+      "sede": "Costa Rica",
+      "jugadores": [
+        {
+          "nombre": "Keylor Navas",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1986-12-15"
+        },
+        {
+          "nombre": "Daniel Chacón",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2001-04-11"
+        },
+        {
+          "nombre": "Juan Pablo Vargas",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1995-06-06"
+        },
+        {
+          "nombre": "Keysher Fuller",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1994-07-12"
+        },
+        {
+          "nombre": "Celso Borges",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1988-05-27"
+        },
+        {
+          "nombre": "Óscar Duarte",
+          "posicion": "Defensor",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1989-06-03"
+        },
+        {
+          "nombre": "Anthony Contreras",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2000-01-29"
+        },
+        {
+          "nombre": "Bryan Oviedo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1990-02-18"
+        },
+        {
+          "nombre": "Jewison Bennette",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2004-06-15"
+        },
+        {
+          "nombre": "Bryan Ruiz",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1985-08-18"
+        },
+        {
+          "nombre": "Johan Venegas",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1988-11-27"
+        },
+        {
+          "nombre": "Joel Campbell",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1992-06-26"
+        },
+        {
+          "nombre": "Gerson Torres",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1997-08-28"
+        },
+        {
+          "nombre": "Youstin Salas",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1996-06-17"
+        },
+        {
+          "nombre": "Francisco Calvo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1992-07-08"
+        },
+        {
+          "nombre": "Carlos Martínez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1999-03-30"
+        },
+        {
+          "nombre": "Yeltsin Tejeda",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1992-03-17"
+        },
+        {
+          "nombre": "Esteban Alvarado",
+          "posicion": "Arquero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1989-04-28"
+        },
+        {
+          "nombre": "Kendall Waston",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1988-01-01"
+        },
+        {
+          "nombre": "Brandon Aguilera",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2003-06-28"
+        },
+        {
+          "nombre": "Douglas López",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1998-09-21"
+        },
+        {
+          "nombre": "Rónald Matarrita",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1994-07-09"
+        },
+        {
+          "nombre": "Patrick Sequeira",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "1999-03-01"
+        },
+        {
+          "nombre": "Roan Wilson",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2002-05-01"
+        },
+        {
+          "nombre": "Anthony Hernández",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2001-10-11"
+        },
+        {
+          "nombre": "Álvaro Zamora",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Costa Rica",
+          "fechaNacimiento": "2002-03-09"
+        }
+      ]
+    },
+    {
+      "nombre": "Bélgica",
+      "entrenador": "Roberto Martinez",
+      "sede": "Bélgica",
+      "jugadores": [
+        {
+          "nombre": "Thibaut Courtois",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1992-05-11"
+        },
+        {
+          "nombre": "Toby Alderweireld",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1989-03-02"
+        },
+        {
+          "nombre": "Arthur Theate",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "2000-05-25"
+        },
+        {
+          "nombre": "Wout Faes",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1998-04-03"
+        },
+        {
+          "nombre": "Jan Vertonghen",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1987-04-24"
+        },
+        {
+          "nombre": "Axel Witsel",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1989-01-12"
+        },
+        {
+          "nombre": "Kevin De Bruyne",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1991-06-28"
+        },
+        {
+          "nombre": "Youri Tielemans",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1997-05-07"
+        },
+        {
+          "nombre": "Romelu Lukaku",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1993-05-13"
+        },
+        {
+          "nombre": "Eden Hazard",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1991-01-07"
+        },
+        {
+          "nombre": "Yannick Carrasco",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1993-09-04"
+        },
+        {
+          "nombre": "Simon Mignolet",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1988-03-06"
+        },
+        {
+          "nombre": "Koen Casteels",
+          "posicion": "Arquero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1992-06-25"
+        },
+        {
+          "nombre": "Dries Mertens",
+          "posicion": "Delantero",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1987-05-06"
+        },
+        {
+          "nombre": "Thomas Meunier",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1991-09-12"
+        },
+        {
+          "nombre": "Thorgan Hazard",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1993-03-29"
+        },
+        {
+          "nombre": "Leandro Trossard",
+          "posicion": "Delantero",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1994-12-04"
+        },
+        {
+          "nombre": "Amadou Onana",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "2001-08-16"
+        },
+        {
+          "nombre": "Leander Dendoncker",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1995-04-15"
+        },
+        {
+          "nombre": "Hans Vanaken",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1992-08-24"
+        },
+        {
+          "nombre": "Timothy Castagne",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1995-12-05"
+        },
+        {
+          "nombre": "Charles De Ketelaere",
+          "posicion": "Delantero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "2001-03-10"
+        },
+        {
+          "nombre": "Michy Batshuayi",
+          "posicion": "Delantero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "1993-10-02"
+        },
+        {
+          "nombre": "Loïs Openda",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "2000-02-16"
+        },
+        {
+          "nombre": "Jérémy Doku",
+          "posicion": "Delantero",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "2002-05-27"
+        },
+        {
+          "nombre": "Zeno Debast",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Bélgica",
+          "fechaNacimiento": "2003-10-24"
+        }
+      ]
+    },
+    {
+      "nombre": "Canadá",
+      "entrenador": "John Herdman",
+      "sede": "Canadá",
+      "jugadores": [
+        {
+          "nombre": "Dayne St. Clair",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1997-05-09"
+        },
+        {
+          "nombre": "Alistair Johnston",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1998-10-08"
+        },
+        {
+          "nombre": "Sam Adekugbe",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1995-01-16"
+        },
+        {
+          "nombre": "Kamal Miller",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1997-05-16"
+        },
+        {
+          "nombre": "Steven Vitória",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1987-01-11"
+        },
+        {
+          "nombre": "Samuel Piette",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1994-11-12"
+        },
+        {
+          "nombre": "Stephen Eustáquio",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1996-12-21"
+        },
+        {
+          "nombre": "Liam Fraser",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1998-02-13"
+        },
+        {
+          "nombre": "Lucas Cavallini",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1992-12-28"
+        },
+        {
+          "nombre": "Junior Hoilett",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1990-06-05"
+        },
+        {
+          "nombre": "Tajon Buchanan",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1999-02-08"
+        },
+        {
+          "nombre": "Iké Ugbo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1998-09-21"
+        },
+        {
+          "nombre": "Atiba Hutchinson",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1983-02-08"
+        },
+        {
+          "nombre": "Mark-Anthony Kaye",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1994-12-02"
+        },
+        {
+          "nombre": "Ismaël Koné",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "2002-06-16"
+        },
+        {
+          "nombre": "James Pantemis",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1997-02-21"
+        },
+        {
+          "nombre": "Cyle Larin",
+          "posicion": "Delantero",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1995-04-17"
+        },
+        {
+          "nombre": "Milan Borjan",
+          "posicion": "Arquero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1987-10-23"
+        },
+        {
+          "nombre": "Alphonso Davies",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "2000-11-02"
+        },
+        {
+          "nombre": "Jonathan David",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "2000-01-14"
+        },
+        {
+          "nombre": "Jonathan Osorio",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1992-06-12"
+        },
+        {
+          "nombre": "Richie Laryea",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1995-01-07"
+        },
+        {
+          "nombre": "Liam Millar",
+          "posicion": "Delantero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1999-09-27"
+        },
+        {
+          "nombre": "David Wotherspoon",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1990-01-16"
+        },
+        {
+          "nombre": "Derek Cornelius",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1997-11-25"
+        },
+        {
+          "nombre": "Joel Waterman",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Canadá",
+          "fechaNacimiento": "1996-01-24"
+        }
+      ]
+    },
+    {
+      "nombre": "Suiza",
+      "entrenador": "Murat Yakin",
+      "sede": "Suiza",
+      "jugadores": [
+        {
+          "nombre": "Yann Sommer",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1988-12-17"
+        },
+        {
+          "nombre": "Edimilson Fernandes",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1996-04-15"
+        },
+        {
+          "nombre": "Silvan Widmer",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1993-03-05"
+        },
+        {
+          "nombre": "Nico Elvedi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1996-09-30"
+        },
+        {
+          "nombre": "Manuel Akanji",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1995-07-19"
+        },
+        {
+          "nombre": "Denis Zakaria",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1996-11-20"
+        },
+        {
+          "nombre": "Breel Embolo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1997-02-14"
+        },
+        {
+          "nombre": "Remo Freuler",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1992-04-15"
+        },
+        {
+          "nombre": "Haris Seferović",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1992-02-22"
+        },
+        {
+          "nombre": "Granit Xhaka",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1992-09-27"
+        },
+        {
+          "nombre": "Renato Steffen",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1991-11-03"
+        },
+        {
+          "nombre": "Jonas Omlin",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1994-01-10"
+        },
+        {
+          "nombre": "Ricardo Rodríguez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1992-08-25"
+        },
+        {
+          "nombre": "Michel Aebischer",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1997-01-06"
+        },
+        {
+          "nombre": "Djibril Sow",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1997-03-11"
+        },
+        {
+          "nombre": "Christian Fassnacht",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1993-11-11"
+        },
+        {
+          "nombre": "Eray Cömert",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1998-02-04"
+        },
+        {
+          "nombre": "Ruben Vargas",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1998-08-05"
+        },
+        {
+          "nombre": "Gregor Kobel",
+          "posicion": "Arquero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1997-12-06"
+        },
+        {
+          "nombre": "Fabian Frei",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1989-01-08"
+        },
+        {
+          "nombre": "Philipp Köhn",
+          "posicion": "Arquero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1998-04-02"
+        },
+        {
+          "nombre": "Fabian Schär",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1991-12-20"
+        },
+        {
+          "nombre": "Xherdan Shaqiri",
+          "posicion": "Delantero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "1991-10-10"
+        },
+        {
+          "nombre": "Ardon Jashari",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "2002-07-30"
+        },
+        {
+          "nombre": "Fabian Rieder",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "2002-02-16"
+        },
+        {
+          "nombre": "Noah Okafor",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Suiza",
+          "fechaNacimiento": "2000-05-24"
+        }
+      ]
+    },
+    {
+      "nombre": "Camerún",
+      "entrenador": "Rigobert Song",
+      "sede": "Camerún",
+      "jugadores": [
+        {
+          "nombre": "Simon Ngapandouetnbu",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "2003-04-12"
+        },
+        {
+          "nombre": "Jerome Ngom Mbekeli",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1998-09-30"
+        },
+        {
+          "nombre": "Nicolas Nkoulou",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1990-03-27"
+        },
+        {
+          "nombre": "Christopher Wooh",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "2001-09-18"
+        },
+        {
+          "nombre": "Gael Ondoua",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1995-11-04"
+        },
+        {
+          "nombre": "Moumi Ngamaleu",
+          "posicion": "Delantero",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1994-07-09"
+        },
+        {
+          "nombre": "Georges-Kévin Nkoudou",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1995-02-13"
+        },
+        {
+          "nombre": "André-Frank Zambo Anguissa",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1995-11-16"
+        },
+        {
+          "nombre": "Jean-Pierre Nsame",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1993-05-01"
+        },
+        {
+          "nombre": "Vincent Aboubakar",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1992-01-22"
+        },
+        {
+          "nombre": "Christian Bassogog",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1995-10-18"
+        },
+        {
+          "nombre": "Karl Toko Ekambi",
+          "posicion": "Delantero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1992-09-14"
+        },
+        {
+          "nombre": "Eric Maxim Choupo-Moting",
+          "posicion": "Delantero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1989-03-23"
+        },
+        {
+          "nombre": "Samuel Gouet",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1997-12-14"
+        },
+        {
+          "nombre": "Pierre Kunde",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1995-07-26"
+        },
+        {
+          "nombre": "Devis Epassy",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1993-02-02"
+        },
+        {
+          "nombre": "Olivier Mbaizo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1997-08-15"
+        },
+        {
+          "nombre": "Martin Hongla",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1998-03-16"
+        },
+        {
+          "nombre": "Faï Collins",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1992-08-13"
+        },
+        {
+          "nombre": "Bryan Mbeumo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1999-08-07"
+        },
+        {
+          "nombre": "Jean-Charles Castelletto",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1995-01-26"
+        },
+        {
+          "nombre": "Olivier Ntcham",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1996-02-09"
+        },
+        {
+          "nombre": "André Onana",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1996-04-02"
+        },
+        {
+          "nombre": "Enzo Ebosse",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1999-03-11"
+        },
+        {
+          "nombre": "Nouhou Tolo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "1997-06-23"
+        },
+        {
+          "nombre": "Souaibou Marou",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Camerún",
+          "fechaNacimiento": "2000-12-03"
+        }
+      ]
+    },
+    {
+      "nombre": "Serbia",
+      "entrenador": "Dragan Stojković",
+      "sede": "Serbia",
+      "jugadores": [
+        {
+          "nombre": "Marko Dmitrović",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1992-01-24"
+        },
+        {
+          "nombre": "Strahinja Pavlović",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "2001-05-24"
+        },
+        {
+          "nombre": "Strahinja Eraković",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "2001-01-22"
+        },
+        {
+          "nombre": "Nikola Milenković",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1997-10-12"
+        },
+        {
+          "nombre": "Miloš Veljković",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1995-09-26"
+        },
+        {
+          "nombre": "Nemanja Maksimović",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1995-01-26"
+        },
+        {
+          "nombre": "Nemanja Radonjić",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1996-02-15"
+        },
+        {
+          "nombre": "Nemanja Gudelj",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1991-11-16"
+        },
+        {
+          "nombre": "Aleksandar Mitrović",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1994-09-16"
+        },
+        {
+          "nombre": "Dušan Tadić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1988-11-20"
+        },
+        {
+          "nombre": "Luka Jović",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1997-12-23"
+        },
+        {
+          "nombre": "Predrag Rajković",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1995-10-31"
+        },
+        {
+          "nombre": "Stefan Mitrović",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1990-05-22"
+        },
+        {
+          "nombre": "Andrija Živković",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1996-07-11"
+        },
+        {
+          "nombre": "Srđan Babić",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1996-04-22"
+        },
+        {
+          "nombre": "Saša Lukić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1996-08-13"
+        },
+        {
+          "nombre": "Filip Kostić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1992-11-01"
+        },
+        {
+          "nombre": "Dušan Vlahović",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "2000-01-28"
+        },
+        {
+          "nombre": "Filip Đuričić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1992-01-30"
+        },
+        {
+          "nombre": "Sergej Milinković-Savić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1995-02-27"
+        },
+        {
+          "nombre": "Filip Mladenović",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1991-08-15"
+        },
+        {
+          "nombre": "Darko Lazović",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1990-05-08"
+        },
+        {
+          "nombre": "Vanja Milinković-Savić",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1997-02-20"
+        },
+        {
+          "nombre": "Ivan Ilić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "2001-03-17"
+        },
+        {
+          "nombre": "Filip Mladenović",
+          "posicion": "Defensor",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1995-10-09"
+        },
+        {
+          "nombre": "Marko Grujić",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Serbia",
+          "fechaNacimiento": "1996-04-13"
+        }
+      ]
+    },
+    {
+      "nombre": "Portugal",
+      "entrenador": "Fernando Santos",
+      "sede": "Portugal",
+      "jugadores": [
+        {
+          "nombre": "Rui Patrício",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1988-02-15"
+        },
+        {
+          "nombre": "Diogo Dalot",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1999-03-18"
+        },
+        {
+          "nombre": "Pepe",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1983-02-26"
+        },
+        {
+          "nombre": "Rúben Dias",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1997-05-14"
+        },
+        {
+          "nombre": "Raphaël Guerreiro",
+          "posicion": "Defensor",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1993-12-22"
+        },
+        {
+          "nombre": "João Palhinha",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1995-07-09"
+        },
+        {
+          "nombre": "Cristiano Ronaldo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1985-02-05"
+        },
+        {
+          "nombre": "Bruno Fernandes",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1994-09-08"
+        },
+        {
+          "nombre": "André Silva",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1995-11-06"
+        },
+        {
+          "nombre": "Bernardo Silva",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1994-08-10"
+        },
+        {
+          "nombre": "João Félix",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1999-11-10"
+        },
+        {
+          "nombre": "José Sá",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1993-01-17"
+        },
+        {
+          "nombre": "Danilo Pereira",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1991-09-09"
+        },
+        {
+          "nombre": "William Carvalho",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1992-04-07"
+        },
+        {
+          "nombre": "Rafael Leão",
+          "posicion": "Delantero",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1999-06-10"
+        },
+        {
+          "nombre": "Vitinha",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "2000-02-13"
+        },
+        {
+          "nombre": "João Mário",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1993-01-19"
+        },
+        {
+          "nombre": "Rúben Neves",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1997-03-13"
+        },
+        {
+          "nombre": "Nuno Mendes",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "2002-06-19"
+        },
+        {
+          "nombre": "João Cancelo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1994-05-27"
+        },
+        {
+          "nombre": "Ricardo Horta",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1994-09-15"
+        },
+        {
+          "nombre": "Diogo Costa",
+          "posicion": "Arquero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1999-09-19"
+        },
+        {
+          "nombre": "Matheus Nunes",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1998-08-27"
+        },
+        {
+          "nombre": "António Silva",
+          "posicion": "Defensor",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "2003-10-31"
+        },
+        {
+          "nombre": "Otávio",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "1995-02-09"
+        },
+        {
+          "nombre": "Gonçalo Ramos",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Portugal",
+          "fechaNacimiento": "2001-06-20"
+        }
+      ]
+    },
+    {
+      "nombre": "Ghana",
+      "entrenador": "Otto Addo",
+      "sede": "Ghana",
+      "jugadores": [
+        {
+          "nombre": "Lawrence Ati-Zigi",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1996-11-29"
+        },
+        {
+          "nombre": "Tariq Lamptey",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2000-09-30"
+        },
+        {
+          "nombre": "Denis Odoi",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1988-05-27"
+        },
+        {
+          "nombre": "Mohammed Salisu",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1999-04-17"
+        },
+        {
+          "nombre": "Thomas Partey",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1993-06-13"
+        },
+        {
+          "nombre": "Elisha Owusu",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1997-11-07"
+        },
+        {
+          "nombre": "Abdul Fatawu Issahaku",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2004-03-08"
+        },
+        {
+          "nombre": "Daniel-Kofi Kyereh",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1996-03-08"
+        },
+        {
+          "nombre": "Jordan Ayew",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1991-09-11"
+        },
+        {
+          "nombre": "André Ayew",
+          "posicion": "Delantero",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1989-12-17"
+        },
+        {
+          "nombre": "Osman Bukari",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1998-12-13"
+        },
+        {
+          "nombre": "Ibrahim Danlad",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2002-12-02"
+        },
+        {
+          "nombre": "Daniel Afriyie",
+          "posicion": "Delantero",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2001-06-26"
+        },
+        {
+          "nombre": "Gideon Mensah",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1998-07-18"
+        },
+        {
+          "nombre": "Joseph Aidoo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1995-09-29"
+        },
+        {
+          "nombre": "Abdul Manaf Nurudeen",
+          "posicion": "Arquero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1998-02-08"
+        },
+        {
+          "nombre": "Baba Rahman",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1994-07-02"
+        },
+        {
+          "nombre": "Daniel Amartey",
+          "posicion": "Defensor",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1994-12-21"
+        },
+        {
+          "nombre": "Iñaki Williams",
+          "posicion": "Delantero",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1994-06-15"
+        },
+        {
+          "nombre": "Mohammed Kudus",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2000-08-02"
+        },
+        {
+          "nombre": "Salar Abdul Samed",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2000-03-26"
+        },
+        {
+          "nombre": "Kamaldeen Sulemana",
+          "posicion": "Delantero",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2002-02-15"
+        },
+        {
+          "nombre": "Alexander Djiku",
+          "posicion": "Defensor",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "1994-08-09"
+        },
+        {
+          "nombre": "Kamal Sowah",
+          "posicion": "Delantero",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2000-01-09"
+        },
+        {
+          "nombre": "Antoine Semenyo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2000-01-07"
+        },
+        {
+          "nombre": "Alidu Seidu",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Ghana",
+          "fechaNacimiento": "2000-06-04"
+        }
+      ]
+    },
+    {
+      "nombre": "Uruguay",
+      "entrenador": "Diego Alonso",
+      "sede": "Uruguay",
+      "jugadores": [
+        {
+          "nombre": "Fernando Muslera",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1986-06-16"
+        },
+        {
+          "nombre": "José María Giménez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1995-01-20"
+        },
+        {
+          "nombre": "Diego Godín",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1986-02-16"
+        },
+        {
+          "nombre": "Ronald Araújo",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1999-03-07"
+        },
+        {
+          "nombre": "Matías Vecino",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1991-08-24"
+        },
+        {
+          "nombre": "Rodrigo Bentancur",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1997-06-25"
+        },
+        {
+          "nombre": "Nicolás de la Cruz",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1997-06-01"
+        },
+        {
+          "nombre": "Facundo Pellistri",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "2001-12-20"
+        },
+        {
+          "nombre": "Luis Suárez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1987-01-24"
+        },
+        {
+          "nombre": "Giorgian de Arrascaeta",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1994-06-01"
+        },
+        {
+          "nombre": "Darwin Núñez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1999-06-24"
+        },
+        {
+          "nombre": "Sebastián Sosa",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1986-08-19"
+        },
+        {
+          "nombre": "Guillermo Varela",
+          "posicion": "Defensor",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1993-03-24"
+        },
+        {
+          "nombre": "Lucas Torreira",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1996-02-11"
+        },
+        {
+          "nombre": "Nicolás González",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1995-04-14"
+        },
+        {
+          "nombre": "Mathías Olivera",
+          "posicion": "Defensor",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1997-10-31"
+        },
+        {
+          "nombre": "Matías Viña",
+          "posicion": "Defensor",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1997-11-09"
+        },
+        {
+          "nombre": "Maximiliano Gómez",
+          "posicion": "Delantero",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1996-08-14"
+        },
+        {
+          "nombre": "Sebastián Coates",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1990-10-07"
+        },
+        {
+          "nombre": "Facundo Torres",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "2000-04-13"
+        },
+        {
+          "nombre": "Edinson Cavani",
+          "posicion": "Delantero",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1987-02-14"
+        },
+        {
+          "nombre": "Martín Cáceres",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1987-04-07"
+        },
+        {
+          "nombre": "Sergio Rochet",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1993-03-23"
+        },
+        {
+          "nombre": "Agustín Canobbio",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1998-10-01"
+        },
+        {
+          "nombre": "Manuel Ugarte",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "2001-04-11"
+        },
+        {
+          "nombre": "José Luis Rodríguez",
+          "posicion": "Defensor",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Uruguay",
+          "fechaNacimiento": "1997-03-14"
+        }
+      ]
+    },
+    {
+      "nombre": "Corea del Sur",
+      "entrenador": "Paulo Bento",
+      "sede": "Corea del Sur",
+      "jugadores": [
+        {
+          "nombre": "Kim Seung-gyu",
+          "posicion": "Arquero",
+          "numeroCamiseta": 1,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1990-09-30"
+        },
+        {
+          "nombre": "Yoon Jong-gyu",
+          "posicion": "Defensor",
+          "numeroCamiseta": 2,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1998-03-20"
+        },
+        {
+          "nombre": "Kim Jin-su",
+          "posicion": "Defensor",
+          "numeroCamiseta": 3,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1992-06-13"
+        },
+        {
+          "nombre": "Kim Min-jae",
+          "posicion": "Defensor",
+          "numeroCamiseta": 4,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1996-11-15"
+        },
+        {
+          "nombre": "Jung Woo-young",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 5,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1989-12-14"
+        },
+        {
+          "nombre": "Hwang In-beom",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 6,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1996-09-20"
+        },
+        {
+          "nombre": "Son Heung-min",
+          "posicion": "Delantero",
+          "numeroCamiseta": 7,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1992-07-08"
+        },
+        {
+          "nombre": "Paik Seung-ho",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 8,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1997-03-17"
+        },
+        {
+          "nombre": "Cho Gue-sung",
+          "posicion": "Delantero",
+          "numeroCamiseta": 9,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1998-01-25"
+        },
+        {
+          "nombre": "Lee Jae-sung",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 10,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1992-08-10"
+        },
+        {
+          "nombre": "Hwang Hee-chan",
+          "posicion": "Delantero",
+          "numeroCamiseta": 11,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1996-01-26"
+        },
+        {
+          "nombre": "Song Bum-keun",
+          "posicion": "Arquero",
+          "numeroCamiseta": 12,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1997-10-15"
+        },
+        {
+          "nombre": "Son Jun-ho",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 13,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1992-05-12"
+        },
+        {
+          "nombre": "Hong Chul",
+          "posicion": "Defensor",
+          "numeroCamiseta": 14,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1990-09-17"
+        },
+        {
+          "nombre": "Kim Moon-hwan",
+          "posicion": "Defensor",
+          "numeroCamiseta": 15,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1995-08-01"
+        },
+        {
+          "nombre": "Hwang Ui-jo",
+          "posicion": "Delantero",
+          "numeroCamiseta": 16,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1992-08-28"
+        },
+        {
+          "nombre": "Na Sang-ho",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 17,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1996-08-12"
+        },
+        {
+          "nombre": "Lee Kang-in",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 18,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "2001-02-19"
+        },
+        {
+          "nombre": "Kim Young-gwon",
+          "posicion": "Defensor",
+          "numeroCamiseta": 19,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1990-02-27"
+        },
+        {
+          "nombre": "Kwon Chang-hoon",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 20,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1994-06-30"
+        },
+        {
+          "nombre": "Cho Yu-min",
+          "posicion": "Defensor",
+          "numeroCamiseta": 21,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1996-11-17"
+        },
+        {
+          "nombre": "Kwon Kyung-won",
+          "posicion": "Defensor",
+          "numeroCamiseta": 22,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1992-01-31"
+        },
+        {
+          "nombre": "Jo Hyeon-woo",
+          "posicion": "Arquero",
+          "numeroCamiseta": 23,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1991-09-25"
+        },
+        {
+          "nombre": "Cho Min-kyu",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 24,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "2001-04-29"
+        },
+        {
+          "nombre": "Jeong Woo-yeong",
+          "posicion": "Mediocampista",
+          "numeroCamiseta": 25,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1999-09-20"
+        },
+        {
+          "nombre": "Song Min-kyu",
+          "posicion": "Delantero",
+          "numeroCamiseta": 26,
+          "nacionalidad": "Corea del Sur",
+          "fechaNacimiento": "1999-09-12"
+        }
       ]
     }
   ],
   "partidos": [
-    {"local": "Argentina", "visitante": "Francia",   "fechaHora": "2022-12-18T15:00:00", "estadio": "Lusail Stadium"},
-    {"local": "Croacia",   "visitante": "Marruecos", "fechaHora": "2022-12-17T15:00:00", "estadio": "Khalifa International Stadium"}
+    {"local": "Qatar",         "visitante": "Ecuador",       "fechaHora": "2022-11-20T19:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 0, "golesVisitante": 2},
+    {"local": "Senegal",       "visitante": "Países Bajos",  "fechaHora": "2022-11-21T19:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 0, "golesVisitante": 2},
+    {"local": "Qatar",         "visitante": "Senegal",       "fechaHora": "2022-11-25T16:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 1, "golesVisitante": 3},
+    {"local": "Países Bajos",  "visitante": "Ecuador",       "fechaHora": "2022-11-25T19:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 1, "golesVisitante": 1},
+    {"local": "Ecuador",       "visitante": "Senegal",       "fechaHora": "2022-11-29T18:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 1, "golesVisitante": 2},
+    {"local": "Países Bajos",  "visitante": "Qatar",         "fechaHora": "2022-11-29T18:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 2, "golesVisitante": 0},
+
+    {"local": "Inglaterra",    "visitante": "Irán",          "fechaHora": "2022-11-21T16:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 6, "golesVisitante": 2},
+    {"local": "Estados Unidos","visitante": "Gales",         "fechaHora": "2022-11-21T22:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 1, "golesVisitante": 1},
+    {"local": "Gales",         "visitante": "Irán",          "fechaHora": "2022-11-25T13:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 0, "golesVisitante": 2},
+    {"local": "Inglaterra",    "visitante": "Estados Unidos","fechaHora": "2022-11-25T22:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 0, "golesVisitante": 0},
+    {"local": "Gales",         "visitante": "Inglaterra",    "fechaHora": "2022-11-29T22:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 0, "golesVisitante": 3},
+    {"local": "Irán",          "visitante": "Estados Unidos","fechaHora": "2022-11-29T22:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 0, "golesVisitante": 1},
+
+    {"local": "Argentina",     "visitante": "Arabia Saudita","fechaHora": "2022-11-22T13:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 1, "golesVisitante": 2},
+    {"local": "México",        "visitante": "Polonia",       "fechaHora": "2022-11-22T19:00:00", "estadio": "Stadium 974",                    "golesLocal": 0, "golesVisitante": 0},
+    {"local": "Polonia",       "visitante": "Arabia Saudita","fechaHora": "2022-11-26T16:00:00", "estadio": "Education City Stadium",         "golesLocal": 2, "golesVisitante": 0},
+    {"local": "Argentina",     "visitante": "México",        "fechaHora": "2022-11-26T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 2, "golesVisitante": 0},
+    {"local": "Polonia",       "visitante": "Argentina",     "fechaHora": "2022-11-30T22:00:00", "estadio": "Stadium 974",                    "golesLocal": 0, "golesVisitante": 2},
+    {"local": "Arabia Saudita","visitante": "México",        "fechaHora": "2022-11-30T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 1, "golesVisitante": 2},
+
+    {"local": "Dinamarca",     "visitante": "Túnez",         "fechaHora": "2022-11-22T16:00:00", "estadio": "Education City Stadium",         "golesLocal": 0, "golesVisitante": 0},
+    {"local": "Francia",       "visitante": "Australia",     "fechaHora": "2022-11-22T22:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 4, "golesVisitante": 1},
+    {"local": "Túnez",         "visitante": "Australia",     "fechaHora": "2022-11-26T13:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 0, "golesVisitante": 1},
+    {"local": "Francia",       "visitante": "Dinamarca",     "fechaHora": "2022-11-26T19:00:00", "estadio": "Stadium 974",                    "golesLocal": 2, "golesVisitante": 1},
+    {"local": "Australia",     "visitante": "Dinamarca",     "fechaHora": "2022-11-30T18:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 1, "golesVisitante": 0},
+    {"local": "Túnez",         "visitante": "Francia",       "fechaHora": "2022-11-30T18:00:00", "estadio": "Education City Stadium",         "golesLocal": 1, "golesVisitante": 0},
+
+    {"local": "Alemania",      "visitante": "Japón",         "fechaHora": "2022-11-23T16:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 1, "golesVisitante": 2},
+    {"local": "España",        "visitante": "Costa Rica",    "fechaHora": "2022-11-23T19:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 7, "golesVisitante": 0},
+    {"local": "Japón",         "visitante": "Costa Rica",    "fechaHora": "2022-11-27T13:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 0, "golesVisitante": 1},
+    {"local": "España",        "visitante": "Alemania",      "fechaHora": "2022-11-27T22:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 1, "golesVisitante": 1},
+    {"local": "Japón",         "visitante": "España",        "fechaHora": "2022-12-01T22:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 2, "golesVisitante": 1},
+    {"local": "Costa Rica",    "visitante": "Alemania",      "fechaHora": "2022-12-01T22:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 2, "golesVisitante": 4},
+
+    {"local": "Marruecos",     "visitante": "Croacia",       "fechaHora": "2022-11-23T13:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 0, "golesVisitante": 0},
+    {"local": "Bélgica",       "visitante": "Canadá",        "fechaHora": "2022-11-23T22:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 1, "golesVisitante": 0},
+    {"local": "Bélgica",       "visitante": "Marruecos",     "fechaHora": "2022-11-27T16:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 0, "golesVisitante": 2},
+    {"local": "Croacia",       "visitante": "Canadá",        "fechaHora": "2022-11-27T19:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 4, "golesVisitante": 1},
+    {"local": "Croacia",       "visitante": "Bélgica",       "fechaHora": "2022-12-01T18:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 0, "golesVisitante": 0},
+    {"local": "Canadá",        "visitante": "Marruecos",     "fechaHora": "2022-12-01T18:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 1, "golesVisitante": 2},
+
+    {"local": "Suiza",         "visitante": "Camerún",       "fechaHora": "2022-11-24T13:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 1, "golesVisitante": 0},
+    {"local": "Brasil",        "visitante": "Serbia",        "fechaHora": "2022-11-24T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 2, "golesVisitante": 0},
+    {"local": "Camerún",       "visitante": "Serbia",        "fechaHora": "2022-11-28T13:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 3, "golesVisitante": 3},
+    {"local": "Brasil",        "visitante": "Suiza",         "fechaHora": "2022-11-28T19:00:00", "estadio": "Stadium 974",                    "golesLocal": 1, "golesVisitante": 0},
+    {"local": "Serbia",        "visitante": "Suiza",         "fechaHora": "2022-12-02T22:00:00", "estadio": "Stadium 974",                    "golesLocal": 2, "golesVisitante": 3},
+    {"local": "Camerún",       "visitante": "Brasil",        "fechaHora": "2022-12-02T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 1, "golesVisitante": 0},
+
+    {"local": "Uruguay",       "visitante": "Corea del Sur", "fechaHora": "2022-11-24T16:00:00", "estadio": "Education City Stadium",         "golesLocal": 0, "golesVisitante": 0},
+    {"local": "Portugal",      "visitante": "Ghana",         "fechaHora": "2022-11-24T19:00:00", "estadio": "Stadium 974",                    "golesLocal": 3, "golesVisitante": 2},
+    {"local": "Corea del Sur", "visitante": "Ghana",         "fechaHora": "2022-11-28T16:00:00", "estadio": "Education City Stadium",         "golesLocal": 2, "golesVisitante": 3},
+    {"local": "Portugal",      "visitante": "Uruguay",       "fechaHora": "2022-11-28T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 2, "golesVisitante": 0},
+    {"local": "Ghana",         "visitante": "Uruguay",       "fechaHora": "2022-12-02T18:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 0, "golesVisitante": 2},
+    {"local": "Corea del Sur", "visitante": "Portugal",      "fechaHora": "2022-12-02T18:00:00", "estadio": "Education City Stadium",         "golesLocal": 2, "golesVisitante": 1},
+
+    {"local": "Países Bajos",  "visitante": "Estados Unidos","fechaHora": "2022-12-03T18:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 3, "golesVisitante": 1},
+    {"local": "Argentina",     "visitante": "Australia",     "fechaHora": "2022-12-03T22:00:00", "estadio": "Ahmad Bin Ali Stadium",          "golesLocal": 2, "golesVisitante": 1},
+    {"local": "Francia",       "visitante": "Polonia",       "fechaHora": "2022-12-04T18:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 3, "golesVisitante": 1},
+    {"local": "Inglaterra",    "visitante": "Senegal",       "fechaHora": "2022-12-04T22:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 3, "golesVisitante": 0},
+    {"local": "Japón",         "visitante": "Croacia",       "fechaHora": "2022-12-05T18:00:00", "estadio": "Al Janoub Stadium",              "golesLocal": 1, "golesVisitante": 1, "penales": "Croacia 3-1"},
+    {"local": "Brasil",        "visitante": "Corea del Sur", "fechaHora": "2022-12-05T22:00:00", "estadio": "Stadium 974",                    "golesLocal": 4, "golesVisitante": 1},
+    {"local": "Marruecos",     "visitante": "España",        "fechaHora": "2022-12-06T18:00:00", "estadio": "Education City Stadium",         "golesLocal": 0, "golesVisitante": 0, "penales": "Marruecos 3-0"},
+    {"local": "Portugal",      "visitante": "Suiza",         "fechaHora": "2022-12-06T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 6, "golesVisitante": 1},
+
+    {"local": "Croacia",       "visitante": "Brasil",        "fechaHora": "2022-12-09T18:00:00", "estadio": "Education City Stadium",         "golesLocal": 1, "golesVisitante": 1, "penales": "Croacia 4-2"},
+    {"local": "Países Bajos",  "visitante": "Argentina",     "fechaHora": "2022-12-09T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 2, "golesVisitante": 2, "penales": "Argentina 4-3"},
+    {"local": "Marruecos",     "visitante": "Portugal",      "fechaHora": "2022-12-10T18:00:00", "estadio": "Al Thumama Stadium",             "golesLocal": 1, "golesVisitante": 0},
+    {"local": "Inglaterra",    "visitante": "Francia",       "fechaHora": "2022-12-10T22:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 1, "golesVisitante": 2},
+
+    {"local": "Argentina",     "visitante": "Croacia",       "fechaHora": "2022-12-13T22:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 3, "golesVisitante": 0},
+    {"local": "Francia",       "visitante": "Marruecos",     "fechaHora": "2022-12-14T22:00:00", "estadio": "Al Bayt Stadium",                "golesLocal": 2, "golesVisitante": 0},
+
+    {"local": "Croacia",       "visitante": "Marruecos",     "fechaHora": "2022-12-17T18:00:00", "estadio": "Khalifa International Stadium",   "golesLocal": 2, "golesVisitante": 1},
+
+    {"local": "Argentina",     "visitante": "Francia",       "fechaHora": "2022-12-18T18:00:00", "estadio": "Lusail Stadium",                 "golesLocal": 3, "golesVisitante": 3, "penales": "Argentina 4-2"}
   ]
 }
