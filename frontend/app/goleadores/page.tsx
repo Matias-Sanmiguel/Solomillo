@@ -1,79 +1,95 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { get, Goleador, Torneo } from "@/lib/api";
+import { get } from "@/lib/api";
 import { Crest } from "../components/Crest";
 
+type Jugador = {
+  jugador_id: number;
+  nombre: string;
+  posicion: string;
+  equipo: string;
+  escudo: string;
+  valor: number;
+};
+
+type Data = { goleadores: Jugador[]; asistentes: Jugador[] };
+
+function Lista({
+  titulo,
+  unidad,
+  jugadores,
+}: {
+  titulo: string;
+  unidad: string;
+  jugadores: Jugador[];
+}) {
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-2">
+        <h2 className="text-lg font-semibold">{titulo}</h2>
+        <span className="chip">{jugadores.length} jugadores</span>
+      </div>
+      {jugadores.length === 0 ? (
+        <p className="text-sm text-muted">Sin datos todavía.</p>
+      ) : (
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {jugadores.map((j, i) => (
+            <div
+              key={j.jugador_id}
+              className="card flex items-center gap-3 py-3"
+            >
+              <span className="w-6 text-center text-lg font-bold tabular-nums text-muted">
+                {i + 1}
+              </span>
+              <Crest src={j.escudo} size={28} />
+              <div className="min-w-0 flex-1">
+                <div className="truncate text-sm font-semibold">{j.nombre}</div>
+                <div className="truncate text-xs text-muted">
+                  {j.equipo}
+                  {j.posicion ? ` · ${j.posicion}` : ""}
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-xl font-bold tabular-nums text-accent">
+                  {j.valor}
+                </div>
+                <div className="text-[10px] uppercase tracking-wide text-muted">
+                  {unidad}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function GoleadoresPage() {
-  const [torneos, setTorneos] = useState<Torneo[]>([]);
-  const [torneoId, setTorneoId] = useState<number | null>(null);
-  const [tabla, setTabla] = useState<Goleador[]>([]);
+  const [data, setData] = useState<Data>({ goleadores: [], asistentes: [] });
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    get<Torneo[]>("/torneos")
-      .then((ts) => {
-        setTorneos(ts);
-        if (ts[0]) setTorneoId(ts[0].id);
-      })
-      .catch(() => {});
+    get<Data>("/goleadores")
+      .then(setData)
+      .catch(() => {})
+      .finally(() => setCargando(false));
   }, []);
 
-  useEffect(() => {
-    if (torneoId == null) return;
-    get<Goleador[]>(`/torneos/${torneoId}/goleadores`)
-      .then(setTabla)
-      .catch(() => setTabla([]));
-  }, [torneoId]);
+  if (cargando) return <p className="text-muted">Cargando goleadores…</p>;
 
   return (
-    <div className="card overflow-x-auto">
-      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold">Tabla de goleadores</h2>
-        <select
-          className="rounded-lg border border-line bg-panel2/60 px-3 py-1.5 text-sm"
-          value={torneoId ?? ""}
-          onChange={(e) => setTorneoId(Number(e.target.value))}
-        >
-          {torneos.map((t) => (
-            <option key={t.id} value={t.id}>
-              {t.nombre}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <table className="w-full text-sm">
-        <thead className="text-left text-xs uppercase text-muted">
-          <tr>
-            <th className="py-2">#</th>
-            <th>Jugador</th>
-            <th>Selección</th>
-            <th className="text-right">Goles</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tabla.map((g) => (
-            <tr key={g.jugador_id} className="border-t border-line">
-              <td className="py-2 text-muted tabular-nums">{g.posicion}</td>
-              <td className="font-medium">{g.nombre}</td>
-              <td>
-                <span className="flex items-center gap-2">
-                  <Crest src={g.escudo} size={20} />
-                  <span className="text-muted">{g.equipo}</span>
-                </span>
-              </td>
-              <td className="text-right font-semibold tabular-nums">{g.goles}</td>
-            </tr>
-          ))}
-          {tabla.length === 0 && (
-            <tr>
-              <td colSpan={4} className="py-4 text-center text-muted">
-                Sin goles registrados en este torneo.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+    <div className="space-y-8">
+      <Lista
+        titulo="Máximos goleadores"
+        unidad="goles"
+        jugadores={data.goleadores}
+      />
+      <Lista
+        titulo="Máximos asistentes"
+        unidad="asist."
+        jugadores={data.asistentes}
+      />
     </div>
   );
 }
