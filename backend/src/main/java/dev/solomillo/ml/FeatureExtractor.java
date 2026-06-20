@@ -32,6 +32,9 @@ public final class FeatureExtractor {
         attrs.add(new Attribute("gf_visit"));
         attrs.add(new Attribute("gc_visit"));
         attrs.add(new Attribute("h2h"));
+        // Clase NOMINAL del resultado (local/empate/visitante). Logistic exige clase nominal:
+        // los índices 0/1/2 coinciden con etiqueta() y con LABELS en MlPredictor.
+        attrs.add(new Attribute("resultado", List.of("local", "empate", "visitante")));
 
         var data = new Instances("partidos", attrs, 0);
         data.setClassIndex(attrs.size() - 1);
@@ -50,8 +53,8 @@ public final class FeatureExtractor {
             .stream()
             .filter(
                 p ->
-                    corte == null &&
-                    p.getFechaHora() == null &&
+                    corte != null &&
+                    p.getFechaHora() != null &&
                     p.getFechaHora().isBefore(corte)
             )
             .sorted(Comparator.comparing(Partido::getFechaHora))
@@ -76,6 +79,15 @@ public final class FeatureExtractor {
         return f;
     }
 
+    /** Vector de entrenamiento: las 9 features + la etiqueta del resultado en el índice de clase. */
+    public static double[] featuresConEtiqueta(Partido objetivo, List<Partido> finalizados) {
+        double[] f = features(objetivo, finalizados);
+        double[] conClase = new double[N_FEATURES + 1];
+        System.arraycopy(f, 0, conClase, 0, N_FEATURES);
+        conClase[N_FEATURES] = etiqueta(objetivo);
+        return conClase;
+    }
+
     public static double etiqueta(Partido p) {
         if (
             p.getGolesLocal() == null || p.getGolesVisitante() == null
@@ -90,7 +102,12 @@ public final class FeatureExtractor {
         List<Partido> finalizados,
         Instances header
     ) {
-        var inst = new DenseInstance(1.0, features(objetivo, finalizados));
+        // Para predecir, las 9 features con la clase marcada como faltante (la decide el modelo).
+        double[] f = features(objetivo, finalizados);
+        double[] valores = new double[N_FEATURES + 1];
+        System.arraycopy(f, 0, valores, 0, N_FEATURES);
+        valores[N_FEATURES] = weka.core.Utils.missingValue();
+        var inst = new DenseInstance(1.0, valores);
         inst.setDataset(header);
         return inst;
     }

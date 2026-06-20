@@ -30,7 +30,10 @@ export async function send<T>(method: string, path: string, body?: unknown): Pro
     body: body !== undefined ? JSON.stringify(body) : undefined,
   });
   if (!res.ok) throw new Error(`${res.status} ${path}`);
-  return res.json();
+  // 204 No Content (ej. DELETE) o cuerpo vacío: no intentes parsear JSON.
+  if (res.status === 204) return undefined as T;
+  const text = await res.text();
+  return (text ? JSON.parse(text) : undefined) as T;
 }
 
 export async function login(email: string, password: string): Promise<string> {
@@ -96,6 +99,60 @@ export type Torneo = {
   id: number;
   nombre: string;
   temporada: string;
+};
+
+export type SimGoleador = {
+  jugador_id: number;
+  nombre: string;
+  minuto: number;
+  asistencia_id: number | null;
+};
+
+export type SimResultado = {
+  partido_id: number;
+  ronda: string | null;
+  grupo: string | null;
+  local: string;
+  visitante: string;
+  goles_local: number;
+  goles_visitante: number;
+  goleadores: SimGoleador[];
+  figura: { jugador_id?: number; nombre?: string };
+  probabilidades: Probabilidades;
+  // Presente sólo cuando un partido falló dentro de una simulación masiva.
+  error?: string;
+};
+
+export type Reentrenamiento = {
+  version?: number;
+  accuracy?: number;
+  log_loss?: number;
+  brier?: number;
+  error?: string;
+} | null;
+
+export type SimFecha = {
+  jornada?: string;
+  mensaje?: string;
+  simulados?: number;
+  partidos: SimResultado[];
+  reentrenado: Reentrenamiento;
+};
+
+export type SimMundial = {
+  simulados: number;
+  campeon?: string;
+  subcampeon?: string;
+  tercero?: string;
+  partidos: SimResultado[];
+  reentrenado: Reentrenamiento;
+};
+
+export type Escenario = {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  creado_en: string | null;
 };
 
 export type Goleador = {

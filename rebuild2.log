@@ -1,0 +1,154 @@
+﻿docker :  Image solomillo-api Building 
+En línea: 1 Carácter: 77
++ ... &1 | Select-Object -Last 2; docker compose up -d --build 2>&1 | Out-F ...
++                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image solomillo-api Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image solomillo-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 941B 0.0s done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 438B done
+#2 DONE 0.1s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 173B 0.0s done
+#3 DONE 0.1s
+
+#4 [frontend internal] load metadata for docker.io/library/node:20-alpine
+#4 ...
+
+#5 [auth] library/maven:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [auth] library/node:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#7 [api internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#7 ...
+
+#4 [frontend internal] load metadata for docker.io/library/node:20-alpine
+#4 DONE 1.8s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 76B done
+#8 DONE 0.0s
+
+#9 [frontend internal] load build context
+#9 transferring context: 1.89kB 0.0s done
+#9 DONE 0.1s
+
+#10 [frontend 1/5] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+#10 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+#10 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 0.1s done
+#10 DONE 0.1s
+
+#11 [frontend 4/5] RUN npm install
+#11 CACHED
+
+#12 [frontend 2/5] WORKDIR /app
+#12 CACHED
+
+#13 [frontend 3/5] COPY package.json ./
+#13 CACHED
+
+#14 [frontend 5/5] COPY . .
+#14 CACHED
+
+#15 [frontend] exporting to image
+#15 exporting layers done
+#15 exporting manifest sha256:debad1b403c67810dc305e1386225ed798ca3a565e92f9724240fc96fb48e1cf done
+#15 exporting config sha256:569ffb5996b639a6bb72f7a39d928a15787929e0e59f6558a0368124886c3f46 done
+#15 exporting attestation manifest sha256:770a5aafff21b236e0beb489928871c83bb647e7902786c41960df9bf47209ae
+#15 exporting attestation manifest sha256:770a5aafff21b236e0beb489928871c83bb647e7902786c41960df9bf47209ae 0.1s done
+#15 exporting manifest list sha256:ceb186832fe810df6cfe2b7aef5b39f0ef707ff30c0296e65bddd2ee0304774e 0.0s done
+#15 naming to docker.io/library/solomillo-frontend:latest
+#15 ...
+
+#7 [api internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#7 DONE 2.3s
+
+#16 [api internal] load .dockerignore
+#16 transferring context: 2B done
+#16 DONE 0.0s
+
+#15 [frontend] exporting to image
+#15 naming to docker.io/library/solomillo-frontend:latest done
+#15 unpacking to docker.io/library/solomillo-frontend:latest 0.0s done
+#15 DONE 0.3s
+
+#17 [api internal] load build context
+#17 DONE 0.0s
+
+#18 [api 1/6] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:d7e7f57407437c014571f1ad5a9955f03fc3edcb1d964067ef351fa38e798665
+#18 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:d7e7f57407437c014571f1ad5a9955f03fc3edcb1d964067ef351fa38e798665 0.1s done
+#18 DONE 0.1s
+
+#17 [api internal] load build context
+#17 transferring context: 48.48kB 0.0s done
+#17 DONE 0.1s
+
+#19 [api 2/6] WORKDIR /code
+#19 CACHED
+
+#20 [api 3/6] COPY pom.xml .
+#20 CACHED
+
+#21 [api 4/6] RUN mvn dependency:go-offline -q
+#21 CACHED
+
+#22 [frontend] resolving provenance for metadata file
+#22 DONE 0.0s
+
+#23 [api 5/6] COPY src ./src
+#23 DONE 0.3s
+
+#24 [api 6/6] RUN mvn package -DskipTests -q
+#24 DONE 21.1s
+
+#25 [api] exporting to image
+#25 exporting layers
+#25 exporting layers 4.5s done
+#25 exporting manifest sha256:457cc5dced230ed6e280fbc4411b2c5d4d773a42b83bf65a58c3c174a5a148ef 0.0s done
+#25 exporting config sha256:7bf69f7261408ee3650675104cd1e011506ec2dcf2b293eeb2d26c4f3855f3be 0.0s done
+#25 exporting attestation manifest sha256:39b60da7c4401a99d7d0a3b1da35ffc7655ae8ff2c690136823d85739a99f21a 0.0s done
+#25 exporting manifest list sha256:ecf2261927e0f86fa847ef4810ad8acfec690f6ae5a055f9685b20f887647401
+#25 exporting manifest list sha256:ecf2261927e0f86fa847ef4810ad8acfec690f6ae5a055f9685b20f887647401 0.0s done
+#25 naming to docker.io/library/solomillo-api:latest done
+#25 unpacking to docker.io/library/solomillo-api:latest
+#25 unpacking to docker.io/library/solomillo-api:latest 1.8s done
+#25 DONE 6.6s
+
+#26 [api] resolving provenance for metadata file
+#26 DONE 0.0s
+ Image solomillo-frontend Built 
+ Image solomillo-api Built 
+ Network solomillo_default Creating 
+ Network solomillo_default Created 
+ Volume solomillo_models_data Creating 
+ Volume solomillo_models_data Created 
+ Volume solomillo_pgdata Creating 
+ Volume solomillo_pgdata Created 
+ Container solomillo-db-1 Creating 
+ Container solomillo-redis-1 Creating 
+ Container solomillo-redis-1 Created 
+ Container solomillo-db-1 Created 
+ Container solomillo-api-1 Creating 
+ Container solomillo-api-1 Created 
+ Container solomillo-frontend-1 Creating 
+ Container solomillo-frontend-1 Created 
+ Container solomillo-db-1 Starting 
+ Container solomillo-redis-1 Starting 
+ Container solomillo-redis-1 Started 
+ Container solomillo-db-1 Started 
+ Container solomillo-redis-1 Waiting 
+ Container solomillo-db-1 Waiting 
+ Container solomillo-redis-1 Healthy 
+ Container solomillo-db-1 Healthy 
+ Container solomillo-api-1 Starting 
+ Container solomillo-api-1 Started 
+ Container solomillo-frontend-1 Starting 
+ Container solomillo-frontend-1 Started 

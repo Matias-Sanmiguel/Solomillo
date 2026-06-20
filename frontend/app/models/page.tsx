@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { get, Modelo, Metricas, Calibracion } from "@/lib/api";
+import { useCallback, useEffect, useState } from "react";
+import { get, send, getToken, Modelo, Metricas, Calibracion } from "@/lib/api";
 import { AccuracyLine, CalibrationChart } from "../components/Charts";
 
 export default function ModelsPage() {
   const [modelos, setModelos] = useState<Modelo[]>([]);
   const [metricas, setMetricas] = useState<Metricas | null>(null);
   const [cal, setCal] = useState<Calibracion | null>(null);
+  const [entrenando, setEntrenando] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
 
-  useEffect(() => {
+  const cargar = useCallback(() => {
     get<Modelo[]>("/ml/modelos")
       .then((ms) => {
         setModelos(ms);
@@ -22,11 +24,42 @@ export default function ModelsPage() {
       .catch(() => {});
   }, []);
 
+  useEffect(cargar, [cargar]);
+
+  async function reentrenar() {
+    setEntrenando(true);
+    setMsg(null);
+    try {
+      const m = await send<Modelo>("POST", "/ml/modelos/entrenar");
+      setMsg(`Modelo v${m.version} entrenado y activado (accuracy ${fmtPct(m.accuracy)}).`);
+      cargar();
+    } catch (e) {
+      const t = String((e as Error).message ?? "");
+      setMsg(
+        t.startsWith("401") || t.startsWith("403")
+          ? "Necesitás iniciar sesión como administrador para reentrenar."
+          : t.startsWith("409")
+          ? "Datos insuficientes para reentrenar (mínimo 20 partidos finalizados)."
+          : "No se pudo reentrenar el modelo."
+      );
+    } finally {
+      setEntrenando(false);
+    }
+  }
+
   const clasif = modelos.filter((m) => m.tipo === "clasificacion");
 
   return (
     <div className="space-y-5">
-      <h2 className="text-lg font-semibold">Modelos de predicción</h2>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 className="text-lg font-semibold">Modelos de predicción</h2>
+        {getToken() && (
+          <button onClick={reentrenar} disabled={entrenando} className="btn">
+            {entrenando ? "Reentrenando…" : "Reentrenar modelo"}
+          </button>
+        )}
+      </div>
+      {msg && <div className="card text-sm text-accent">{msg}</div>}
 
       <div className="card overflow-x-auto">
         <table className="w-full text-sm">

@@ -11,7 +11,7 @@
     {"local": "México", "visitante": "Sudáfrica", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-11T18:00:00", "estadio": "Mexico City Stadium", "golesLocal": 2, "golesVisitante": 0, "estado": "FINALIZADO"},
     {"local": "Corea del Sur", "visitante": "República Checa", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-11T21:00:00", "estadio": "Estadio Guadalajara", "golesLocal": 2, "golesVisitante": 1, "estado": "FINALIZADO"},
 
-    {"local": "Canadá", "visitante": "Bosnia y Herzegovina", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-12T18:00:00", "estadio": "Toronto Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Canadá", "visitante": "Bosnia y Herzegovina", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-12T18:00:00", "estadio": "Toronto Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO", "goles": [{"jugador": "Jonathan David", "minuto": 34}]},
     {"local": "Estados Unidos", "visitante": "Paraguay", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-12T21:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 4, "golesVisitante": 1, "estado": "FINALIZADO"},
 
     {"local": "Catar", "visitante": "Suiza", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-13T13:00:00", "estadio": "San Francisco Bay Area Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
@@ -20,36 +20,36 @@
 
     {"local": "Australia", "visitante": "Turquía", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-14T13:00:00", "estadio": "BC Place Vancouver", "golesLocal": 2, "golesVisitante": 0, "estado": "FINALIZADO"},
     {"local": "Alemania", "visitante": "Curazao", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-14T15:00:00", "estadio": "Houston Stadium", "golesLocal": 7, "golesVisitante": 1, "estado": "FINALIZADO"},
-    {"local": "Países Bajos", "visitante": "Japón", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-14T17:00:00", "estadio": "Dallas Stadium", "golesLocal": 2, "golesVisitante": 2, "estado": "FINALIZADO"},
+    {"local": "Países Bajos", "visitante": "Japón", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-14T17:00:00", "estadio": "Dallas Stadium", "golesLocal": 2, "golesVisitante": 2, "estado": "FINALIZADO", "goles": [{"jugador": "Cody Gakpo", "minuto": 18}, {"jugador": "Brian Brobbey", "minuto": 71}]},
     {"local": "Costa de Marfil", "visitante": "Ecuador", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-14T19:00:00", "estadio": "Philadelphia Stadium", "golesLocal": 1, "golesVisitante": 0, "estado": "FINALIZADO"},
     {"local": "Suecia", "visitante": "Túnez", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-14T21:00:00", "estadio": "Estadio Monterrey", "golesLocal": 5, "golesVisitante": 1, "estado": "FINALIZADO"},
 
     {"local": "España", "visitante": "Cabo Verde", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-15T13:00:00", "estadio": "Atlanta Stadium", "golesLocal": 0, "golesVisitante": 0, "estado": "FINALIZADO"},
     {"local": "Bélgica", "visitante": "Egipto", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-15T16:00:00", "estadio": "Seattle Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
     {"local": "Arabia Saudita", "visitante": "Uruguay", "grupo": "H", "ronda": "GRUPOS", "fecha": "2026-06-15T19:00:00", "estadio": "Miami Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
-    {"local": "Irán", "visitante": "Nueva Zelanda", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-15T22:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 2, "golesVisitante": 2, "estado": "FINALIZADO"},
+    {"local": "Irán", "visitante": "Nueva Zelanda", "grupo": "G", "ronda": "GRUPOS", "fecha": "2026-06-15T22:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 2, "golesVisitante": 2, "estado": "FINALIZADO", "goles": [{"jugador": "Elijah Just", "minuto": 27}, {"jugador": "Elijah Just", "minuto": 63}]},
 
-    {"local": "Francia", "visitante": "Senegal", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-16T16:00:00", "estadio": "New York New Jersey Stadium", "golesLocal": 3, "golesVisitante": 1, "estado": "FINALIZADO"},
-    {"local": "Irak", "visitante": "Noruega", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-16T19:00:00", "estadio": "Boston Stadium", "golesLocal": 1, "golesVisitante": 4, "estado": "FINALIZADO"},
-    {"local": "Argentina", "visitante": "Argelia", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-16T22:00:00", "estadio": "Kansas City Stadium", "golesLocal": 3, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Francia", "visitante": "Senegal", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-16T16:00:00", "estadio": "New York New Jersey Stadium", "golesLocal": 3, "golesVisitante": 1, "estado": "FINALIZADO", "goles": [{"jugador": "Kylian Mbappe", "minuto": 22}, {"jugador": "Kylian Mbappe", "minuto": 58}]},
+    {"local": "Irak", "visitante": "Noruega", "grupo": "I", "ronda": "GRUPOS", "fecha": "2026-06-16T19:00:00", "estadio": "Boston Stadium", "golesLocal": 1, "golesVisitante": 4, "estado": "FINALIZADO", "goles": [{"jugador": "Erling Haaland", "minuto": 14}, {"jugador": "Erling Haaland", "minuto": 67}]},
+    {"local": "Argentina", "visitante": "Argelia", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-16T22:00:00", "estadio": "Kansas City Stadium", "golesLocal": 3, "golesVisitante": 0, "estado": "FINALIZADO", "goles": [{"jugador": "Lionel Messi", "minuto": 12}, {"jugador": "Lionel Messi", "minuto": 49}, {"jugador": "Lionel Messi", "minuto": 78}]},
 
     {"local": "Austria", "visitante": "Jordania", "grupo": "J", "ronda": "GRUPOS", "fecha": "2026-06-17T14:00:00", "estadio": "San Francisco Bay Area Stadium", "golesLocal": 3, "golesVisitante": 1, "estado": "FINALIZADO"},
     {"local": "Portugal", "visitante": "RD Congo", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-17T16:00:00", "estadio": "Houston Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
-    {"local": "Inglaterra", "visitante": "Croacia", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-17T18:00:00", "estadio": "Dallas Stadium", "golesLocal": 4, "golesVisitante": 2, "estado": "FINALIZADO"},
+    {"local": "Inglaterra", "visitante": "Croacia", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-17T18:00:00", "estadio": "Dallas Stadium", "golesLocal": 4, "golesVisitante": 2, "estado": "FINALIZADO", "goles": [{"jugador": "Harry Kane", "minuto": 20}, {"jugador": "Harry Kane", "minuto": 55}]},
     {"local": "Ghana", "visitante": "Panamá", "grupo": "L", "ronda": "GRUPOS", "fecha": "2026-06-17T20:00:00", "estadio": "Toronto Stadium", "golesLocal": 1, "golesVisitante": 0, "estado": "FINALIZADO"},
     {"local": "Uzbekistán", "visitante": "Colombia", "grupo": "K", "ronda": "GRUPOS", "fecha": "2026-06-17T22:00:00", "estadio": "Mexico City Stadium", "golesLocal": 1, "golesVisitante": 3, "estado": "FINALIZADO"},
 
     {"local": "República Checa", "visitante": "Sudáfrica", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-18T13:00:00", "estadio": "Atlanta Stadium", "golesLocal": 1, "golesVisitante": 1, "estado": "FINALIZADO"},
     {"local": "Suiza", "visitante": "Bosnia y Herzegovina", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-18T16:00:00", "estadio": "Los Angeles Stadium", "golesLocal": 4, "golesVisitante": 1, "estado": "FINALIZADO"},
-    {"local": "Canadá", "visitante": "Catar", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-18T19:00:00", "estadio": "BC Place Vancouver", "golesLocal": 6, "golesVisitante": 0, "estado": "FINALIZADO"},
-    {"local": "México", "visitante": "Corea del Sur", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-18T22:00:00", "estadio": "Estadio Guadalajara", "golesLocal": 0, "golesVisitante": 0, "estado": "EN_VIVO"},
+    {"local": "Canadá", "visitante": "Catar", "grupo": "B", "ronda": "GRUPOS", "fecha": "2026-06-18T19:00:00", "estadio": "BC Place Vancouver", "golesLocal": 6, "golesVisitante": 0, "estado": "FINALIZADO", "goles": [{"jugador": "Jonathan David", "minuto": 9}, {"jugador": "Jonathan David", "minuto": 52}, {"jugador": "Cyle Larin", "minuto": 31}, {"jugador": "Cyle Larin", "minuto": 74}]},
+    {"local": "México", "visitante": "Corea del Sur", "grupo": "A", "ronda": "GRUPOS", "fecha": "2026-06-18T22:00:00", "estadio": "Estadio Guadalajara", "golesLocal": 1, "golesVisitante": 0, "estado": "FINALIZADO", "goles": [{"jugador": "Raul Jimenez", "minuto": 23}]},
 
-    {"local": "Estados Unidos", "visitante": "Australia", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-19T16:00:00", "estadio": "Seattle Stadium", "estado": "PROGRAMADO"},
-    {"local": "Escocia", "visitante": "Marruecos", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-19T19:00:00", "estadio": "Boston Stadium", "estado": "PROGRAMADO"},
-    {"local": "Brasil", "visitante": "Haití", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-19T21:30:00", "estadio": "Philadelphia Stadium", "estado": "PROGRAMADO"},
+    {"local": "Estados Unidos", "visitante": "Australia", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-19T16:00:00", "estadio": "Seattle Stadium", "golesLocal": 2, "golesVisitante": 0, "estado": "FINALIZADO"},
+    {"local": "Escocia", "visitante": "Marruecos", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-19T19:00:00", "estadio": "Boston Stadium", "golesLocal": 0, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Brasil", "visitante": "Haití", "grupo": "C", "ronda": "GRUPOS", "fecha": "2026-06-19T21:30:00", "estadio": "Philadelphia Stadium", "golesLocal": 3, "golesVisitante": 0, "estado": "FINALIZADO"},
 
-    {"local": "Turquía", "visitante": "Paraguay", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-20T00:00:00", "estadio": "San Francisco Bay Area Stadium", "estado": "PROGRAMADO"},
-    {"local": "Países Bajos", "visitante": "Suecia", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-20T14:00:00", "estadio": "Houston Stadium", "estado": "PROGRAMADO"},
+    {"local": "Turquía", "visitante": "Paraguay", "grupo": "D", "ronda": "GRUPOS", "fecha": "2026-06-20T00:00:00", "estadio": "San Francisco Bay Area Stadium", "golesLocal": 0, "golesVisitante": 1, "estado": "FINALIZADO"},
+    {"local": "Países Bajos", "visitante": "Suecia", "grupo": "F", "ronda": "GRUPOS", "fecha": "2026-06-20T14:00:00", "estadio": "Houston Stadium", "golesLocal": 5, "golesVisitante": 1, "estado": "FINALIZADO", "goles": [{"jugador": "Crysencio Summerville", "minuto": 15}, {"jugador": "Crysencio Summerville", "minuto": 38}, {"jugador": "Cody Gakpo", "minuto": 52}, {"jugador": "Brian Brobbey", "minuto": 80}]},
     {"local": "Alemania", "visitante": "Costa de Marfil", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-20T17:00:00", "estadio": "Toronto Stadium", "estado": "PROGRAMADO"},
     {"local": "Ecuador", "visitante": "Curazao", "grupo": "E", "ronda": "GRUPOS", "fecha": "2026-06-20T21:00:00", "estadio": "Kansas City Stadium", "estado": "PROGRAMADO"},
 

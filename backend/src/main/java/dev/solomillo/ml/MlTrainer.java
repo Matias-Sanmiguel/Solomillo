@@ -58,7 +58,7 @@ public class MlTrainer {
             data.add(
                 new weka.core.DenseInstance(
                     1.0,
-                    FeatureExtractor.features(p, finalizados)
+                    FeatureExtractor.featuresConEtiqueta(p, finalizados)
                 )
             );
         }

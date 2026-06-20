@@ -14,6 +14,7 @@ const LINKS = [
   { href: "/prode/ranking", label: "Ranking Prode" },
   { href: "/models", label: "Modelos" },
   { href: "/elo", label: "Ranking Elo" },
+  { href: "/admin", label: "Simulación" },
 ];
 
 export function Nav() {
