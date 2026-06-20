@@ -29,4 +29,10 @@ body {
   .navlink-active {
     @apply bg-panel2 text-white;
   }
+  .btn {
+    @apply rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply rounded-lg border border-line bg-panel2 px-4 py-2 text-sm font-semibold text-white transition hover:bg-panel disabled:cursor-not-allowed disabled:opacity-50;
+  }
 }

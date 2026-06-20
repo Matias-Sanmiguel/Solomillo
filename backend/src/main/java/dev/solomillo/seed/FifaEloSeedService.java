@@ -161,6 +161,10 @@ public class FifaEloSeedService implements ApplicationRunner {
         for (Equipo e : equipos) porNombre.put(e.getNombre(), e);
 
         JsonNode root = mapper.readTree(new ClassPathResource("seed/mundial2026.json").getInputStream());
+        // Jugadores que ya anotaron en el Mundial: los goles sin goleador explícito se reparten a
+        // compañeros distintos, para que ningún jugador suba al top de goleadores por azar y la
+        // tabla quede estable/predeterminada (los cracks se fijan con "goles" en el fixture).
+        java.util.Set<Long> yaAnotaronMundial = new java.util.HashSet<>();
         for (JsonNode n : root.get("partidos")) {
             Partido p = new Partido();
             p.setTorneo(mundial);
@@ -185,7 +189,8 @@ public class FifaEloSeedService implements ApplicationRunner {
             // (el marcador actual ya cuenta en la tabla, como en las capturas).
             if ("FINALIZADO".equals(estado)) {
                 eloService.aplicarResultado(p);
-                reproducirEventos(p, cache, rng);
+                // Goleadores fijados en "goles" (cracks reales) + relleno con jugadores distintos.
+                reproducirEventosMundial(p, n.get("goles"), yaAnotaronMundial, rng);
             } else if ("EN_VIVO".equals(estado) && tieneMarcador) {
                 reproducirEventos(p, cache, rng);
             }
@@ -271,6 +276,73 @@ public class FifaEloSeedService implements ApplicationRunner {
         }
 
         procesar(new EventoInterno("fin_partido", p.getId(), 90, null, Map.of()));
+    }
+
+    /**
+     * Reproduce un partido del Mundial: primero los goleadores fijados en {@code "goles"} (cracks
+     * reales, por nombre), y el resto de los goles del marcador a jugadores DISTINTOS no usados aún
+     * (set {@code usados}), de modo que ningún jugador suba al top de goleadores por azar. Atribuye
+     * asistencias y tarjetas, y cierra con fin_partido. El JSON debe ser coherente con el marcador.
+     */
+    private void reproducirEventosMundial(Partido p, JsonNode goles, java.util.Set<Long> usados, Random rng) {
+        List<Jugador> jl = jugadorRepo.findByEquipoId(p.getEquipoLocal().getId());
+        List<Jugador> jv = jugadorRepo.findByEquipoId(p.getEquipoVisitante().getId());
+        Long torneoId = p.getTorneo().getId();
+        int gl = p.getGolesLocal() == null ? 0 : p.getGolesLocal();
+        int gv = p.getGolesVisitante() == null ? 0 : p.getGolesVisitante();
+
+        // 1) Goleadores explícitos (cracks): el jugador determina su equipo.
+        int explicitL = 0, explicitV = 0;
+        if (goles != null) {
+            Map<String, Jugador> porNombre = new HashMap<>();
+            jl.forEach(j -> porNombre.put(j.getNombre(), j));
+            jv.forEach(j -> porNombre.put(j.getNombre(), j));
+            for (JsonNode g : goles) {
+                Jugador autor = porNombre.get(g.get("jugador").asText());
+                if (autor == null) continue; // nombre no hallado: se omite (lo cubrirá el relleno)
+                int minuto = g.hasNonNull("minuto") ? g.get("minuto").asInt() : 1 + rng.nextInt(89);
+                procesar(new EventoInterno("gol", p.getId(), minuto, autor.getId(), Map.of()));
+                usados.add(autor.getId());
+                boolean esLocal = jl.stream().anyMatch(j -> j.getId().equals(autor.getId()));
+                if (esLocal) { explicitL++; asistencia(jl, autor.getId(), torneoId, rng); }
+                else { explicitV++; asistencia(jv, autor.getId(), torneoId, rng); }
+            }
+        }
+
+        // 2) Goles restantes del marcador → jugadores distintos (no repiten en el Mundial).
+        int minuto = 0;
+        for (int g = 0; g < gl - explicitL && !jl.isEmpty(); g++) {
+            minuto = Math.min(90, minuto + 7);
+            Long autor = elegirGoleadorDistinto(jl, usados, rng).getId();
+            procesar(new EventoInterno("gol", p.getId(), minuto, autor, Map.of()));
+            usados.add(autor);
+            asistencia(jl, autor, torneoId, rng);
+        }
+        for (int g = 0; g < gv - explicitV && !jv.isEmpty(); g++) {
+            minuto = Math.min(90, minuto + 7);
+            Long autor = elegirGoleadorDistinto(jv, usados, rng).getId();
+            procesar(new EventoInterno("gol", p.getId(), minuto, autor, Map.of()));
+            usados.add(autor);
+            asistencia(jv, autor, torneoId, rng);
+        }
+
+        // 3) Tarjetas: amarillas mayoritariamente, rojas esporádicas.
+        for (int t = 0, n = rng.nextInt(5); t < n; t++) {
+            List<Jugador> js = rng.nextBoolean() ? jl : jv;
+            if (js.isEmpty()) continue;
+            Long jug = js.get(rng.nextInt(js.size())).getId();
+            String tipo = rng.nextInt(10) < 2 ? "RED_CARD" : "YELLOW_CARD";
+            procesar(new EventoInterno("tarjeta", p.getId(), 10 + rng.nextInt(80), jug,
+                    Map.of("eventType", tipo)));
+        }
+
+        procesar(new EventoInterno("fin_partido", p.getId(), 90, null, Map.of()));
+    }
+
+    /** Goleador ponderado por posición entre los jugadores que aún no anotaron (si quedan). */
+    private Jugador elegirGoleadorDistinto(List<Jugador> plantel, java.util.Set<Long> usados, Random rng) {
+        List<Jugador> libres = plantel.stream().filter(j -> !usados.contains(j.getId())).toList();
+        return elegirGoleador(libres.isEmpty() ? plantel : libres, rng);
     }
 
     /** ~65% de los goles tienen asistencia, acreditada a un compañero distinto al goleador. */

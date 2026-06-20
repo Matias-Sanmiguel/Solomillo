@@ -62,44 +62,50 @@ public class DeportivoController {
         ).toList();
     }
 
-    /** Tabla de posiciones del Mundial 2026 agrupada por grupo (A-L), con forma reciente. */
+    /** Tabla de posiciones de FASE DE GRUPOS del Mundial 2026 (A-L), con forma reciente.
+     * Solo cuenta partidos de ronda GRUPOS: los de la llave (eliminatorias) comparten el mismo
+     * equipo/torneo pero NO deben inflar PJ, puntos ni forma de la tabla de grupos. */
     @GetMapping("/clasificacion")
     public Map<String, List<Map<String, Object>>> clasificacion() {
         var mundial = torneoRepo.findByNombreAndTemporada("Copa Mundial FIFA 2026", "2026").orElse(null);
         if (mundial == null) return Map.of();
         Long tid = mundial.getId();
 
-        // Forma reciente (últimos 5) por equipo a partir de los partidos finalizados del torneo.
+        // Acumulado [g, e, p, gf, gc, pts] y forma por equipo, solo con partidos de grupos finalizados.
+        Map<Long, int[]> tabla = new java.util.HashMap<>();
         Map<Long, List<String>> forma = new java.util.HashMap<>();
         partidoRepo.findByEstadoOrderByFechaHoraAsc(dev.solomillo.domain.EstadoPartido.FINALIZADO).stream()
                 .filter(p -> p.getTorneo().getId().equals(tid)
+                        && p.getRonda() == dev.solomillo.domain.Ronda.GRUPOS
                         && p.getEquipoLocal() != null && p.getEquipoVisitante() != null)
                 .forEach(p -> {
                     int gl = p.getGolesLocal() == null ? 0 : p.getGolesLocal();
                     int gv = p.getGolesVisitante() == null ? 0 : p.getGolesVisitante();
                     Long l = p.getEquipoLocal().getId(), v = p.getEquipoVisitante().getId();
+                    acumular(tabla, l, gl, gv);
+                    acumular(tabla, v, gv, gl);
                     forma.computeIfAbsent(l, k -> new java.util.ArrayList<>()).add(gl > gv ? "W" : gl == gv ? "D" : "L");
                     forma.computeIfAbsent(v, k -> new java.util.ArrayList<>()).add(gv > gl ? "W" : gl == gv ? "D" : "L");
                 });
 
         Map<String, List<Map<String, Object>>> porGrupo = new java.util.TreeMap<>();
-        for (Posicion pos : posicionRepo.findByTorneoId(tid)) {
-            var e = equipoRepo.findById(pos.getEquipoId()).orElse(null);
-            if (e == null || e.getGrupo() == null) continue;
-            int pj = pos.getGanados() + pos.getEmpatados() + pos.getPerdidos();
-            List<String> f = forma.getOrDefault(pos.getEquipoId(), List.of());
+        for (var e : equipoRepo.findAll()) {
+            if (e.getGrupo() == null) continue;
+            int[] t = tabla.getOrDefault(e.getId(), new int[6]);
+            int g = t[0], em = t[1], pe = t[2], gf = t[3], gc = t[4], pts = t[5];
+            List<String> f = forma.getOrDefault(e.getId(), List.of());
             Map<String, Object> row = new java.util.LinkedHashMap<>();
             row.put("equipo_id", e.getId());
             row.put("nombre", e.getNombre());
             row.put("escudo", e.getEscudo());
-            row.put("pj", pj);
-            row.put("g", pos.getGanados());
-            row.put("e", pos.getEmpatados());
-            row.put("p", pos.getPerdidos());
-            row.put("gf", pos.getGolesFavor());
-            row.put("gc", pos.getGolesContra());
-            row.put("dg", pos.getGolesFavor() - pos.getGolesContra());
-            row.put("pts", pos.getPuntos());
+            row.put("pj", g + em + pe);
+            row.put("g", g);
+            row.put("e", em);
+            row.put("p", pe);
+            row.put("gf", gf);
+            row.put("gc", gc);
+            row.put("dg", gf - gc);
+            row.put("pts", pts);
             row.put("forma", f.subList(Math.max(0, f.size() - 5), f.size()));
             porGrupo.computeIfAbsent(e.getGrupo(), k -> new java.util.ArrayList<>()).add(row);
         }
@@ -112,6 +118,15 @@ public class DeportivoController {
             return Integer.compare((int) b.get("gf"), (int) a.get("gf"));
         }));
         return porGrupo;
+    }
+
+    /** Suma un partido a la tabla del equipo: [g, e, p, gf, gc, pts]. */
+    private void acumular(Map<Long, int[]> tabla, Long equipo, int favor, int contra) {
+        int[] t = tabla.computeIfAbsent(equipo, k -> new int[6]);
+        t[3] += favor; t[4] += contra;
+        if (favor > contra) { t[0]++; t[5] += 3; }
+        else if (favor == contra) { t[1]++; t[5] += 1; }
+        else { t[2]++; }
     }
 
     /** Máximos goleadores y asistentes del Mundial 2026 (top 12). */

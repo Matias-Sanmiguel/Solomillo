@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   get,
+  send,
+  getToken,
   Equipo,
   Partido,
   Prediccion,
   EloPunto,
+  SimResultado,
   fmtFecha,
   pct,
 } from "@/lib/api";
@@ -27,6 +30,30 @@ export default function MatchPage({ params }: { params: { id: string } }) {
   const [plantelLocal, setPlantelLocal] = useState<{ id: number; nombre: string; posicion: string; numero: number }[]>([]);
   const [plantelVisit, setPlantelVisit] = useState<{ id: number; nombre: string; posicion: string; numero: number }[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [simulando, setSimulando] = useState(false);
+  const [simMsg, setSimMsg] = useState<string | null>(null);
+
+  async function simular() {
+    setSimulando(true);
+    setSimMsg(null);
+    try {
+      const r = await send<SimResultado>("POST", `/sim/partidos/${id}`);
+      setSimMsg(`${r.local} ${r.goles_local} - ${r.goles_visitante} ${r.visitante}`);
+      // Releemos el partido ya finalizado y su predicción evaluada.
+      const partidos = await get<Partido[]>("/partidos");
+      setPartido(partidos.find((x) => x.id === id) ?? null);
+      get<Prediccion>(`/ml/predicciones/${id}`).then(setPred).catch(() => {});
+    } catch (e) {
+      const msg = String((e as Error).message ?? "");
+      setSimMsg(
+        msg.startsWith("401") || msg.startsWith("403")
+          ? "Necesitás iniciar sesión como administrador para simular."
+          : "No se pudo simular el partido."
+      );
+    } finally {
+      setSimulando(false);
+    }
+  }
 
   useEffect(() => {
     (async () => {
@@ -84,6 +111,21 @@ export default function MatchPage({ params }: { params: { id: string } }) {
           <Side nombre={visit?.nombre ?? `#${partido.visitante_id}`} escudo={visit?.escudo} right />
         </div>
       </div>
+
+      {!finalizado && getToken() && (
+        <div className="card flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-sm font-semibold">Motor de simulación</h2>
+            <p className="text-xs text-muted">
+              Proyecta este partido con el modelo de IA y persiste eventos, estadísticas y Elo.
+            </p>
+            {simMsg && <p className="mt-1 text-sm text-accent">{simMsg}</p>}
+          </div>
+          <button onClick={simular} disabled={simulando} className="btn">
+            {simulando ? "Simulando…" : "Simular partido"}
+          </button>
+        </div>
+      )}
 
       <div className="card">
         <h2 className="mb-3 text-sm font-semibold text-muted">Predicción del modelo</h2>
