@@ -175,34 +175,6 @@ export type EloEquipo = {
 
 export type EloPunto = { fecha: string; elo: number };
 
-export type Signo = "LOCAL" | "EMPATE" | "VISITANTE";
-
-export type ProdePronostico = {
-  partido_id: number;
-  signo: Signo | null;
-  goles_local: number | null;
-  goles_visitante: number | null;
-  puntos: number | null;
-};
-
-export type ProdePartido = {
-  partido_id: number;
-  torneo_id: number;
-  local_id: number;
-  visitante_id: number;
-  fecha_hora: string | null;
-  mi_pronostico: ProdePronostico | null;
-};
-
-export type RankingProde = {
-  posicion: number;
-  usuario_id: number;
-  nombre: string;
-  puntos: number;
-  aciertos: number;
-  pronosticos: number;
-};
-
 // ---- Noticias ----
 
 export type EquipoMini = { id: number; nombre: string; escudo: string };

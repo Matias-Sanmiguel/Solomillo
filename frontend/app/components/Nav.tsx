@@ -10,8 +10,6 @@ const LINKS = [
   { href: "/calendario", label: "Calendario" },
   { href: "/goleadores", label: "Goleadores" },
   { href: "/compare", label: "Comparar" },
-  { href: "/prode", label: "Prode" },
-  { href: "/prode/ranking", label: "Ranking Prode" },
   { href: "/models", label: "Modelos" },
   { href: "/elo", label: "Ranking Elo" },
   { href: "/admin", label: "Simulación" },
