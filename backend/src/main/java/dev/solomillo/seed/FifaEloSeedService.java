@@ -26,6 +26,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import dev.solomillo.repository.EstadisticaJugadorRepository;
+import dev.solomillo.stats.EstadisticaJugador;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -69,8 +71,7 @@ public class FifaEloSeedService implements ApplicationRunner {
                               TorneoRepository torneoRepo, EquipoRepository equipoRepo,
                               JugadorRepository jugadorRepo, PartidoRepository partidoRepo,
                               EloService eloService, List<CalculadorEstadistica> calculadores,
-                              RankingsService rankings, EventoDeportivoRepository eventoRepo,
-                              dev.solomillo.repository.EstadisticaJugadorRepository ejRepo) {
+                              RankingsService rankings, EventoDeportivoRepository eventoRepo, EstadisticaJugadorRepository ejRepo) {
         this.props = props;
         this.mapper = mapper;
         this.torneoRepo = torneoRepo;
@@ -122,7 +123,7 @@ public class FifaEloSeedService implements ApplicationRunner {
         if (pares.size() > MAX_ELIMINATORIAS) pares = pares.subList(0, MAX_ELIMINATORIAS);
 
         // Cache de jugadores por equipo para atribuir goles/tarjetas al reproducir eventos.
-        Map<Long, List<Long>> jugadoresPorEquipo = new HashMap<>();
+        Map<Long, List<Jugador>> jugadoresPorEquipo = new HashMap<>();
 
         LocalDateTime fecha = LocalDateTime.now().minusDays(pares.size() + 20L);
         for (int[] par : pares) {
@@ -155,7 +156,7 @@ public class FifaEloSeedService implements ApplicationRunner {
      * poblar estadísticas y posiciones; los de llave aún sin rival van con equipos null (TBD).
      */
     private void cargarFixtureMundial(Torneo mundial, List<Equipo> equipos,
-                                      Map<Long, List<Long>> cache, Random rng) throws Exception {
+                                      Map<Long, List<Jugador>> cache, Random rng) throws Exception {
         Map<String, Equipo> porNombre = new HashMap<>();
         for (Equipo e : equipos) porNombre.put(e.getNombre(), e);
 
@@ -237,31 +238,33 @@ public class FifaEloSeedService implements ApplicationRunner {
     }
 
     /** Reproduce los goles (atribuidos a jugadores), unas tarjetas y el fin del partido. */
-    private void reproducirEventos(Partido p, Map<Long, List<Long>> cache, Random rng) {
-        List<Long> jl = cache.computeIfAbsent(p.getEquipoLocal().getId(), this::jugadoresDe);
-        List<Long> jv = cache.computeIfAbsent(p.getEquipoVisitante().getId(), this::jugadoresDe);
+    private void reproducirEventos(Partido p, Map<Long, List<Jugador>> cache, Random rng) {
+        List<Jugador> jl = cache.computeIfAbsent(p.getEquipoLocal().getId(), this::jugadoresDe);
+        List<Jugador> jv = cache.computeIfAbsent(p.getEquipoVisitante().getId(), this::jugadoresDe);
 
         Long torneoId = p.getTorneo().getId();
         int minuto = 0;
+        // El goleador se elige ponderando por posición (Delantero > Mediocampista > Defensor),
+        // no por orden de plantel: si no, el arquero (dorsal 1) lideraba la tabla de goleadores.
         for (int g = 0; g < p.getGolesLocal() && !jl.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            Long scorer = jl.get(g % jl.size());
-            procesar(new EventoInterno("gol", p.getId(), minuto, scorer, Map.of()));
-            asistencia(jl, scorer, torneoId, rng);
+            Long autor = elegirGoleador(jl, rng).getId();
+            procesar(new EventoInterno("gol", p.getId(), minuto, autor, Map.of()));
+            asistencia(jl, autor, torneoId, rng);
         }
         for (int g = 0; g < p.getGolesVisitante() && !jv.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            Long scorer = jv.get(g % jv.size());
-            procesar(new EventoInterno("gol", p.getId(), minuto, scorer, Map.of()));
-            asistencia(jv, scorer, torneoId, rng);
+            Long autor = elegirGoleador(jv, rng).getId();
+            procesar(new EventoInterno("gol", p.getId(), minuto, autor, Map.of()));
+            asistencia(jv, autor, torneoId, rng);
         }
 
         // Tarjetas: amarillas mayoritariamente, rojas esporádicas.
         for (int t = 0, n = rng.nextInt(5); t < n; t++) {
             boolean esLocal = rng.nextBoolean();
-            List<Long> js = esLocal ? jl : jv;
+            List<Jugador> js = esLocal ? jl : jv;
             if (js.isEmpty()) continue;
-            Long jug = js.get(rng.nextInt(js.size()));
+            Long jug = js.get(rng.nextInt(js.size())).getId();
             String tipo = rng.nextInt(10) < 2 ? "RED_CARD" : "YELLOW_CARD";
             procesar(new EventoInterno("tarjeta", p.getId(), 10 + rng.nextInt(80), jug,
                     Map.of("eventType", tipo)));
@@ -271,10 +274,10 @@ public class FifaEloSeedService implements ApplicationRunner {
     }
 
     /** ~65% de los goles tienen asistencia, acreditada a un compañero distinto al goleador. */
-    private void asistencia(List<Long> equipo, Long goleador, Long torneoId, Random rng) {
+    private void asistencia(List<Jugador> equipo, Long goleador, Long torneoId, Random rng) {
         if (equipo.size() < 2 || rng.nextDouble() >= 0.65) return;
         Long asistente;
-        do { asistente = equipo.get(rng.nextInt(equipo.size())); } while (asistente.equals(goleador));
+        do { asistente = equipo.get(rng.nextInt(equipo.size())).getId(); } while (asistente.equals(goleador));
         final Long jId = asistente;
         var stat = ejRepo.findByJugadorIdAndTorneoIdAndMetrica(jId, torneoId, "asistencias")
                 .orElseGet(() -> {
@@ -303,21 +306,28 @@ public class FifaEloSeedService implements ApplicationRunner {
         rankings.actualizar(e);
     }
 
-    /** IDs del plantel ordenados por prioridad ofensiva: los goles se atribuyen primero a
-     *  delanteros y mediocampistas (no al arquero), para que los goleadores sean creíbles. */
-    private List<Long> jugadoresDe(Long equipoId) {
-        return jugadorRepo.findByEquipoId(equipoId).stream()
-                .sorted(java.util.Comparator.comparingInt(j -> prioridadOfensiva(j.getPosicion())))
-                .map(j -> j.getId()).toList();
+    private List<Jugador> jugadoresDe(Long equipoId) {
+        return jugadorRepo.findByEquipoId(equipoId);
     }
 
-    private int prioridadOfensiva(String posicion) {
-        if (posicion == null) return 2;
+    /** Elige un goleador ponderando por posición (Delantero > Mediocampista > Defensor > Arquero). */
+    private Jugador elegirGoleador(List<Jugador> plantel, Random rng) {
+        double total = 0;
+        for (Jugador j : plantel) total += pesoPosicion(j.getPosicion());
+        double r = rng.nextDouble() * total;
+        for (Jugador j : plantel) {
+            r -= pesoPosicion(j.getPosicion());
+            if (r <= 0) return j;
+        }
+        return plantel.get(plantel.size() - 1);
+    }
+
+    private double pesoPosicion(String posicion) {
+        if (posicion == null) return 1.0;
         return switch (posicion) {
-            case "Delantero" -> 0;
-            case "Mediocampista" -> 1;
-            case "Defensor" -> 2;
-            default -> 3; // Arquero
+            case "Delantero" -> 6.0;
+            case "Mediocampista" -> 3.0;
+            default -> 1.0; // Defensor / Arquero
         };
     }
 }
