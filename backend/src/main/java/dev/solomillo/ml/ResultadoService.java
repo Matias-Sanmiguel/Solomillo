@@ -2,7 +2,6 @@ package dev.solomillo.ml;
 
 import dev.solomillo.domain.EstadoPartido;
 import dev.solomillo.domain.Partido;
-import dev.solomillo.prode.ResolutorProde;
 import dev.solomillo.repository.PartidoRepository;
 import dev.solomillo.repository.PrediccionRepository;
 import org.springframework.stereotype.Service;
@@ -14,14 +13,11 @@ public class ResultadoService {
     private final PartidoRepository partidoRepo;
     private final PrediccionRepository prediccionRepo;
     private final EloService eloService;
-    private final ResolutorProde resolutorProde;
 
-    public ResultadoService(PartidoRepository p, PrediccionRepository pr, EloService e,
-                            ResolutorProde resolutorProde) {
+    public ResultadoService(PartidoRepository p, PrediccionRepository pr, EloService e) {
         this.partidoRepo = p;
         this.prediccionRepo = pr;
         this.eloService = e;
-        this.resolutorProde = resolutorProde;
     }
 
     @Transactional
@@ -41,7 +37,6 @@ public class ResultadoService {
             prediccionRepo.save(pred);
         });
 
-        resolutorProde.resolver(p);
         return p;
     }
 }

@@ -19,7 +19,6 @@ public class RedisConfig {
         container.setConnectionFactory(factory);
         container.addMessageListener(adapter, new ChannelTopic("evento"));
         container.addMessageListener(adapter, new ChannelTopic("alerta"));
-        container.addMessageListener(adapter, new ChannelTopic("prode"));
         return container;
     }
 }
