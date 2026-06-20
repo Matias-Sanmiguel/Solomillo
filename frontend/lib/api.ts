@@ -146,6 +146,48 @@ export type RankingProde = {
   pronosticos: number;
 };
 
+// ---- Noticias ----
+
+export type EquipoMini = { id: number; nombre: string; escudo: string };
+export type JugadorMini = { id: number; nombre: string; club: string; escudo: string };
+
+export type NoticiaImagen = {
+  tipo: "PARTIDO" | "EQUIPO" | "JUGADOR" | "RANKING";
+  marcador: string | null;
+  local: EquipoMini | null;
+  visitante: EquipoMini | null;
+  jugador: JugadorMini | null;
+};
+
+export type Noticia = {
+  id: number;
+  titulo: string;
+  subtitulo: string;
+  categoria: string;
+  categoria_label: string;
+  resumen: string;
+  fecha: string | null;
+  relevancia: number;
+  origen: "REAL" | "SIMULADO";
+  tags: string[];
+  partido_id: number | null;
+  imagen: NoticiaImagen;
+};
+
+export type CategoriaNoticia = { nombre: string; label: string; cantidad: number };
+
+export type PrediccionAcierto = {
+  partido_id: number;
+  local: EquipoMini;
+  visitante: EquipoMini;
+  marcador: string;
+  fecha: string | null;
+  probabilidades: Probabilidades;
+  resultado_real: number;
+  resultado_label: string;
+  acerto: boolean;
+};
+
 export const pct = (v: number) => `${Math.round(v * 100)}%`;
 
 export const fmtFecha = (iso: string | null) =>
