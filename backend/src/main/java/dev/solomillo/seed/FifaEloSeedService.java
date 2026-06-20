@@ -209,55 +209,13 @@ public class FifaEloSeedService implements ApplicationRunner {
             if (e.getSede() == null) e.setSede("");
             equipoRepo.save(e);
             equipos.add(e);
-            // No generamos jugadores genéricos: las selecciones que jugaron el Mundial ya traen su
-            // plantel real desde mundial.json (DataLoader). Las que solo están en el ranking FIFA y no
-            // disputaron el Mundial (p. ej. Colombia, Italia) quedan sin jugadores: siguen en el Elo/FIFA
-            // y en las eliminatorias simuladas, pero no aportan goleadores (atribuirGoles las saltea).
+            // No generamos jugadores genéricos: el plantel real (26 por selección) lo carga
+            // DataLoader desde planteles2026.json antes que este seed. reproducirEventos atribuye
+            // los goles a esos jugadores reales (saltea equipos sin plantel).
         }
         return equipos;
     }
 
-    /** Reparte los goles simulados del partido entre los jugadores del equipo,
-     *  ponderando por posición, y los acumula en estadisticas_jugador (metrica "goles"). */
-    private void atribuirGoles(Equipo equipo, Long torneoId, int goles, Random rng) {
-        if (goles <= 0) return;
-        List<Jugador> plantel = jugadorRepo.findByEquipoId(equipo.getId());
-        if (plantel.isEmpty()) return;
-        for (int g = 0; g < goles; g++) {
-            Jugador autor = elegirGoleador(plantel, rng);
-            var stat = ejRepo.findByJugadorIdAndTorneoIdAndMetrica(autor.getId(), torneoId, "goles")
-                    .orElseGet(() -> {
-                        var s = new EstadisticaJugador();
-                        s.setJugadorId(autor.getId());
-                        s.setTorneoId(torneoId);
-                        s.setMetrica("goles");
-                        return s;
-                    });
-            stat.setValor(stat.getValor() + 1);
-            ejRepo.save(stat);
-        }
-    }
-
-    private Jugador elegirGoleador(List<Jugador> plantel, Random rng) {
-        double total = 0;
-        for (Jugador j : plantel) total += pesoPosicion(j.getPosicion());
-        double r = rng.nextDouble() * total;
-        for (Jugador j : plantel) {
-            r -= pesoPosicion(j.getPosicion());
-            if (r <= 0) return j;
-        }
-        return plantel.get(plantel.size() - 1);
-    }
-
-    private double pesoPosicion(String posicion) {
-        if (posicion == null) return 1.0;
-        return switch (posicion) {
-            case "Delantero" -> 6.0;
-            case "Mediocampista" -> 3.0;
-            case "Defensor" -> 1.0;
-            default -> 1.0;
-        };
-    }
 
     private int[] simular(Equipo local, Equipo visit, Random rng) {
         double eLocal = local.getElo() != null ? local.getElo() : EloService.BASE;
@@ -290,11 +248,15 @@ public class FifaEloSeedService implements ApplicationRunner {
         // no por orden de plantel: si no, el arquero (dorsal 1) lideraba la tabla de goleadores.
         for (int g = 0; g < p.getGolesLocal() && !jl.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            procesar(new EventoInterno("gol", p.getId(), minuto, elegirGoleador(jl, rng).getId(), Map.of()));
+            Long autor = elegirGoleador(jl, rng).getId();
+            procesar(new EventoInterno("gol", p.getId(), minuto, autor, Map.of()));
+            asistencia(jl, autor, torneoId, rng);
         }
         for (int g = 0; g < p.getGolesVisitante() && !jv.isEmpty(); g++) {
             minuto = Math.min(90, minuto + 7);
-            procesar(new EventoInterno("gol", p.getId(), minuto, elegirGoleador(jv, rng).getId(), Map.of()));
+            Long autor = elegirGoleador(jv, rng).getId();
+            procesar(new EventoInterno("gol", p.getId(), minuto, autor, Map.of()));
+            asistencia(jv, autor, torneoId, rng);
         }
 
         // Tarjetas: amarillas mayoritariamente, rojas esporádicas.
@@ -312,10 +274,10 @@ public class FifaEloSeedService implements ApplicationRunner {
     }
 
     /** ~65% de los goles tienen asistencia, acreditada a un compañero distinto al goleador. */
-    private void asistencia(List<Long> equipo, Long goleador, Long torneoId, Random rng) {
+    private void asistencia(List<Jugador> equipo, Long goleador, Long torneoId, Random rng) {
         if (equipo.size() < 2 || rng.nextDouble() >= 0.65) return;
         Long asistente;
-        do { asistente = equipo.get(rng.nextInt(equipo.size())); } while (asistente.equals(goleador));
+        do { asistente = equipo.get(rng.nextInt(equipo.size())).getId(); } while (asistente.equals(goleador));
         final Long jId = asistente;
         var stat = ejRepo.findByJugadorIdAndTorneoIdAndMetrica(jId, torneoId, "asistencias")
                 .orElseGet(() -> {
@@ -346,5 +308,26 @@ public class FifaEloSeedService implements ApplicationRunner {
 
     private List<Jugador> jugadoresDe(Long equipoId) {
         return jugadorRepo.findByEquipoId(equipoId);
+    }
+
+    /** Elige un goleador ponderando por posición (Delantero > Mediocampista > Defensor > Arquero). */
+    private Jugador elegirGoleador(List<Jugador> plantel, Random rng) {
+        double total = 0;
+        for (Jugador j : plantel) total += pesoPosicion(j.getPosicion());
+        double r = rng.nextDouble() * total;
+        for (Jugador j : plantel) {
+            r -= pesoPosicion(j.getPosicion());
+            if (r <= 0) return j;
+        }
+        return plantel.get(plantel.size() - 1);
+    }
+
+    private double pesoPosicion(String posicion) {
+        if (posicion == null) return 1.0;
+        return switch (posicion) {
+            case "Delantero" -> 6.0;
+            case "Mediocampista" -> 3.0;
+            default -> 1.0; // Defensor / Arquero
+        };
     }
 }

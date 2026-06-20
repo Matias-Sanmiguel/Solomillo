@@ -127,7 +127,7 @@ public class DeportivoController {
     }
 
     private List<Map<String, Object>> topJugadores(Long torneoId, String metrica) {
-        return ejRepo.findByTorneoIdAndMetricaOrderByValorDesc(torneoId, metrica).stream()
+        return ejRepo.findByMetricaAndTorneoIdOrderByValorDesc(metrica, torneoId).stream()
                 .filter(s -> s.getValor() > 0)
                 .limit(12)
                 .map(s -> {
@@ -139,6 +139,7 @@ public class DeportivoController {
                     m.put("posicion", j != null && j.getPosicion() != null ? j.getPosicion() : "");
                     m.put("equipo", eq != null ? eq.getNombre() : "");
                     m.put("escudo", eq != null && eq.getEscudo() != null ? eq.getEscudo() : "");
+                    m.put("club", j != null && j.getClub() != null ? j.getClub() : "");
                     m.put("valor", (int) s.getValor());
                     return m;
                 }).toList();
@@ -146,10 +147,15 @@ public class DeportivoController {
 
     @GetMapping("/equipos/{id}/jugadores")
     public List<Map<String, Object>> jugadores(@PathVariable Long id) {
-        return jugadorRepo.findByEquipoId(id).stream().map(j ->
-                Map.<String, Object>of("id", j.getId(), "nombre", j.getNombre(),
-                        "posicion", j.getPosicion(), "numero", j.getNumeroCamiseta())
-        ).toList();
+        return jugadorRepo.findByEquipoId(id).stream().map(j -> {
+            Map<String, Object> m = new java.util.LinkedHashMap<>();
+            m.put("id", j.getId());
+            m.put("nombre", j.getNombre());
+            m.put("posicion", j.getPosicion());
+            m.put("numero", j.getNumeroCamiseta());
+            m.put("club", j.getClub());
+            return m;
+        }).toList();
     }
 
     @GetMapping("/partidos")

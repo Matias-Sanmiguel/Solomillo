@@ -23,4 +23,7 @@ public class Jugador {
     private Integer numeroCamiseta;
     private String nacionalidad;
     private LocalDate fechaNacimiento;
+
+    // Club donde juega (del PDF de convocatorias del Mundial 2026).
+    private String club;
 }

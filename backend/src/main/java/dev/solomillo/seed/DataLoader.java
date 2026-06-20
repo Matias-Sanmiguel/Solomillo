@@ -13,12 +13,11 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-
 /**
- * Enriquece las selecciones del Mundial 2026 (sembradas por {@link FifaEloSeedService})
- * con datos reales: director técnico y jugadores estrella. No crea torneos ni partidos
- * propios — el calendario del Mundial 2026 lo aporta {@code FifaEloSeedService}.
+ * Carga los planteles REALES del Mundial 2026 (PDF de convocatorias FIFA) desde
+ * {@code planteles2026.json}: por selección, director técnico y los 26 jugadores
+ * (nombre, posición, dorsal, club). Corre primero (@Order 1); {@link FifaEloSeedService}
+ * (@Order 2) reutiliza estos equipos/jugadores por nombre y no genera planteles genéricos.
  */
 @Component
 @Order(1)
@@ -37,15 +36,14 @@ public class DataLoader implements ApplicationRunner {
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
         if (props.apiFootballKey != null && !props.apiFootballKey.isBlank()) return;
-        JsonNode root = mapper.readTree(new ClassPathResource("seed/mundial.json").getInputStream());
+        JsonNode root = mapper.readTree(new ClassPathResource("seed/planteles2026.json").getInputStream());
 
         for (JsonNode e : root.get("equipos")) {
             String nombre = e.get("nombre").asText();
-            // Reutiliza la seleccion ya sembrada (FifaEloSeedService) en lugar de duplicarla.
+            // Reutiliza la seleccion ya sembrada (si existe) en lugar de duplicarla.
             Equipo equipo = equipoRepo.findByNombre(nombre).orElseGet(Equipo::new);
             equipo.setNombre(nombre);
-            equipo.setEntrenador(e.get("entrenador").asText());
-            equipo.setSede(e.get("sede").asText());
+            if (e.hasNonNull("dt")) equipo.setEntrenador(e.get("dt").asText());
             equipoRepo.save(equipo);
 
             // Solo agrega jugadores si el equipo aun no tiene (evita duplicar planteles).
@@ -53,11 +51,13 @@ public class DataLoader implements ApplicationRunner {
                 for (JsonNode j : e.get("jugadores")) {
                     Jugador jug = new Jugador();
                     jug.setEquipo(equipo);
-                    jug.setNombre(j.get("nombre").asText());
-                    jug.setPosicion(j.get("posicion").asText());
-                    jug.setNumeroCamiseta(j.get("numeroCamiseta").asInt());
-                    jug.setNacionalidad(j.get("nacionalidad").asText());
-                    jug.setFechaNacimiento(LocalDate.parse(j.get("fechaNacimiento").asText()));
+                    String nom = j.path("nombre").asText("").trim();
+                    String ape = j.path("apellido").asText("").trim();
+                    jug.setNombre((nom + " " + ape).trim());
+                    jug.setPosicion(j.path("posicion").asText(""));
+                    if (j.hasNonNull("numero")) jug.setNumeroCamiseta(j.get("numero").asInt());
+                    if (j.hasNonNull("club")) jug.setClub(j.get("club").asText());
+                    jug.setNacionalidad(nombre);
                     jugadorRepo.save(jug);
                 }
             }
