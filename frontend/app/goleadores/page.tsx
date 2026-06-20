@@ -9,6 +9,7 @@ type Jugador = {
   posicion: string;
   equipo: string;
   escudo: string;
+  club?: string;
   valor: number;
 };
 
@@ -48,6 +49,11 @@ function Lista({
                   {j.equipo}
                   {j.posicion ? ` · ${j.posicion}` : ""}
                 </div>
+                {j.club ? (
+                  <div className="truncate text-[11px] text-muted/80">
+                    {j.club}
+                  </div>
+                ) : null}
               </div>
               <div className="text-right">
                 <div className="text-xl font-bold tabular-nums text-accent">
