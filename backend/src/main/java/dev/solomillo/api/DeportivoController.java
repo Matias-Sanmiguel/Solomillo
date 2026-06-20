@@ -29,16 +29,19 @@ public class DeportivoController {
     private final MotorProcesamiento motor;
     private final AuditService audit;
     private final dev.solomillo.ml.ResultadoService resultados;
+    private final dev.solomillo.noticias.NoticiaService noticias;
 
     public DeportivoController(TorneoRepository t, EquipoRepository e, JugadorRepository j,
                                 PartidoRepository p, PosicionRepository pos,
                                 EstadisticaJugadorRepository ej, EstadisticaEquipoRepository ee,
                                 AlertaRepository al, IngestRegistry reg,
                                 MotorProcesamiento motor, AuditService audit,
-                                dev.solomillo.ml.ResultadoService resultados) {
+                                dev.solomillo.ml.ResultadoService resultados,
+                                dev.solomillo.noticias.NoticiaService noticias) {
         this.torneoRepo = t; this.equipoRepo = e; this.jugadorRepo = j; this.partidoRepo = p;
         this.posicionRepo = pos; this.ejRepo = ej; this.eeRepo = ee; this.alertaRepo = al;
         this.registry = reg; this.motor = motor; this.audit = audit; this.resultados = resultados;
+        this.noticias = noticias;
     }
 
     @GetMapping("/health")
@@ -188,6 +191,7 @@ public class DeportivoController {
             int gl = ((Number) body.get("goles_local")).intValue();
             int gv = ((Number) body.get("goles_visitante")).intValue();
             var p = resultados.registrar(id, gl, gv);
+            noticias.generarParaPartido(id);
             audit.registrar(email, "partido:resultado", "ok", id + " " + gl + "-" + gv);
             return Map.of("id", p.getId(), "estado", p.getEstado().name(),
                     "goles_local", gl, "goles_visitante", gv);
