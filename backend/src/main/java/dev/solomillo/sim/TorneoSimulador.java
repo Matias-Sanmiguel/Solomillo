@@ -6,6 +6,7 @@ import dev.solomillo.domain.Ronda;
 import dev.solomillo.domain.Torneo;
 import dev.solomillo.ml.MlTrainer;
 import dev.solomillo.ml.ModeloPredictivo;
+import dev.solomillo.noticias.NoticiaService;
 import dev.solomillo.repository.EquipoRepository;
 import dev.solomillo.repository.PartidoRepository;
 import dev.solomillo.repository.TorneoRepository;
@@ -41,16 +42,18 @@ public class TorneoSimulador {
     private final PartidoRepository partidoRepo;
     private final TorneoRepository torneoRepo;
     private final EquipoRepository equipoRepo;
+    private final NoticiaService noticias;
 
     public TorneoSimulador(SimulacionService simulacion, BracketService bracket, MlTrainer trainer,
                            PartidoRepository partidoRepo, TorneoRepository torneoRepo,
-                           EquipoRepository equipoRepo) {
+                           EquipoRepository equipoRepo, NoticiaService noticias) {
         this.simulacion = simulacion;
         this.bracket = bracket;
         this.trainer = trainer;
         this.partidoRepo = partidoRepo;
         this.torneoRepo = torneoRepo;
         this.equipoRepo = equipoRepo;
+        this.noticias = noticias;
     }
 
     private Long mundialId() {
@@ -91,6 +94,7 @@ public class TorneoSimulador {
         out.put("simulados", resultados.size());
         out.put("partidos", resultados);
         out.put("reentrenado", reentrenar ? reentrenar() : null);
+        out.put("noticias", noticias.regenerarTodo());
         return out;
     }
 
@@ -115,6 +119,7 @@ public class TorneoSimulador {
         out.putAll(podio());
         out.put("partidos", resultados);
         out.put("reentrenado", reentrenar ? reentrenar() : null);
+        out.put("noticias", noticias.regenerarTodo());
         return out;
     }
 

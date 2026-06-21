@@ -3,6 +3,7 @@ package dev.solomillo.api;
 import dev.solomillo.sim.EscenarioService;
 import dev.solomillo.sim.SimulacionService;
 import dev.solomillo.sim.TorneoSimulador;
+import dev.solomillo.noticias.NoticiaService;
 import dev.solomillo.users.AuditService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,13 +22,15 @@ public class SimulacionController {
     private final TorneoSimulador torneo;
     private final EscenarioService escenarios;
     private final AuditService audit;
+    private final NoticiaService noticias;
 
     public SimulacionController(SimulacionService simulacion, TorneoSimulador torneo,
-                                EscenarioService escenarios, AuditService audit) {
+                                EscenarioService escenarios, AuditService audit, NoticiaService noticias) {
         this.simulacion = simulacion;
         this.torneo = torneo;
         this.escenarios = escenarios;
         this.audit = audit;
+        this.noticias = noticias;
     }
 
     @PostMapping("/partidos/{id}")
@@ -37,6 +40,7 @@ public class SimulacionController {
                                               @AuthenticationPrincipal String email) {
         try {
             Map<String, Object> r = simulacion.simularPartido(id, null);
+            noticias.generarParaPartido(id);
             audit.registrar(email, "sim:partido", "ok",
                     id + " " + r.get("goles_local") + "-" + r.get("goles_visitante"));
             return r;
