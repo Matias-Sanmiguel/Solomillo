@@ -42,6 +42,36 @@ export async function login(email: string, password: string): Promise<string> {
   return r.access_token;
 }
 
+export type Sesion = { email: string; nombre: string; rol: string };
+
+export const ROLES = [
+  "usuario_final",
+  "analista_deportivo",
+  "admin_sistema",
+  "admin_modelos_ia",
+  "cientifico_datos",
+] as const;
+
+export async function register(
+  email: string,
+  nombre: string,
+  password: string,
+  rol: string
+): Promise<string> {
+  const r = await send<{ access_token: string }>("POST", "/auth/register", {
+    email,
+    nombre,
+    password,
+    rol,
+  });
+  setToken(r.access_token);
+  return r.access_token;
+}
+
+export const me = () => get<Sesion>("/auth/me");
+
+export const logout = () => setToken(null);
+
 export type Equipo = {
   id: number;
   nombre: string;
