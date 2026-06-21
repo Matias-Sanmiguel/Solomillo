@@ -13,6 +13,7 @@ const LINKS = [
   { href: "/models", label: "Modelos" },
   { href: "/elo", label: "Ranking Elo" },
   { href: "/admin", label: "Simulación" },
+  { href: "/login", label: "Login" },
 ];
 
 export function Nav() {
