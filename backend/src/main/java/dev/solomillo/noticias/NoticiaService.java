@@ -72,6 +72,7 @@ public class NoticiaService {
         Long torneoId = mundialId();
         if (torneoId == null) return 0;
         noticiaRepo.deleteAll();
+        noticiaRepo.flush();
 
         boolean hayProyeccion = partidoRepo.findAll().stream().anyMatch(Partido::isSimulado);
         var ctx = new ContextoNoticia(torneoId, null, hayProyeccion ? "SIMULADO" : "REAL");
